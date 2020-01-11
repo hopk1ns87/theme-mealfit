@@ -17,10 +17,12 @@
       <input id="product-handle" type="hidden" value="{{product.handle}}"/> <!--  using for JS -->
       {% include 'breadcrumb' %}
       <div class="title clearfix">
+        <h1 itemprop="name">{{ product.title | escape | remove: "- Basic" | remove: "- Premium" }}</h1>
         {% if section.settings.product_reviews %}
                     <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
                     {% endif %}
-        <h1 itemprop="name">{{ product.title | escape }}</h1>
+        
+        
         <div class="title_right">
           <div class="next-prev">
             {% if collection %}            
@@ -51,7 +53,13 @@
               <link itemprop="availability" href="http://schema.org/OutOfStock" />
               {% endif %}
 
-             {% form 'product', product %}
+              
+<!--               I think this is the BOLD product OPTIONS -->
+             {% form 'product', product, data-productid: product.id %}
+<!-- Begin ReCharge code -->
+{% if product.available %}{% include 'subscription-product' %}{% endif %}
+<!-- End ReCharge code -->
+
 
 
                 <div class="desc_blk">
@@ -84,7 +92,7 @@
                           </div>  
                         {% endfor %}
                        {% endunless %}
-                        <select name="id" id="product-select-{{ product.id }}" class="product-variants form-control hidden">
+                        <select name="id" data-productid="{{ product.id }}" id="product-select-{{ product.id }}" class="product-variants form-control hidden">
                            {% for variant in product.variants %}
                           {% if variant.available %}
                           <option {% if section.settings.show_product_quantity %} 
@@ -145,6 +153,7 @@
                       {% endif %}
                     </div>
                     
+                    {% comment %}
                     {% unless product.price_max == 0 and settings.hide_price0_box_and_button %} 
                     {% if section.settings.show_smart_checkout%}
                     <div class="product_payments_btns">
@@ -155,6 +164,7 @@
                       <input type="submit" name="add" class="btn_c" id="addToCart" value="{{ 'products.product.add_to_cart' | t }}">
                     {% endif %}
                     {% endunless %}
+                    {% endcomment %}
                   <div class="maximum-in-stock-error">{{ 'products.product.maximum_quantity_error' | t }}</div>
                   </div>
                   {% endif %}
@@ -234,7 +244,7 @@
                         {% endfor %}
                        {% endunless %}
                         
-                        <select name="id" id="product-select-{{ product.id }}" class="product-variants form-control hidden">
+                        <select name="id" data-productid="{{ product.id }}" id="product-select-{{ product.id }}" class="product-variants form-control hidden">
                           {% for variant in product.variants %}
                           {% if variant.available %}
                           <option 
@@ -274,10 +284,10 @@
 
                   <!-- bottom variations section end  -->
                   
+                  
                   <div class="rte">
                     <div class="bold_options" data-product-id="{{ product.id }}"></div>
                   </div>
-                  
 
                   <!-- product tags -->
 
@@ -326,6 +336,9 @@
                       </span>
                       {% endif %}
                     </div>
+                    
+                    <a class="btn_c" href="/pages/rental-form" >Contact Us</a>
+                    {% comment %}
                    {% unless product.price_max == 0 and settings.hide_price0_box_and_button %} 
                      {% if section.settings.show_smart_checkout%}
                       <div class="product_payments_btns">
@@ -336,6 +349,7 @@
                         <input type="submit" name="add" class="btn_c" id="addToCart" value="{{ 'products.product.add_to_cart' | t }}">
                       {% endif %}
                     {% endunless %}
+                    {% endcomment %}
                   <div class="maximum-in-stock-error">{{ 'products.product.maximum_quantity_error' | t }}</div>
                   </div>
                   {% endif %}

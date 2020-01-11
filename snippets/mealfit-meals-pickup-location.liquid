@@ -44,74 +44,6 @@
   <p>Looks like you forgot to select a pickup location</p>
 </div>
 
-<script>
-  jQuery(function($) {
-    $('[name="checkout"], [name="goto_pp"], [name="goto_gc"]').click(function(e) {
-      var validated = true;
-      if ($('#delivery-location').val() == '') {
-        $( "#error" ).dialog({
-          modal: true,
-          minWidth: 500,
-          draggable: false,
-          resizable: false,
-          buttons: {
-            Ok: function() {
-              $( this ).dialog( "close" );
-            }
-          }
-        });
-        return false;
-      }
-      else{
-        if(localStorage.getItem('todoData')){
-          var todoData = localStorage.getItem('todoData');
-          var option = $('#delivery-location option[value="'+todoData+'"]');
-          variant_id = option.attr('data-variant');
-          if(simply.current_variant_id == 0 && variant_id != "0"){
-            localStorage.setItem('todoData', "");
-            $('.pickup-location').addClass('error');
-            $("#delivery-location option:first").attr('selected','selected');
-            $("#delivery-location").val('');
-            $( "#error" ).dialog({
-          modal: true,
-          minWidth: 500,
-          draggable: false,
-          resizable: false,
-          buttons: {
-            Ok: function() {
-              $( this ).dialog( "close" );
-            }
-          }
-        });
-            return false;
-          }
-          else{
-            return true;
-          }
-        }
-        else{
-          localStorage.setItem('todoData', "");
-          $('.pickup-location').addClass('error');
-          $("#delivery-location option:first").attr('selected','selected');
-          $("#delivery-location").val('');
-          $( "#error" ).dialog({
-          modal: true,
-          minWidth: 500,
-          draggable: false,
-          resizable: false,
-          buttons: {
-            Ok: function() {
-              $( this ).dialog( "close" );
-            }
-          }
-        });
-          return false;
-        }  
-      }
-    });
-  });
-</script>
-
 {% comment %}
 Replace the text below with the handle of your add-on product.
 {% endcomment %}
@@ -134,7 +66,7 @@ Replace the text below with the handle of your add-on product.
       if(option.length > 0){
         variant_id = option.attr('data-variant');
         if(variant_id != "0"){
-          simply.current_variant_id = variant_id;  
+          simply.current_variant_id = variant_id;
         }
       }
     }
@@ -175,7 +107,7 @@ Replace the text below with the handle of your add-on product.
               url: '/cart/update.js',
               data: cartUpdates,
               dataType: 'json',
-              success: function(cart) { 
+              success: function(cart) {
                 Shopify.updateQuickCart(cart);
               }
             };
@@ -208,7 +140,7 @@ Replace the text below with the handle of your add-on product.
             url: '/cart/update.js',
             data: cartUpdates,
             dataType: 'json',
-            success: function(cart) { 
+            success: function(cart) {
               Shopify.updateQuickCart(cart);
             }
           };
@@ -242,7 +174,7 @@ Replace the text below with the handle of your add-on product.
             url: '/cart/update.js',
             data: cartUpdates,
             dataType: 'json',
-            success: function(cart) { 
+            success: function(cart) {
               simply.current_variant_id = 0;
               if(!cn(callback)){
                 callback();
@@ -256,5 +188,74 @@ Replace the text below with the handle of your add-on product.
         }
       }
     }
+
+    $('[name="checkout"], [name="goto_pp"], [name="goto_gc"]').on('click', function(e) {
+      var validated = true;
+
+      if ($('#delivery-location').val() == '') {
+        e.stopPropagation();
+        $( "#error" ).dialog({
+          modal: true,
+          minWidth: 500,
+          draggable: false,
+          resizable: false,
+          buttons: {
+            Ok: function() {
+              $( this ).dialog( "close" );
+            }
+          }
+        });
+
+        return false;
+      } else {
+        if (localStorage.getItem('todoData')){
+          var todoData = localStorage.getItem('todoData');
+          var option = $('#delivery-location option[value="'+todoData+'"]');
+          variant_id = option.attr('data-variant');
+
+          if (simply.current_variant_id == 0 && variant_id != "0"){
+            e.stopPropagation();
+            localStorage.setItem('todoData', "");
+            $('.pickup-location').addClass('error');
+            $("#delivery-location option:first").attr('selected','selected');
+            $("#delivery-location").val('');
+            $( "#error" ).dialog({
+              modal: true,
+              minWidth: 500,
+              draggable: false,
+              resizable: false,
+              buttons: {
+                Ok: function() {
+                  $( this ).dialog( "close" );
+                }
+              }
+            });
+
+            return false;
+          } else {
+            return true;
+          }
+        } else {
+          e.stopPropagation();
+          localStorage.setItem('todoData', "");
+          $('.pickup-location').addClass('error');
+          $("#delivery-location option:first").attr('selected','selected');
+          $("#delivery-location").val('');
+          $( "#error" ).dialog({
+            modal: true,
+            minWidth: 500,
+            draggable: false,
+            resizable: false,
+            buttons: {
+              Ok: function() {
+                $( this ).dialog( "close" );
+              }
+            }
+          });
+
+          return false;
+        }
+      }
     });
+  });
 </script>

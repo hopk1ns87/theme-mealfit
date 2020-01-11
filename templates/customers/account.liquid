@@ -13,6 +13,11 @@
         {% paginate customer.orders by 20 %}
         <div class="sfbox box-order-history">
           <h4 class="sfbox-title">{{ 'customer.orders.title' | t }}</h4>
+          {% if customer.metafields.subscriptions.customer_string %}
+            <!--BeginRechargeCode-->
+            <p><a href="/tools/recurring/customer/{{customer.metafields.subscriptions.customer_string}}/subscriptions/" class="btn_c">Manage Subscriptions</a></p>
+            <!--EndRechargeCode-->
+            {% endif %}
           {% if customer.orders.size != 0 %}
 
           <table class="table table-striped">
@@ -90,17 +95,29 @@
         </div>
         
         <div class="sfbox box-account-details">
-        <h4 class="sfbox-title">My Mealfit</h4>
-          {% if customer.metafields.subscriptions.customer_string %}
-            <!--BeginRechargeCode-->
-            <p><a href="/tools/recurring/customer/{{customer.metafields.subscriptions.customer_string}}/subscriptions/" class="primary-btn btn-sml">Manage Subscriptions</a></p>
-            <!--EndRechargeCode-->
-            {% endif %}
+        <h4 class="sfbox-title">My Subscriptions</h4>
+          
            {% if customer and customer.tags contains "mealfit-gym-subscription" %}
               <a href="https://mealfit.refersion.com/affiliate/login" class="btn_c" target="_blank">Gym Owner Dashboard</a>
             {% endif %}
+          {% if customer and customer.tags contains "mealfit-plans-subscription" or customer.tags contains "Active Subscriber" %}
            <a href="/pages/mealfit-plans-members" class="btn_c">My Mealfit Plans</a>
+          {% endif %}
           
+          {% if customer.metafields.subscriptions.customer_string %}
+          <!--BeginRechargeCode-->
+          <p class="manage-subscription"><a href="/tools/recurring/customer/{{customer.metafields.subscriptions.customer_string}}/subscriptions/">Manage Subscriptions</a></p>
+          <!--EndRechargeCode-->
+          {% endif %}<br>
+
+        </div>
+        
+        {% if customer and customer.tags contains "Iron Tribe Fitness" %}
+        <div class="sfbox box-account-details">
+        <h4 class="sfbox-title">Iron tribe Fitness</h4> 
+              <a href="/collections/iron-tribe-fitness"><img width="100%" src="{{ 'ITF-logo.png' | asset_url }}"></a>
+               <a href="/collections/iron-tribe-fitness" class="btn_c">View Meals</a>
+          {% endif %}
         </div>
       </div>
     </div>

@@ -85,7 +85,15 @@ var  bindEventsInCart = function(){
         inputEl.val(quantity);
       }
       else{
-        jQuery('.ajaxcart__item__' + id + '__errors').show().delay(2000).fadeOut();
+        
+        var escapeId = id;
+        var colonIndex = id.indexOf(':')
+        if(colonIndex >= 0){
+          var escapedId = id.substr(0, colonIndex) + "\\" + id.substr(colonIndex, id.length);
+        }
+
+        
+        jQuery('.ajaxcart__item__' + escapedId + '__errors').show().delay(2000).fadeOut();
       }
     });
 
@@ -372,11 +380,11 @@ jQuery(document).ready(function() {
               // BOLD: POv2 Robo Install START
               //              '</a></h5><p class="product-type">'+title+(cart.items[i].properties_formatted || '' ) +'</p><p>'+propertiesText+'</p><a href="#" data-id="'+cart.items[i].id+'" class="remove_item_button">{{ 'cart.general.remove' | t }}</a></li>'+
               //              '<li><p class="mobile-label-price">{{ 'cart.general.price' | t }}</p><span class="money price">'+itemPriceConverted+'</span></li>'+
-              //              '<li><p class="mobile-label-quantity">{{ 'cart.general.quantity' | t }}</p><a class="minus_btn"></a><input type="text" name="updates[]" class="txtbox number_val_input" min="0" id="updates_'+cart.items[i].id+'" data-id="'+cart.items[i].id+'" value="'+cart.items[i].quantity+'" /><a class="plus_btn"></a>'+
+              //              '<li><p class="mobile-label-quantity">{{ 'cart.general.quantity' | t }}</p><a class="minus_btn"></a><input type="text" name="updates[]" class="txtbox number_val_input" min="0" id="updates_'+cart.items[i].key+'" data-id="'+cart.items[i].key+'" value="'+cart.items[i].quantity+'" /><a class="plus_btn"></a>'+
               //              '<div class="ajaxcart__errors text-center ajaxcart__item__'+cart.items[i].id+'__errors">{{ 'cart.general.error' | t }}</div></li>'+    
               '</a></h5><p class="product-type">'+title+(cart.items[i].properties_formatted || '' ) +'</p><a href="#" data-id="'+cart.items[i].key+'" class="remove_item_button">{{ 'cart.general.remove' | t }}</a></li>'+
               '<li><p class="mobile-label-price">{{ 'cart.general.price' | t }}</p><span class="money price">'+itemPriceConverted+'</span></li>'+
-              '<li><p class="mobile-label-quantity">{{ 'cart.general.quantity' | t }}</p><a class="minus_btn"></a><input type="text" name="updates[]" class="txtbox number_val_input" min="0" id="updates_'+cart.items[i].id+'" data-id="'+cart.items[i].key+'" value="'+cart.items[i].quantity+'" /><a class="plus_btn"></a>'+
+              '<li><p class="mobile-label-quantity">{{ 'cart.general.quantity' | t }}</p><a class="minus_btn"></a><input type="text" name="updates[]" class="txtbox number_val_input" min="0" id="updates_'+cart.items[i].key+'" data-id="'+cart.items[i].key+'" value="'+cart.items[i].quantity+'" /><a class="plus_btn"></a>'+
               '<div class="ajaxcart__errors text-center ajaxcart__item__'+cart.items[i].key+'__errors">{{ 'cart.general.error' | t }}</div></li>'+    
               // BOLD: POv2 Robo Install END
 
@@ -447,7 +455,7 @@ jQuery(document).ready(function() {
         if (window.BOLD && BOLD.common && BOLD.common.eventEmitter && typeof BOLD.common.eventEmitter.emit === 'function'){
           $('[name=checkout].bold_hidden').removeAttr('style').removeClass('bold_hidden');
           $('[name=checkout].bold_clone').remove();
-          $('.bold_cart_edit_button').remove();
+          $('.bold_cart_edit_button').remove();    
           BOLD.common.eventEmitter.emit('BOLD_COMMON_cart_loaded');
         }
 
@@ -601,13 +609,21 @@ jQuery(document).ready(function() {
 
         if(quantity > 0){
           Shopify.changeItem(id, quantity, function(cart){
-            var updatedItem = cart.items.filter(function(item){ return item.variant_id == id });
+            var updatedItem = cart.items.filter(function(item){ return item.key == id });
             if(updatedItem.length && updatedItem[0].quantity == quantity){
               Shopify.updateQuickCart(cart);
               inputEl.val(quantity);
             }
             else{
-              jQuery('.ajaxcart__item__' + id + '__errors').show().delay(2000).fadeOut();
+              
+              var escapeId = id;
+              var colonIndex = id.indexOf(':')
+              if(colonIndex >= 0){
+                var escapedId = id.substr(0, colonIndex) + "\\" + id.substr(colonIndex, id.length);
+              }
+
+              
+              jQuery('.ajaxcart__item__' + escapedId + '__errors').show().delay(2000).fadeOut();
             }
           });
         }else{

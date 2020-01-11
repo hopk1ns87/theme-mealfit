@@ -20,7 +20,10 @@
 
   <!-- Title and description ================================================== -->
   <title>{{ 'gift_cards.issued.title' | t: value: formatted_initial_value_stripped, shop: shop.name }}</title>
-  <meta name="description" content="{{ 'gift_cards.issued.subtext' | t }}">
+  {%- comment %}<locksmith:ae94>{% endcomment -%}
+    {%- include 'locksmith-variables', locksmith_hiding_scope: 'resource' %}{% if locksmith_transparent %}<meta name="description" content="{{ 'gift_cards.issued.subtext' | t }}">{% endif -%}
+    {%- comment %}original: <meta name="description" content="{{ 'gift_cards.issued.subtext' | t }}">{%- endcomment %}
+  {%- comment %}</locksmith:ae94>{% endcomment -%}
 
   <!-- Helpers ================================================== -->
   <link rel="canonical" href="{{ canonical_url }}">
@@ -44,13 +47,7 @@
 
     <header class="giftcard-header" role="banner">
       <div class="h1 header-logo" itemscope itemtype="http://schema.org/Organization">
-        {% if settings.use_logo %}
-          <a href="/" itemprop="url">
-            <img src="{{ 'logo.png' | asset_url }}" alt="{{ shop.name }}" itemprop="logo">
-          </a>
-        {% else %}
-          <a class="navbar-brand text-logo" href="/" itemprop="url">{{ shop.name }}</a>
-        {% endif %}
+            <img src="{{ 'mf-logo.png' | asset_url }}" alt="{{ shop.name }}" itemprop="logo">
       </div>
       <div class="shop-url">{{ shop.url }}</div>
     </header>
@@ -64,7 +61,7 @@
             {% unless gift_card.enabled %}
               <span class="giftcard__tag">{{ 'gift_cards.issued.disabled' | t }}</span>
             {% endunless %}
-            {% assign gift_card_expiry_date = gift_card.expires_on | date: "%d/%m/%y" %}
+            {% assign gift_card_expiry_date = gift_card.expires_on | date: "%m/%d/%y" %}
             {% if gift_card.expired and gift_card.enabled %}
                <span class="giftcard__tag">{{ 'gift_cards.issued.expired' | t: expiry: gift_card_expiry_date }}</span>
             {% endif %}
@@ -74,31 +71,47 @@
           </div>
 
           <div class="giftcard__wrap">
-            <img src="{{ 'gift-card/card.jpg' | shopify_asset_url }}" alt="Gift card illustration">
+            <img src="{{ 'HC-FIT-meal-card-1.jpg' | asset_url }}" alt="Gift card illustration">
 
             {% assign initial_value_size = formatted_initial_value | size %}
             <div class="h1 giftcard__amount{% if initial_value_size > 6 %} giftcard__amount--medium{% endif %}">
               {% if gift_card.balance != gift_card.initial_value %}
                 <span class="tooltip">
-                  <span class="tooltip__label">{{ gift_card.balance | money }} <small>left</small></span>
+                  <span class="tooltip__label">{{ gift_card.balance | remove:"$0." }} <small>meal credits</small></span>
                 </span>
               {% endif %}
-              <strong>{{ formatted_initial_value }}</strong>
+              <strong>{{ formatted_initial_value | remove:"$0." }}</strong><span class="meal-credits">meal credits</span>
             </div>
 
-            {% assign code_size = gift_card.code | format_code | size %}
+            
+          </div>
+          
+          
+
+          <p class="giftcard__instructions">Please add this meal card to your apple wallet, or take a screenshot.</p>
+          <p style="text-align:center; padding:15px;">Show at the register to redeem your mealfit meal credits</p>
+          
+          
+
+          <div id="qr-code"></div>
+          
+          <div class="apple-wallet" style="text-align:center; margin-bottom:15px;">
+            {% if gift_card.pass_url %}
+            <a href="{{ gift_card.pass_url }}"><img id="apple-wallet-badge" src="{{ 'gift-card/add-to-apple-wallet.svg' | shopify_asset_url }}" width="120" height="40" alt="Add To Apple Wallet"></a>
+            {% else %}
+            <img src="{{ 'gift-card/icon-bug.png' | shopify_asset_url }}" class="giftcard__icon" alt="{{ 'gift_cards.issued.subtext' | t }}">
+            {% endif %}
+          </div>
+          
+          {% comment %}
+          {% assign code_size = gift_card.code | format_code | size %}
+          <h6 style="text-align: center;text-transform: uppercase;">Confirmation #</h6>
             <div class="giftcard__code{% if code_size <= 25 %} giftcard__code--large{% elsif code_size > 25 and code_size <= 30 %} giftcard__code--medium{% else %} giftcard__code--small{% endif %}" onclick="selectText('GiftCardDigits');">
               <div class="giftcard__code__inner">
                 <strong class="giftcard__code__text" id="GiftCardDigits">{{ gift_card.code | format_code }}</strong>
               </div>
             </div>
-          </div>
-
-          <p class="giftcard__instructions">
-            {{ 'gift_cards.issued.redeem' | t }}
-          </p>
-
-          <div id="qr-code"></div>
+          {% endcomment %}
           <script>
             new QRCode(document.getElementById("qr-code"), {
               text: "{{ gift_card.qr_identifier }}",
@@ -108,7 +121,6 @@
            </script>
 
           <div class="giftcard__actions">
-            <a href="{{ shop.url }}" class="btn_c" target="_blank">{{ 'gift_cards.issued.shop_link' | t }}</a>
             <a href="#" class="action-link" onclick="window.print();">
               <i class="action-link__print"></i>{{ 'gift_cards.issued.print' | t }}
             </a>
@@ -119,11 +131,7 @@
     </main>
 
     <footer class="giftcard__footer" role="contentinfo">
-      {% if gift_card.pass_url %}
-      <a href="{{ gift_card.pass_url }}"><img id="apple-wallet-badge" src="{{ 'gift-card/add-to-apple-wallet.svg' | shopify_asset_url }}" width="120" height="40" alt="Add To Apple Wallet"></a>
-      {% else %}
-      <img src="{{ 'gift-card/icon-bug.png' | shopify_asset_url }}" class="giftcard__icon" alt="{{ 'gift_cards.issued.subtext' | t }}">
-      {% endif %}
+      If you have any questions, please contact us at info@mealfit.co
     </footer>
 
   </div>
@@ -150,6 +158,62 @@
       }
     }
   </script>
+  
+  
+  <style>
+  .template-giftcard .wrapper .header-logo{text-align:center;}
+  .template-giftcard .wrapper .header-logo img{height:50px;}
+  .meal-credits{
+    font-size: 14px;
+    line-height: 1em;
+    margin-top: 0;
+    display: block;
+    text-align: center;
+  }
+  .giftcard__instructions {
+    color: #000;
+    font-size: 20px;
+    padding: 0 50px;
+  }
+  .giftcard__border {
+    background-color: #4e4e4e;
+    border: 1px solid #656565;
+  }
+  .template-giftcard, .template-giftcard body {
+    background: #3a3b3d;
+  }
+  .giftcard__amount{text-align:center;}
+    .giftcard__amount strong {color:#f8d616;}
+  .giftcard__code {
+    position: relative;
+    padding-top: 20px;
+    display: block;
+  }
+  .giftcard__code__text{font-size:14px;}
+  .giftcard__footer{color:#ccc;}
+    
+    
+    @media only screen and (max-width:500px) {
+	.giftcard__title {
+    float: none;
+    margin-bottom: 0;
+    font-size: 19px;
+    text-align: center;
+    }
+    .giftcard__tag--active {
+    background: transparent;
+    color: #999;
+    border: 0;
+    float: none;
+  }
+    .giftcard__instructions{padding:0;}
+    .giftcard__actions {
+    padding: 12px;
+    display: none;
+  }
+}
+    
+  </style>
 
 </body>
 </html>

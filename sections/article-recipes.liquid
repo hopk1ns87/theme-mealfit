@@ -1,0 +1,359 @@
+{% assign number_of_comments = article.comments_count %}
+
+{% if comment and comment.created_at %}
+{% assign number_of_comments = article.comments_count | plus: 1 %}
+{% endif %}
+
+<div id="content" itemscope itemtype="http://schema.org/Article">
+  <div class="container ideas-hover"  data-section-id="{{ section.id }}" data-section-type="article-page-section">
+    {% include 'breadcrumb' %}
+    <div class="title clearfix">
+      <h1>{{ article.title | escape }}</h1>
+      <div class="title_right">
+        <a href="{{ blog.url }}.atom" class="rss"><span class="fa fa-rss"></span>RSS</a>
+      </div>
+    </div>
+
+    <div class="blog_c">
+      <div class="row">
+        <div class="col-md-9 col-sm-8">
+          <div class="blog_blk red5 clearfix">        
+            {% if article.image %}
+            <div class="box article_img_block">
+              <figure class="effect-chicoo">
+                
+            <noscript>
+            <img src="{{ article | img_url:'300x' }}" alt="{{  article.title | escape }}" srcset="{{ article | img_url:'1200x' }} 1x, {{ article | img_url:'1200x', scale: 2 }} 2x, {{ article | img_url:'1200x', scale: 3 }} 3x" >
+            </noscript>
+              {%- assign img_url = article.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+             <img
+                 src="{{ article | img_url:'300x' }}" 
+                 alt="{{  article.title | escape }}" 
+                 class="lazyload blur-up"                         
+                 data-src="{{ img_url }}"
+                 data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                 data-aspectratio="{{ article.image.aspect_ratio }}"
+                 data-sizes="auto"
+                 />
+                
+                <figcaption></figcaption>
+              </figure>
+            </div> 
+            {% endif %}
+            <div class="rte clearfix">
+              {{ article.content }}
+              {% if blog.next_article or blog.previous_article %}
+              <p class="clearfix mt20">
+                {% if blog.previous_article %}
+                  <span class="pull-left">
+                    &larr; {{ 'blogs.article.older_post' | t | link_to: blog.previous_article }}
+                  </span>
+                {% endif %}
+                {% if blog.next_article %}
+                  <span class="pull-right">
+                    {{ 'blogs.article.newer_post' | t | link_to: blog.next_article }} &rarr;
+                  </span>
+                {% endif %}
+              </p>
+              {% endif %}
+            </div><!-- /.rte -->
+            {% assign published_at = article.published_at | date: '%b %d, %Y' %}
+            <div class="tag_c clearfix">
+              <ul>
+                <li><span class="fa fa-calendar"></span><span>{{ 'blogs.article.date_html' | t: date: published_at }}</span></li>
+                <li><span class="fa fa-user"></span>{{ article.author }}</li>
+              </ul>
+              <div class="share">
+                <div class="social-sharing">
+                  <ul>
+                    {% include 'social-sharing-blog' %}
+                  </ul>
+                </div>
+              </div><!-- /.share -->
+            </div><!-- /.tags_c -->
+          </div><!-- /.blog_blk -->
+
+          {% if blog.comments_enabled? %}
+          {% paginate article.comments by 50 %}
+          <div class="comment_c clearfix">
+            <h5 class="sub_title" id="comments">{{ 'blogs.comments.comments_with_count_html' | t: count: number_of_comments }}</h5>
+            {% if comment and comment.created_at %}
+            <div class="alert alert-success" role="alert">
+              {% if blog.moderated? %}
+              <a name="#comments"></a>
+              {{ 'blogs.comments.success_moderated' | t }}
+              {% else %}
+              <a name="#comments"></a>
+              {{ 'blogs.comments.success' | t }}
+              {% endif %}
+            </div>
+            {% endif %}
+            {% if number_of_comments > 0 %}
+            <div class="com_list">
+              <ul>
+                {% if comment and comment.created_at %}
+                <li id="{{ comment.id }}" class="first{% if article.comments_count == 0 %} last{% endif %}">
+                  {% include 'comment' %}
+                </li>
+                {% endif %}
+
+                {% for comment in article.comments %}
+                <li id="{{ comment.id }}" class="{% unless number_of_comments > article.comments_count %}{% if forloop.first %} first{% endif %}{% endunless %}{% if forloop.last %} last {% endif %}">
+                  {% include 'comment' %}
+                </li>
+                {% endfor %}
+              </ul>
+            </div>
+            {% endif %}
+          </div>
+
+          {% if paginate.pages > 1 %}
+            {% include 'pagination-custom' %}
+          {% endif %}
+
+          <div class="comment_c clearfix mt30">
+            <h5 class="sub_title" id="add-comment-title">{{ 'blogs.comments.title' | t }}</h5>
+
+            {% form 'new_comment', article %}
+            <div class="m15">
+              {% include 'form-errors-custom' %}
+            </div>
+            
+            <div class="frm clearfix">
+
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="lbltxt">{{ 'blogs.comments.name' | t }}<span class="req">*</span></div>
+                  <input class="txtbox{% if form.errors contains "author" %} has-error{% endif %}" type="text" name="comment[author]" id="comment-author" value="{{ form.author }}" autocapitalize="words">
+                </div>
+                <div class="col-sm-6">
+                  <div class="lbltxt">{{ 'blogs.comments.email' | t }}<span class="req">*</span></div>
+                  <input class="txtbox{% if form.errors contains "email" %} has-error{% endif %}" type="email" name="comment[email]" id="comment-email" value="{{ form.email }}">
+                </div>
+              </div>
+              <div class="lbltxt">{{ 'blogs.comments.message' | t }} <span class="req">*</span></div>
+              <textarea {% if form.errors contains "body" %}class="error"{% endif %} name="comment[body]" id="comment-body">{{ form.body }}</textarea>
+
+              <div class="clearfix frm_bot">
+                {% if blog.moderated? %}
+                <p><em>{{ 'blogs.comments.moderated' | t }}</em></p>
+                {% endif %}
+                <input type="submit" class="btn_c" value="{{ 'blogs.comments.post' | t }}">
+                <input type="reset" class="info_btn" value="{{ 'blogs.comments.clear' | t }}">
+                <span class="reqired">* {{ 'blogs.comments.required' | t }}</span>
+              </div>
+            </div>
+            {% if form.errors %}
+            <script>
+              window.location.hash = '#add-comment-title';
+            </script>
+            {% endif %}
+
+            {% if form.posted_successfully? %}
+            <script>
+              window.location.hash = '#comments';
+            </script>
+            {% endif %}
+
+            {% endform %}
+          {% endpaginate %}
+          </div>
+          {% endif %}
+          
+        </div>
+        <div class="col-md-3 col-sm-4 hidden-xs">
+          <div class="sidebar">
+            
+            {% if article.metafields.c_f.Related_Products %}
+            <div class="side_box side_box_2 red5">
+                <h5>Products</h5> 
+                {% include 'recipe-products' %}
+              </div>
+            {% endif %}
+            
+            {% assign categories = '' %}
+              {% for tag in article.tags %}
+                {% if tag contains '_' %}
+                  {% capture categories %}{% unless categories == blank  %}{{ categories }}|{% endunless %}{{ tag | split: '_' | first }}{% endcapture %}
+                {% endif %}
+              {% endfor %}
+            {% assign cat_array = categories | split: '|' | uniq %}
+            
+            {%- for cat_item in cat_array -%}
+            
+            
+              <div class="side_box side_box_3 red5 clearfix">
+                <h5>{{ cat_item }}</h5>
+                <ul class="advanced-filters">
+                  {%- comment -%}
+                    Loop through collection tags
+                  {%- endcomment -%}
+                  {%- for tag in article.tags -%}
+                    {%- assign cat = tag | split: '_' | first -%}
+                    {%- if cat != tag and cat_item == cat -%}
+                      {%- comment -%}
+                        Strip out tag category prefix and add/remove link for tag filtering
+                      {%- endcomment -%}
+                        <li class="" data-group="{{ cat_item }}" data-handle="{{ tag | handle }}">{{ tag | remove_first: cat_item | remove_first: '_'  }}</li>
+                    {%- endif -%}
+                  {%- endfor -%}
+                </ul>
+              </div>
+            {%- endfor -%}
+
+            {% if section.settings.show_sidebar_recent_posts %}
+            <div class="side_box side_box_2 red5">
+              <h5>{{ 'blogs.sidebar.widget_recent_posts_title' | t }}</h5>
+              <ul>
+                {% for article in blog.articles limit:6 %}
+                {% assign article_has_image = false %}
+                {% assign img_tag = '<' | append: 'img' %}
+                {% if article.excerpt_or_content contains img_tag %}
+                  {% assign src = article.excerpt_or_content | split: 'src="' %}
+                  {% assign src = src[1] | split: '"' | first %}
+                  {% if src %}
+                    {% assign article_has_image = true %}
+                    {% assign image_src = src %}
+                  {% endif %}
+                {% endif %}
+                <li>
+                  {% if article.image %}
+                  <div class="post_img"><a href="{{ article.url }}"><img src="{{ article | img_url: '300x' }}" alt="{{ article.title | escape }}" /></div>
+                  {% elsif article_has_image %} 
+                  <div class="post_img"><a href="{{ article.url }}"><img src="{{ image_src }}" alt="{{ article.title | escape }}" /></a></div>
+                  {% endif %}
+                  <div class="post_detail">
+                    <a href="{{ article.url }}">{{ article.title | escape }}</a><br />
+                    <span class="date">{{ article.published_at | date: '%b %d, %Y' }}</span>
+                  </div>
+                </li>
+                {% else %}
+                <li>{{ 'blogs.sidebar.no_posts' | t }}</li>
+                {% endfor %}
+              </ul>
+            </div>
+            {% endif %}
+            {% if section.settings.show_sidebar_blog_tags and blog.tags.size > 0 %}
+            <div class="side_box side_box_3 red5 clearfix">
+              <h5>{{ 'blogs.sidebar.widget_tags_title' | t }}</h5>
+              <ul>
+                {% for tag in blog.tags %}
+                {% if current_tags contains tag %}
+                <li><span class="active-tag">{{ tag }}</span></li>
+                {% else %}
+                <li>{{ tag | link_to_tag: tag }}</li>
+                {% endif %}
+                {% endfor %}
+              </ul>
+            </div>
+            {% endif %}
+          </div>
+        </div>
+        
+        
+      </div>
+    </div>
+
+  </div>
+</div>
+{% schema %}
+ {
+    "name": "Article",
+    "settings": [
+	  {
+        "type": "header",
+        "content": "Sidebar options"
+      }
+      
+    ],
+"blocks" : [
+      {
+        "type": "image",
+        "name": " Youtube Video",
+        "settings": [
+          {
+            "type": "header",
+            "content": "Youtube Video"
+          },
+          {
+            "type": "image_picker",
+            "id": "promo",
+            "label": "Image",
+			"info": "800 x 600px jpg recommended"
+          },   	
+          {
+            "type": "select",
+            "id": "promo_banner_position",
+            "label": "Text position",
+            "options": [
+              {
+                "value": "bottom",
+                "label": "Bottom"
+              },
+              {
+                "value": "middle",
+                "label": "middle"
+              },
+              {
+                "value": "top",
+                "label": "Top"
+              }
+            ]
+          },
+          {
+            "type": "richtext",
+            "id": "promo_banner_heading",
+            "label": "Heading",
+			"info": "4-6 words maximum"
+          },
+          {
+            "type": "richtext",
+            "id": "promo_banner_subtext",
+            "label": "Text",
+			"info": "10-12 words maximum"
+          }
+         ]
+        },
+      {
+        "type": "prep-time",
+        "name": " Prep Time",
+        "settings": [
+          {
+            "type": "richtext",
+            "id": "prep_time",
+            "label": "Prep Time",
+			"info": "Ex 10-15 Minutes"
+          }
+        ]
+      },
+      {
+        "type": "cook-time",
+        "name": " Cook Time",
+        "settings": [
+          {
+            "type": "richtext",
+            "id": "cook_time",
+            "label": "Cook Time",
+			"info": "Ex 10-15 Minutes"
+          }
+        ]
+      },
+      {
+        "type": "servings",
+        "name": "Servings",
+        "settings": [
+          {
+            "type": "header",
+            "content": "Servings"
+          },
+          {
+            "type": "richtext",
+            "id": "servings",
+            "label": "Servings",
+			"info": "Ex 4-6 People"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,132 @@
+<div style="padding: 15px 30px 30px 30px !important;">
+<table class="macros">
+  <tr>
+    <th colspan="4">{{ product.title | remove: "Meal" | remove: "Special - " }} <span class="serving-size">{% if product.metafields.c_f.Serving_Size %}- Serving Size: {{ product.metafields.c_f.Serving_Size }} {% endif %}</span></th>
+  </tr>
+<tr>
+  {% if product.metafields.c_f.Protein %}<td>{{ product.metafields.c_f.Protein }}g</td>{% endif %}
+  {% if product.metafields.c_f.Fat %}<td>{{ product.metafields.c_f.Fat }}g</td>{% endif %}
+  {% if product.metafields.c_f.Calories %}<td>{{ product.metafields.c_f.Calories }}g</td>{% endif %}
+  
+  {% if product.metafields.c_f.Carbs %}<td>{{ product.metafields.c_f.Carbs }}g</td>{% endif %}
+  
+</tr>
+  <tr>
+  {% if product.metafields.c_f.Protein %}<td class="h5">Protein</td>{% endif %}
+  {% if product.metafields.c_f.Fat %}<td class="h5">Fat</td>{% endif %}
+  {% if product.metafields.c_f.Calories %}<td class="h5">Calories</td> {% endif %}
+  {% if product.metafields.c_f.Carbs %}<td class="h5">Carbs</td>{% endif %}
+  
+</tr>
+
+</table>
+
+  {% if product.title contains 'Meal' %}
+    <table id="mixed-veggies" class="macros">
+      <tr>
+        <th colspan="4">Mixed Vegetables</th>
+      </tr>
+      <tr>
+          <td>2g</td>
+          <td>0.5g</td>
+          <td>37g</td>
+          <td>6g</td>
+      </tr>
+      <tr>
+        <td class="h5">Protein</td>
+        <td class="h5">Fat</td>
+        <td class="h5">Calories</td>
+        <td class="h5">Carbs</td>
+      </tr>
+  </table>
+  
+    <table id="jasmine-rice" class="macros">
+      <tr>
+        <th colspan="4">Jasmine Rice</th>
+      </tr>
+    <tr>
+        <td>1g</td>
+        <td>0g</td>
+        <td>66g</td>
+        <td>15g</td>
+      </tr>
+      <tr>
+      <td class="h5">Protein</td>
+      <td class="h5">Fat</td>
+      <td class="h5">Calories</td>
+      <td class="h5">Carbs</td>
+    </tr>
+    </table>
+
+    <table id="red-potatoes" class="macros">
+      <tr>
+        <th colspan="4">Red Potatoes</th>
+      </tr>
+    <tr>
+        <td>1g</td>
+        <td>0g</td>
+        <td>50g</td>
+        <td>12g</td>
+      </tr>
+      <tr>
+      <td class="h5">Protein</td>
+      <td class="h5">Fat</td>
+      <td class="h5">Calories</td>
+      <td class="h5">Carbs</td>
+    </tr>
+    </table>
+
+    <table id="sweet-potatoes" class="macros">
+  <tr>
+    <th colspan="4">Sweet potatoes</th>
+  </tr>
+<tr>
+    <td>1g</td>
+    <td>0g</td>
+    <td>46g</td>
+    <td>9g</td>
+  </tr>
+  <tr>
+  <td class="h5">Protein</td>
+  <td class="h5">Fat</td>
+  <td class="h5">Calories</td>
+  <td class="h5">Carbs</td>
+</tr>
+</table>
+    
+  {% endif %}
+</div>
+<style>
+  table.macros{
+    width: 100%;
+    text-align: center;
+    border: 1px solid #ccc;
+  }
+  table.macros td {
+    text-align: center;
+    background-color: #efefef;
+    border-bottom: 0;
+    padding-top: 20px;
+    font-weight:900;
+    font-size:1.5em;
+    border-right: 1px solid #dcdcdc;
+  }
+  table.macros th {
+    background-color: #222;
+    color: #fff;
+    font-weight: 700;
+    border: 1px solid #222;
+    text-transform: uppercase;
+    font-size: 13px;
+    padding: 5px 15px;
+  }
+  table.macros td.h5 {
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 100;
+    padding-top: 0;
+    border-top: 0;
+    padding: 5px 0 20px;
+    width: 25%;
+}
+</style>

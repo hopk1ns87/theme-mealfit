@@ -55,7 +55,11 @@
 
               
 <!--               I think this is the BOLD product OPTIONS -->
-             {% form 'product', product %}
+             {% form 'product', product, data-productid: product.id %}
+<!-- Begin ReCharge code -->
+{% if product.available %}{% include 'subscription-product' %}{% endif %}
+<!-- End ReCharge code -->
+
 
 
                 <div class="desc_blk">
@@ -88,7 +92,7 @@
                           </div>  
                         {% endfor %}
                        {% endunless %}
-                        <select name="id" id="product-select-{{ product.id }}" class="product-variants form-control hidden">
+                        <select name="id" data-productid="{{ product.id }}" id="product-select-{{ product.id }}" class="product-variants form-control hidden">
                            {% for variant in product.variants %}
                           {% if variant.available %}
                           <option {% if section.settings.show_product_quantity %} 
@@ -240,7 +244,7 @@
                         {% endfor %}
                        {% endunless %}
                         
-                        <select name="id" id="product-select-{{ product.id }}" class="product-variants form-control hidden">
+                        <select name="id" data-productid="{{ product.id }}" id="product-select-{{ product.id }}" class="product-variants form-control hidden">
                           {% for variant in product.variants %}
                           {% if variant.available %}
                           <option 
@@ -333,7 +337,7 @@
                       {% endif %}
                     </div>
                     
-                    <a class="btn_c" href="/pages/chocolate-fountain-rental" >Contact Us</a>
+                    <a class="btn_c" href="/pages/rental-form" >Contact Us</a>
                     {% comment %}
                    {% unless product.price_max == 0 and settings.hide_price0_box_and_button %} 
                      {% if section.settings.show_smart_checkout%}

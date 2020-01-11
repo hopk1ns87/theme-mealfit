@@ -78,7 +78,7 @@
     "facebook_link": "https:\/\/www.facebook.com\/Mealfit1\/",
     "pinterest_link": "https:\/\/www.pinterest.com\/mealfitco\/",
     "google_plus_link": "",
-    "instagram_link": "https:\/\/www.instagram.com\/mealfit.c",
+    "instagram_link": "https:\/\/www.instagram.com\/mealfit.co",
     "tumblr_link": "",
     "youtube_link": "https:\/\/www.youtube.com\/channel\/UCMLnGuurH5tusnt30KrdfTQ",
     "vimeo_link": "",
@@ -89,7 +89,7 @@
     "entry_popup_text": "<p>Sign up below and we will send you one week of our award winning mealfit plan subscription. If you like it awesome! if not, go have a donut.<\/p>",
     "popup_heading_size": 32,
     "popup_text_size": 24,
-    "popup_logo": "shopify:\/\/shop_images\/Popup.jpg",
+    "popup_logo": "",
     "popup_image_position": "right",
     "entry_popup_newsletter": true,
     "entry_popup_social": true,
@@ -98,7 +98,7 @@
     "supported_currencies": "",
     "default_currency": "",
     "checkout_header_image": "",
-    "checkout_logo_image": "shopify:\/\/shop_images\/MealFitFullLogo.png",
+    "checkout_logo_image": "",
     "checkout_logo_position": "center",
     "checkout_logo_size": "large",
     "checkout_body_background_image": "shopify:\/\/shop_images\/wood-bg-good.jpg",
@@ -446,18 +446,18 @@
           "promo_bar_link": "",
           "head_promobar": 14,
           "header_style": "header2",
-          "logo": "shopify:\/\/shop_images\/MealFitFullLogo.png",
+          "logo": "shopify:\/\/shop_images\/MealFitFullLogo_550x_1562622d-c260-4ca8-a696-f67384403559.png",
           "logo_height": 10,
           "mobile_padding": 10,
-          "search_style": "bar",
-          "show_search_bar_mobile": true,
+          "search_style": "icon",
+          "show_search_bar_mobile": false,
           "navigation_type": "advanced",
-          "header_main_linklist": "main-menu",
+          "header_main_linklist": "main-menu-v3-0",
           "sticky_menu": true,
           "heading_content": "text",
           "head_font_size": 14,
           "header_top_linklist": "",
-          "header_top_text": "<p>Monday -Thursday 11 am - 2 pm<\/p>",
+          "header_top_text": "<p>Meal pickup every Monday 4-6pm at our pickup locations<\/p>\n<p><\/p>",
           "header_phone": "(205) 597-4480",
           "header_email": "info@mealfit.co"
         }
@@ -474,13 +474,7 @@
           "1541796988909": {
             "type": "linklist",
             "settings": {
-              "linklist": "mealfit-plans"
-            }
-          },
-          "1540579359068": {
-            "type": "linklist",
-            "settings": {
-              "linklist": "services"
+              "linklist": "footer"
             }
           },
           "1483746512156": {
@@ -494,7 +488,6 @@
         "block_order": [
           "1483746503941",
           "1541796988909",
-          "1540579359068",
           "1483746512156"
         ],
         "settings": {
@@ -511,7 +504,7 @@
       "collection": {
         "type": "collection",
         "settings": {
-          "product_grid_layout": 3,
+          "product_grid_layout": 4,
           "pagination_limit": 20,
           "use_infinite_scroll": false,
           "show_featured_image": true,
@@ -521,13 +514,13 @@
           "show_product_swatches": false,
           "show_smart_checkout": false,
           "show_product_reviews_stars": true,
-          "show_collection_sidebar": true,
+          "show_collection_sidebar": false,
           "collection_sidebar_filters": "none",
           "group_array": "",
-          "collection_link_list": "mealfit-meals",
+          "collection_link_list": "",
           "show_sidebar_collections": false,
           "show_sidebar_vendors": false,
-          "sidebar_collection_sale_collection": "specials",
+          "sidebar_collection_sale_collection": "",
           "sidebar_collection_product_count": 4
         }
       },
@@ -552,8 +545,8 @@
       "blog-posts": {
         "type": "blog-posts",
         "settings": {
-          "title": "From the Blog",
-          "recent-post-blog": "",
+          "title": "",
+          "recent-post-blog": "paleo-plus-cheese",
           "home_post_count": 4,
           "home_blog_excerpt": false
         }
@@ -562,10 +555,10 @@
         "type": "video",
         "settings": {
           "video_link": "https:\/\/youtu.be\/0gzbkpCgVr8",
-          "video_width": "contained",
-          "hero_size": "medium",
+          "video_width": "full",
+          "hero_size": "large",
           "video_play_option": "modal",
-          "home_video_bg": "",
+          "home_video_bg": "shopify:\/\/shop_images\/testimonial-4.jpg",
           "video_caption_val": 20,
           "title": "Mealfit Catering",
           "description": "",
@@ -578,7 +571,7 @@
         "type": "instagram-feed",
         "settings": {
           "title": "Follow @mealfit.co on Instagram",
-          "instagram_client_id": "318483738.1677ed0.fef4bc3aaeb34df8a43b05e7f1697654",
+          "instagram_client_id": "318483738.1677ed0.0066994db5784ad6884058bef7bedcbb",
           "instagram_number": 5,
           "instagram_grid_width": 5,
           "instagram_grid_width_tablet": 3,
@@ -595,7 +588,7 @@
               "slideshow_caption_val": 40,
               "title": "A healthy alternative to traditional catering",
               "slideshow_subtitle": "",
-              "slideshow_subsubtitle": "<p>Most of the time when you think of catering, you think of bad tasting unhealthy food. Not with mealfit. We take pride in making healthy, REAL, food taste amazing.<\/p>",
+              "slideshow_subsubtitle": "<p>Most of the time when you think of catering, you think of bad-tasting, unhealthy food. Not with mealfit. We take pride in making healthy, REAL food taste amazing.<\/p>",
               "slideshow_button_text": "Order Catering",
               "slideshow_link": "shopify:\/\/pages\/mealfit-catering",
               "slideshow_caption_position": "center"
@@ -604,11 +597,11 @@
           "1542233657594": {
             "type": "slide",
             "settings": {
-              "slideshow_image": "shopify:\/\/shop_images\/ChickenRice.jpg",
+              "slideshow_image": "shopify:\/\/shop_images\/Slide-3-ChickenRice.jpg",
               "slideshow_caption_val": 40,
               "title": "Keep you and your family out of the Drive thru",
               "slideshow_subtitle": "",
-              "slideshow_subsubtitle": "<p>Mealfit Meals make life easier...and healthier. Our&nbsp;home cooked meals are perfectly portioned, and packed with the nutrition your body needs<\/p>",
+              "slideshow_subsubtitle": "<p>m e a l&nbsp;<strong>f i t<\/strong> Meals make life easier... and healthier. Our&nbsp;home-cooked meals are perfectly portioned and packed with the nutrition your body needs.<\/p>",
               "slideshow_button_text": "Order Now",
               "slideshow_link": "shopify:\/\/collections\/mealfit-meals",
               "slideshow_caption_position": "center"
@@ -617,13 +610,26 @@
           "1542234277683": {
             "type": "slide",
             "settings": {
-              "slideshow_image": "shopify:\/\/shop_images\/SMoker_caa7450c-6172-4238-b719-525a4486690f.jpg",
+              "slideshow_image": "shopify:\/\/shop_images\/Slide-2-SMoker.jpg",
               "slideshow_caption_val": 50,
               "title": "Make your next event unforgettable",
               "slideshow_subtitle": "",
-              "slideshow_subsubtitle": "<p>have a fundraiser or huge gathering you need to cook for? Or just want to tailgate like a boss. We can help.<\/p>",
+              "slideshow_subsubtitle": "<p>Do you have a fundraiser or&nbsp;big gathering you need to cook for? Or maybe you just want to tailgate like a boss. We can help.<\/p>",
               "slideshow_button_text": "Daily Rentals",
               "slideshow_link": "shopify:\/\/products\/southern-pride-spk-500",
+              "slideshow_caption_position": "center"
+            }
+          },
+          "1549116334770": {
+            "type": "slide",
+            "settings": {
+              "slideshow_image": "shopify:\/\/shop_images\/BHMLGN.jpg",
+              "slideshow_caption_val": 0,
+              "title": "",
+              "slideshow_subtitle": "",
+              "slideshow_subsubtitle": "",
+              "slideshow_button_text": "",
+              "slideshow_link": "",
               "slideshow_caption_position": "center"
             }
           }
@@ -631,7 +637,8 @@
         "block_order": [
           "slideshow-0",
           "1542233657594",
-          "1542234277683"
+          "1542234277683",
+          "1549116334770"
         ],
         "settings": {
           "slideshow_width": "full",
@@ -646,7 +653,7 @@
         "settings": {
           "show_product_cart_postion": "bottom",
           "show_smart_checkout": false,
-          "enable_description_enhancements": true,
+          "enable_description_enhancements": false,
           "product_reviews": true,
           "show_product_swatches": true,
           "show_product_zoom": false,
@@ -657,12 +664,12 @@
           "product_additional_img": "carousel",
           "enable_images_limit": false,
           "images_limit_height": 500,
-          "show_product_tab_1": false,
+          "show_product_tab_1": true,
           "tab_1_title": "Reviews",
           "product_tab_1_page": "about-us",
-          "show_product_tab_2": false,
-          "tab_2_title": "Title",
-          "product_tab_2_page": "",
+          "show_product_tab_2": true,
+          "tab_2_title": "Pickup Locations",
+          "product_tab_2_page": "pickup-locations",
           "show_product_tab_3": false,
           "tab_3_title": "TAB 3",
           "product_tab_3_page": "",
@@ -684,7 +691,7 @@
           "map_address": "3660 Grandview Pkwy, Birmingham, AL 35243",
           "button_text": "View Map",
           "show_pin": true,
-          "api_key": "",
+          "api_key": "AIzaSyAqykJgEJtd-JhHwbo0V93hO9l_yVDK1fc",
           "background_image": "",
           "background_image_position": "center center"
         }
@@ -697,7 +704,7 @@
             "settings": {
               "cta_text": "Order Catering",
               "cta_icon": "",
-              "cta_link": "shopify:\/\/pages\/mealfit-catering"
+              "cta_link": "shopify:\/\/pages\/catering"
             }
           },
           "1540570836795": {
@@ -713,7 +720,7 @@
             "settings": {
               "cta_text": "Rent Equipment",
               "cta_icon": "truck-loading",
-              "cta_link": "shopify:\/\/collections\/rentals"
+              "cta_link": "shopify:\/\/products\/southern-pride-spk-500"
             }
           },
           "1540570841084": {
@@ -721,7 +728,7 @@
             "settings": {
               "cta_text": "Contact Us",
               "cta_icon": "",
-              "cta_link": "#"
+              "cta_link": "shopify:\/\/pages\/contact"
             }
           }
         },
@@ -735,21 +742,23 @@
       },
       "1540570770456": {
         "type": "image-with-text",
+        "disabled": true,
         "settings": {
-          "image": "shopify:\/\/shop_images\/PharmaLunch_9c8e756f-a09a-45b1-bea8-c369a1eec26f.jpg",
+          "image": "shopify:\/\/shop_images\/PharmaLunch.jpg",
           "layout": "left",
           "image_width": "6",
-          "title": "Show up and Sell",
-          "text": "<p><i>We take care of Everything. Set up, food, dishes, drinks, even dessert. Call or text us to order<\/i><\/p>",
+          "title": "Show Up and Sell",
+          "text": "<p>We take care of everything: set up, food, dishes, drinks and even dessert. Call or text us to order.<\/p>",
           "button_label": "Contact Us",
-          "button_link": "#"
+          "button_link": "shopify:\/\/pages\/catering"
         }
       },
       "1540578001568": {
         "type": "featured-collection",
+        "disabled": true,
         "settings": {
           "title": "",
-          "featured_collection": "frontpage",
+          "featured_collection": "mealfit-meals",
           "home_feature_product_grid_type": "carousel",
           "home_feature_product_grid_layout": "col-md-2",
           "home_feature_product_limit": 10,
@@ -765,12 +774,12 @@
         "type": "map",
         "settings": {
           "heading": "Mealfit Birmingham",
-          "address": "<p>3660 Grandview Pkwy,<br>Birmingham, AL 35243<br><br><\/p>\n<p>Mon - Thurs, 9am - 11pm<br><strong>Closed<\/strong>&nbsp;Friday, Saturday &amp; Sunday&nbsp;<\/p>",
+          "address": "<p>3660 Grandview Pkwy,<br>Birmingham, AL 35243<br><br><\/p>\n<p><strong>Mon<\/strong> - <strong>Thurs<\/strong>, 11am - 2pm<br><strong>Closed:<\/strong>&nbsp;Friday, Saturday &amp; Sunday&nbsp;<\/p>",
           "map_address": "3660 Grandview Pkwy, Birmingham, AL 35243",
           "button_text": "directions",
           "show_pin": true,
-          "api_key": "AIzaSyAqykJgEJtd-JhHwbo0V93hO9l_yVDK1fc",
-          "background_image": "",
+          "api_key": "",
+          "background_image": "shopify:\/\/shop_images\/mealfit-map.jpg",
           "background_image_position": "center center"
         }
       },
@@ -791,21 +800,21 @@
           "1540581316550-0": {
             "type": "image",
             "settings": {
-              "promo": "shopify:\/\/shop_images\/Untitled-3.jpg",
+              "promo": "shopify:\/\/shop_images\/MealfitPlans.jpg",
               "promo_banner_position": "middle",
               "promo_banner_heading": "<p>MEALFIT PLANS<\/p>",
-              "promo_banner_subtext": "<p>Everything you need to shop, prep, and cook an incredible meal. It is the perfect way to jumpstart your fitness routine to maximize results<\/p>",
-              "promo_banner_link": "shopify:\/\/products\/mealfit-plans-premium"
+              "promo_banner_subtext": "<p>Everything you need to shop, prep, and cook incredible meals.&nbsp;Our plans are the perfect way to jump start your fitness routine to&nbsp;maximize results.<\/p>",
+              "promo_banner_link": "shopify:\/\/products\/mealfit-plans"
             }
           },
           "1540581316550-1": {
             "type": "image",
             "settings": {
-              "promo": "shopify:\/\/shop_images\/MealfitGym_699fd80f-2cce-4f09-9fbf-b544401f3055.jpg",
+              "promo": "shopify:\/\/shop_images\/MealfitGym_88c9971a-a53a-4b00-b0e6-21c1eb388e64.jpg",
               "promo_banner_position": "middle",
               "promo_banner_heading": "<p>MEALFIT GYM<\/p>",
-              "promo_banner_subtext": "<p>Make your gym stand out from the competition and Let meal<strong>fit<\/strong> become your nutrition coach<\/p>",
-              "promo_banner_link": ""
+              "promo_banner_subtext": "<p>Make your gym stand out from the competition and let meal<strong>fit<\/strong> become your nutrition coach.<\/p>",
+              "promo_banner_link": "shopify:\/\/products\/mealfit-gym"
             }
           }
         },
@@ -821,7 +830,7 @@
           "home_cta_heading": "<p>NUTRITION MADE EASY<\/p>",
           "home_cta_subtext": "",
           "home_cta_link": "",
-          "home-cta": "shopify:\/\/shop_images\/1x1.jpg",
+          "home-cta": "",
           "cta_caption_val": 0,
           "home_cta_heading_size": 36,
           "home_cta_content_size": 18
@@ -829,6 +838,7 @@
       },
       "1540581507044": {
         "type": "rich-text",
+        "disabled": true,
         "settings": {
           "home_cta_heading": "<p>MEALFIT MEALS<\/p>",
           "home_cta_subtext": "<p>We specialize in making your life easier. We want to take the stigma out of healthy food tasting bad. We take a southern style and make it healthier than your typical down south cuisine.&nbsp;<\/p>",
@@ -845,20 +855,21 @@
           "image": "shopify:\/\/shop_images\/Smoker.jpg",
           "layout": "right",
           "image_width": "6",
-          "title": "Church picnic to tailgating, and everything in between",
-          "text": "<p><i>We deliver, coach you on the pit, pick up and clean up. This is a turnkey process. <\/i><\/p>",
+          "title": "Church Picnic to Tailgating, and Every Event in Between",
+          "text": "<p>We deliver to your location and coach you on using the pit, then we're back for clean up and pick up. This is a turnkey process.<\/p>",
           "button_label": "Rent One",
           "button_link": "shopify:\/\/products\/southern-pride-spk-500"
         }
       },
       "1540589650571": {
         "type": "image-with-text",
+        "disabled": true,
         "settings": {
-          "image": "shopify:\/\/shop_images\/WorkingLunch.jpg",
+          "image": "shopify:\/\/shop_images\/WorkingLunch_1080x_dc15cf4c-ed9c-4c2f-91f3-e2b1f5fe538e.jpg",
           "layout": "left",
           "image_width": "6",
-          "title": "Keep your team at the office",
-          "text": "<p>Feed your team a working lunch. Keep them in house. Boost Productivity and honor them with a great lunch on you.<\/p>",
+          "title": "Keep Your Team at the Office",
+          "text": "<p>Boost productivity and honor your team by feeding them a great, working lunch on you&ndash; all while staying in house.<\/p>",
           "button_label": "Cater Lunch",
           "button_link": "https:\/\/www.ezcater.com\/catering\/mealfit-3"
         }
@@ -866,53 +877,547 @@
       "page-mealfit-plans": {
         "type": "page-mealfit-plans",
         "blocks": {
-          "1542297502867": {
+          "1577994816444": {
             "type": "text",
             "settings": {
-              "plan_preview": "shopify:\/\/shop_images\/NovemberPlans.jpg",
-              "date": "11\/09\/18",
-              "title": "November | Week 2",
-              "plan-type-original-url": "#",
-              "plan-type-strict-url": "#",
-              "plan-type-whole-30-url": "#",
-              "plan-tips-url": "#"
+              "plan_preview": "",
+              "date": "1\/2\/2020",
+              "title": "January - Week 1",
+              "plan-type-original-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/January_1_Original_2019_compressed.pdf?1939",
+              "plan-type-strict-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/January_1_ZONE_2019.compressed.pdf?1939",
+              "plan-type-whole-30-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/January_1_Whole30_2019.compressed.pdf?1939",
+              "plan-tips-url": ""
             }
           },
-          "1542297537831": {
+          "1576246080198": {
             "type": "text",
             "settings": {
-              "plan_preview": "shopify:\/\/shop_images\/NovemberPlans.jpg",
-              "date": "11\/1\/18",
-              "title": "November | Week 1",
-              "plan-type-original-url": "#",
-              "plan-type-strict-url": "#",
-              "plan-type-whole-30-url": "#",
-              "plan-tips-url": "#"
+              "plan_preview": "",
+              "date": "12\/13",
+              "title": "December- week 3",
+              "plan-type-original-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/December_3_Original_2019.compressed.pdf?1810",
+              "plan-type-strict-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/December_3_ZONE_2019.compressed.pdf?1810",
+              "plan-type-whole-30-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/December_3_whole30_2019.compressed.pdf?1810",
+              "plan-tips-url": ""
             }
           },
-          "1542297563261": {
+          "1575479795408": {
             "type": "text",
             "settings": {
-              "plan_preview": "shopify:\/\/shop_images\/NovemberPlans.jpg",
-              "date": "10\/31\/18",
-              "title": "October | Week 4",
-              "plan-type-original-url": "#",
-              "plan-type-strict-url": "#",
-              "plan-type-whole-30-url": "#",
-              "plan-tips-url": "#"
+              "plan_preview": "",
+              "date": "12\/4\/19",
+              "title": "December- Week 2",
+              "plan-type-original-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/December_2_Original_2019.compressed.pdf?1798",
+              "plan-type-strict-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/December_2_Zone_2019.compressed.pdf?1798",
+              "plan-type-whole-30-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/December_2_whole30_2019.compressed.pdf?1798",
+              "plan-tips-url": ""
+            }
+          },
+          "1574803350866": {
+            "type": "text",
+            "settings": {
+              "plan_preview": "",
+              "date": "11\/26\/19",
+              "title": "December- Week 1",
+              "plan-type-original-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/December_1_Original_2019.compressed.pdf?1788",
+              "plan-type-strict-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/December_1_ZONE_2019.compressed.pdf?1788",
+              "plan-type-whole-30-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/December_1_whole30_2019.compressed.pdf?1788",
+              "plan-tips-url": ""
+            }
+          },
+          "1574437174234": {
+            "type": "text",
+            "settings": {
+              "plan_preview": "",
+              "date": "11\/22\/19",
+              "title": "November- Week 4",
+              "plan-type-original-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/November_4_Original_2019.compressed.pdf?1779",
+              "plan-type-strict-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/November_4_ZONE_2019.compressed.pdf?1779",
+              "plan-type-whole-30-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/November_4_whole30_2019.compressed.pdf?1779",
+              "plan-tips-url": ""
+            }
+          },
+          "1573837436299": {
+            "type": "text",
+            "settings": {
+              "plan_preview": "",
+              "date": "11\/14\/19",
+              "title": "November-Week 3",
+              "plan-type-original-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/November_3_Original_2019.compressed.pdf?1769",
+              "plan-type-strict-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/November_3_Zone_2019.compressed.pdf?1769",
+              "plan-type-whole-30-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/November_3_whole30_2019.compressed.pdf?1769",
+              "plan-tips-url": ""
+            }
+          },
+          "1573571412179": {
+            "type": "text",
+            "settings": {
+              "plan_preview": "",
+              "date": "11\/12\/19",
+              "title": "November- Week 2",
+              "plan-type-original-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/November_2_Original_2019.compressed.pdf?1760",
+              "plan-type-strict-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/November_2_ZONE_2019.compressed.pdf?1760",
+              "plan-type-whole-30-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/November_2_whole30_2019.compressed.pdf?1760",
+              "plan-tips-url": ""
+            }
+          },
+          "1570722768896": {
+            "type": "text",
+            "settings": {
+              "plan_preview": "",
+              "date": "10\/10\/2019",
+              "title": "October - Week 3",
+              "plan-type-original-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/October_3_Original_2019.compressed.pdf?1720",
+              "plan-type-strict-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/October_3_ZONE_2019.compressed.pdf?1720",
+              "plan-type-whole-30-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/October_3_whole30_2019.compressed.pdf?1720",
+              "plan-tips-url": ""
+            }
+          },
+          "1568119381212": {
+            "type": "text",
+            "settings": {
+              "plan_preview": "",
+              "date": "09\/13\/2019",
+              "title": "September - Week 3",
+              "plan-type-original-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/September_3_Original_2019.compressed.pdf?1661",
+              "plan-type-strict-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/September_3_Zone_2019.compressed.pdf?1661",
+              "plan-type-whole-30-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/September_3_whole30_2019.compressed.pdf?1661",
+              "plan-tips-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/Sept_3_2019_TIPS_BOTH-compressed.pdf?1661"
+            }
+          },
+          "1568119286790": {
+            "type": "text",
+            "settings": {
+              "plan_preview": "",
+              "date": "09\/06\/2019",
+              "title": "September - Week 2",
+              "plan-type-original-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/September_2_Original_2019.compressed.pdf?1661",
+              "plan-type-strict-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/September_2_Zone_2019.compressed.pdf?1661",
+              "plan-type-whole-30-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/September_2_whole30_2019.compressed.pdf?1661",
+              "plan-tips-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/Sept_2_2019_TIPS_BOTH.compressed.pdf?1661"
+            }
+          },
+          "1567175119544": {
+            "type": "text",
+            "settings": {
+              "plan_preview": "",
+              "date": "8\/30\/2019",
+              "title": "SEPTEMBER - WEEK 1",
+              "plan-type-original-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/September_1_Original_2019.compressed.pdf?1646",
+              "plan-type-strict-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/September_1_Zone_2019.compressed.pdf?1646",
+              "plan-type-whole-30-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/September_1_whole30_2019.compressed.pdf?1646",
+              "plan-tips-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/Sept_1_2019_TIPS_BOTH-compressed.pdf?1646"
+            }
+          },
+          "1566843059384": {
+            "type": "text",
+            "settings": {
+              "plan_preview": "",
+              "date": "8\/23\/2019",
+              "title": "AUGUST - WEEK 4",
+              "plan-type-original-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/August_4_Original_2019.compressed.pdf?1640",
+              "plan-type-strict-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/August_4_Zone_2019.compressed.pdf?1640",
+              "plan-type-whole-30-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/August_4_whole30_2019.compressed.pdf?1640",
+              "plan-tips-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/August_4_2019_TIPS_BOTH-compressed.pdf?1640"
+            }
+          },
+          "1566842981670": {
+            "type": "text",
+            "settings": {
+              "plan_preview": "",
+              "date": "8\/16\/2019",
+              "title": "AUGUST - WEEK 3",
+              "plan-type-original-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/August_3_Original_2019.compressed.pdf?1640",
+              "plan-type-strict-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/August_3_ZONE_2019.compressed.pdf?1640",
+              "plan-type-whole-30-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/August_3_whole30_2019.compressed.pdf?1640",
+              "plan-tips-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/August_3_2019_TIPS_BOTH.compressed.pdf?1640"
+            }
+          },
+          "1564511504201": {
+            "type": "text",
+            "settings": {
+              "plan_preview": "",
+              "date": "08\/02\/2019",
+              "title": "AUGUST - WEEK 2",
+              "plan-type-original-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/August_2_Original_2019.compressed.pdf?1622",
+              "plan-type-strict-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/August_2_Zone_2019.compressed.pdf?1622",
+              "plan-type-whole-30-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/August_2_whole30_2019.compressed.pdf?1622",
+              "plan-tips-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/August_2_2019_TIPS_BOTH-compressed.pdf?1622"
+            }
+          },
+          "1564511420943": {
+            "type": "text",
+            "settings": {
+              "plan_preview": "",
+              "date": "7\/27\/2019",
+              "title": "AUGUST - WEEK 1",
+              "plan-type-original-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/August_1_Original_2019.compressed.pdf?1622",
+              "plan-type-strict-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/August_1_ZONE_2019.compressed.pdf?1622",
+              "plan-type-whole-30-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/August_1_whole30_2019.compressed.pdf?1622",
+              "plan-tips-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/August_1_2019_TIPS_BOTH-compressed.pdf?1622"
+            }
+          },
+          "1563544728553": {
+            "type": "text",
+            "settings": {
+              "plan_preview": "",
+              "date": "7\/19\/2019",
+              "title": "July - Week 4",
+              "plan-type-original-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/July_4_Original_2019.compressed.pdf?1601",
+              "plan-type-strict-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/July_4_ZONE_2019.compressed.pdf?1601",
+              "plan-type-whole-30-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/July_4_whole30_2019.compressed.pdf?1601",
+              "plan-tips-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/JULY_4_2019_TIPS_BOTH-compressed.pdf?1601"
+            }
+          },
+          "1562947672845": {
+            "type": "text",
+            "settings": {
+              "plan_preview": "",
+              "date": "7\/12\/2019",
+              "title": "July - Week 3",
+              "plan-type-original-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/July_3_Original_2019.compressed.pdf?1577",
+              "plan-type-strict-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/July_3_ZONE_2019.compressed.pdf?1577",
+              "plan-type-whole-30-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/July_3_whole30_2019.compressed.pdf?1577",
+              "plan-tips-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/JULY_3_2019_TIPS_BOTH-compressed.pdf?1577"
+            }
+          },
+          "1561901238958": {
+            "type": "text",
+            "settings": {
+              "plan_preview": "",
+              "date": "7\/5\/2019",
+              "title": "July - Week 2",
+              "plan-type-original-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/July_2_Original_2019.compressed.pdf?1550",
+              "plan-type-strict-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/July_2_ZONE_2019.compressed.pdf?1550",
+              "plan-type-whole-30-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/July_2_whole30_2019.compressed.pdf?1550",
+              "plan-tips-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/July_2_2019_Tips_Both.pdf?1550"
+            }
+          },
+          "1561337059051": {
+            "type": "text",
+            "settings": {
+              "plan_preview": "",
+              "date": "6\/28\/2019",
+              "title": "July - Week 1",
+              "plan-type-original-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/July_1_Original_2019.compressed.pdf?1481",
+              "plan-type-strict-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/July_1_ZONE_2019.compressed.pdf?1481",
+              "plan-type-whole-30-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/July_1_whole30_2019-compressed.pdf?1481",
+              "plan-tips-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/July_1_2019_Tips_Both-compressed.pdf?1481"
+            }
+          },
+          "1560360712699": {
+            "type": "text",
+            "settings": {
+              "plan_preview": "",
+              "date": "6\/24\/2019",
+              "title": "June Week - 4",
+              "plan-type-original-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/June_3_2019_TIPS_BOTH.compressed_copy.pdf?1445",
+              "plan-type-strict-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/June_4_Zone_2019.compressed_copy.pdf?1449",
+              "plan-type-whole-30-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/June_4_whole30_2019.compressed_copy.pdf?1449",
+              "plan-tips-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/June_3_2019_TIPS_BOTH.compressed_copy.pdf?1445"
+            }
+          },
+          "1561336981806": {
+            "type": "text",
+            "settings": {
+              "plan_preview": "",
+              "date": "6\/23\/19",
+              "title": "June - Week 3",
+              "plan-type-original-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/June_3_Original_2019.compressed_copy.pdf?1445",
+              "plan-type-strict-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/June_3_ZONE_2019.compressed_copy.pdf?1445",
+              "plan-type-whole-30-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/June_3_whole30_2019.compressed_copy.pdf?1445",
+              "plan-tips-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/June_3_2019_TIPS_BOTH.compressed_copy.pdf?1445"
+            }
+          },
+          "1560360179587": {
+            "type": "text",
+            "settings": {
+              "plan_preview": "",
+              "date": "June 12, 2019",
+              "title": "June - Week 2",
+              "plan-type-original-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/June_2_Original_2019.compressed_copy.pdf?1350",
+              "plan-type-strict-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/June_2_ZONE_2019.compressed_copy.pdf?1350",
+              "plan-type-whole-30-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/June_2_whole30_2019.compressed_copy.pdf?1350",
+              "plan-tips-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/June_2_2019_TIPS_BOTH-compressed.pdf?1350"
+            }
+          },
+          "1559233756114": {
+            "type": "text",
+            "settings": {
+              "plan_preview": "",
+              "date": "05\/31\/2019",
+              "title": "May - Week 5",
+              "plan-type-original-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/May_5_Original_2019-compressed.pdf?1027",
+              "plan-type-strict-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/May_5_ZONE_2019-compressed.pdf?1027",
+              "plan-type-whole-30-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/May_5_whole30_2019-compressed.pdf?1027",
+              "plan-tips-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/May_5_2019_TIPS_BOTH-compressed.pdf?1027"
+            }
+          },
+          "1558635540725": {
+            "type": "text",
+            "settings": {
+              "plan_preview": "",
+              "date": "05\/24\/2019",
+              "title": "May - Week 4",
+              "plan-type-original-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/May_4_Original_2019-compressed.pdf?988",
+              "plan-type-strict-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/May_4_Zone_2019-compressed.pdf?988",
+              "plan-type-whole-30-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/May_4_whole30_2019-compressed.pdf?988",
+              "plan-tips-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/May_4_2019_TIPS_BOTH-compressed.pdf?988"
+            }
+          },
+          "1558045533731": {
+            "type": "text",
+            "settings": {
+              "plan_preview": "",
+              "date": "05\/17\/2019",
+              "title": "May - Week 3",
+              "plan-type-original-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/May_3_Original_2019-compressed.pdf?957",
+              "plan-type-strict-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/May_3_ZONE_2019-compressed.pdf?957",
+              "plan-type-whole-30-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/May_3_whole30_2019-compressed.pdf?957",
+              "plan-tips-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/May_3_2019_TIPS_BOTH-compressed.pdf?957"
+            }
+          },
+          "1557537913216": {
+            "type": "text",
+            "settings": {
+              "plan_preview": "",
+              "date": "05\/10\/2019",
+              "title": "May - Week 2",
+              "plan-type-original-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/May_2_Original_2019-compressed.pdf?932",
+              "plan-type-strict-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/May_2_Zone_2019-compressed.pdf?932",
+              "plan-type-whole-30-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/May_2_whole30_2019-compressed.pdf?932",
+              "plan-tips-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/May_2_2019_TIPS_BOTH-compressed.pdf?932"
+            }
+          },
+          "1556802614748": {
+            "type": "text",
+            "settings": {
+              "plan_preview": "",
+              "date": "05\/03\/2019",
+              "title": "May - Week 1",
+              "plan-type-original-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/May_1_Original_2019-compressed.pdf?882",
+              "plan-type-strict-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/May_1_Zone_2019-compressed.pdf?882",
+              "plan-type-whole-30-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/May_1_whole30_2019-compressed.pdf?882",
+              "plan-tips-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/May_1_2019_TIPS_BOTH-compressed.pdf?882"
+            }
+          },
+          "1556258904135": {
+            "type": "text",
+            "settings": {
+              "plan_preview": "",
+              "date": "04\/26\/2019",
+              "title": "April - Week 4",
+              "plan-type-original-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/April_4_Original_2019-compressed_1.pdf?849",
+              "plan-type-strict-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/April_4_Zone_2019-compressed_1.pdf?849",
+              "plan-type-whole-30-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/April_4_whole30_2019-compressed_1.pdf?849",
+              "plan-tips-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/April_4_2019_TIPS_BOTH-compressed_1.pdf?849"
+            }
+          },
+          "1555571136757": {
+            "type": "text",
+            "settings": {
+              "plan_preview": "",
+              "date": "04\/19\/2019",
+              "title": "April - Week 3",
+              "plan-type-original-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/April_3_Original_2019-compressed.pdf?800",
+              "plan-type-strict-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/April_3_ZONE_2019-compressed.pdf?800",
+              "plan-type-whole-30-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/April_3_whole30_2019-compressed.pdf?800",
+              "plan-tips-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/April_3_2019_TIPS_BOTH-compressed.pdf?800"
+            }
+          },
+          "1554966403112": {
+            "type": "text",
+            "settings": {
+              "plan_preview": "",
+              "date": "04\/12\/2019",
+              "title": "April - Week 2",
+              "plan-type-original-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/April_2_Original_2019-compressed.pdf?759",
+              "plan-type-strict-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/April_2_ZONE_2019-compressed.pdf?759",
+              "plan-type-whole-30-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/April_2_whole30_2019-compressed.pdf?759",
+              "plan-tips-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/April_2_2019_TIPS_BOTH-compressed.pdf?759"
+            }
+          },
+          "1554461897720": {
+            "type": "text",
+            "settings": {
+              "plan_preview": "",
+              "date": "04\/05\/2019",
+              "title": "April - Week 1",
+              "plan-type-original-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/April_1_Original_2019-compressed.pdf?726",
+              "plan-type-strict-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/April_1_Zone_2019-compressed.pdf?726",
+              "plan-type-whole-30-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/April_1_whole30_2019-compressed.pdf?726",
+              "plan-tips-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/April_1_2019_TIPS_BOTH-compressed.pdf?726"
+            }
+          },
+          "1553804875124": {
+            "type": "text",
+            "settings": {
+              "plan_preview": "",
+              "date": "03\/29\/2019",
+              "title": "March - Week 5",
+              "plan-type-original-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/March_5_Original_2019-compressed.pdf?628",
+              "plan-type-strict-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/March_5_ZONE_2019-compressed.pdf?628",
+              "plan-type-whole-30-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/March_5_Whole30_2019-compressed.pdf?628",
+              "plan-tips-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/March_5_2019_TIPS_BOTH-compressed.pdf?628"
+            }
+          },
+          "1553216873486": {
+            "type": "text",
+            "settings": {
+              "plan_preview": "",
+              "date": "03\/22\/2019",
+              "title": "March - Week 4",
+              "plan-type-original-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/March_4_Original_2019-compressed.pdf?582",
+              "plan-type-strict-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/March_4_ZONE_2019-compressed.pdf?582",
+              "plan-type-whole-30-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/March_4_whole30_2019-compressed.pdf?582",
+              "plan-tips-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/March_4_2019_TIPS_BOTH-compressed.pdf?582"
+            }
+          },
+          "1552637228634": {
+            "type": "text",
+            "settings": {
+              "plan_preview": "",
+              "date": "03\/15\/2019",
+              "title": "March - Week 3",
+              "plan-type-original-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/March_3_Original_2019-compressed.pdf?495",
+              "plan-type-strict-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/March_3_Zone_2019-compressed.pdf?495",
+              "plan-type-whole-30-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/March_3_Zone_2019-compressed.pdf?495",
+              "plan-tips-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/March_3_2019_TIPS_BOTH-compressed.pdf?495"
+            }
+          },
+          "1552083302026": {
+            "type": "text",
+            "settings": {
+              "plan_preview": "",
+              "date": "03\/08\/2019",
+              "title": "March - Week 2",
+              "plan-type-original-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/March_2_Original_2019-compressed.pdf?12092480445545491203",
+              "plan-type-strict-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/March_2_zone_2019-compressed.pdf?12092480445545491203",
+              "plan-type-whole-30-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/March_2_whole30_2019-compressed.pdf?12092480445545491203",
+              "plan-tips-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/March_2_2019_TIPS_BOTH-compressed.pdf?12092480445545491203"
+            }
+          },
+          "1551406314849": {
+            "type": "text",
+            "settings": {
+              "plan_preview": "",
+              "date": "03\/01\/2019",
+              "title": "March - Week 1",
+              "plan-type-original-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/March_1_Original_2019-compressed.pdf?7878824428521463996",
+              "plan-type-strict-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/March_1_ZONE_2019-compressed.pdf?7878824428521463996",
+              "plan-type-whole-30-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/March_1_whole30_2019-compressed.pdf?7878824428521463996",
+              "plan-tips-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/March_1_2019_TIPS_BOTH-compressed.pdf?7878824428521463996"
+            }
+          },
+          "1550780194596": {
+            "type": "text",
+            "settings": {
+              "plan_preview": "",
+              "date": "02\/22\/2019",
+              "title": "February - Week 4",
+              "plan-type-original-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/February_4_Original_2019-compressed.pdf?11661071999438616125",
+              "plan-type-strict-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/February_4_ZONE_2019-compressed.pdf?11661071999438616125",
+              "plan-type-whole-30-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/February_4_whole30_2019-compressed.pdf?11661071999438616125",
+              "plan-tips-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/February_4_2019_TIPS_BOTH-compressed.pdf?11661071999438616125"
+            }
+          },
+          "1550258771588": {
+            "type": "text",
+            "settings": {
+              "plan_preview": "",
+              "date": "02\/15\/2019",
+              "title": "February - Week 3",
+              "plan-type-original-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/February_3_Original_2019-compressed.pdf?10244040048367097999",
+              "plan-type-strict-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/February_3_ZONE_2019-compressed.pdf?10244040048367097999",
+              "plan-type-whole-30-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/February_3_whole30_2019-compressed.pdf?10244040048367097999",
+              "plan-tips-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/February_3_2019_TIPS_BOTH-compressed.pdf?10244040048367097999"
+            }
+          },
+          "1549548210501": {
+            "type": "text",
+            "settings": {
+              "plan_preview": "",
+              "date": "02\/08\/2019",
+              "title": "February - Week 2",
+              "plan-type-original-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/February_2_Original_2019-compressed.pdf?2387613117918977925",
+              "plan-type-strict-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/February_2_ZONE_2019-compressed.pdf?2387613117918977925",
+              "plan-type-whole-30-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/February_2_whole30_2019-compressed.pdf?2387613117918977925",
+              "plan-tips-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/February_2_2019_TIPS_BOTH-compressed.pdf?2387613117918977925"
+            }
+          },
+          "1548971740595": {
+            "type": "text",
+            "settings": {
+              "plan_preview": "",
+              "date": "02\/01\/2019",
+              "title": "February - Week 1",
+              "plan-type-original-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/February_1_Original_2019-compressed.pdf?8660174367071206926",
+              "plan-type-strict-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/February_1_Zone_2019-compressed.pdf?8660174367071206926",
+              "plan-type-whole-30-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/February_1_whole30_2019-compressed.pdf?8660174367071206926",
+              "plan-tips-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/February_1_2019_TIPS_BOTH-compressed.pdf?8660174367071206926"
+            }
+          },
+          "1578587224148": {
+            "type": "text",
+            "settings": {
+              "plan_preview": "",
+              "date": "1\/9\/2020",
+              "title": "January - Week 2",
+              "plan-type-original-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/January_2_Original_2019.compressed.pdf?1952",
+              "plan-type-strict-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/January_2_ZONE_2019.compressed.pdf?1952",
+              "plan-type-whole-30-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/January_2_Whole30_2019.compressed.pdf?1952",
+              "plan-tips-url": ""
             }
           }
         },
         "block_order": [
-          "1542297502867",
-          "1542297537831",
-          "1542297563261"
+          "1578587224148",
+          "1577994816444",
+          "1576246080198",
+          "1575479795408",
+          "1574803350866",
+          "1574437174234",
+          "1573837436299",
+          "1573571412179",
+          "1570722768896",
+          "1568119381212",
+          "1568119286790",
+          "1567175119544",
+          "1566843059384",
+          "1566842981670",
+          "1564511504201",
+          "1564511420943",
+          "1563544728553",
+          "1562947672845",
+          "1561901238958",
+          "1561337059051",
+          "1560360712699",
+          "1561336981806",
+          "1560360179587",
+          "1559233756114",
+          "1558635540725",
+          "1558045533731",
+          "1557537913216",
+          "1556802614748",
+          "1556258904135",
+          "1555571136757",
+          "1554966403112",
+          "1554461897720",
+          "1553804875124",
+          "1553216873486",
+          "1552637228634",
+          "1552083302026",
+          "1551406314849",
+          "1550780194596",
+          "1550258771588",
+          "1549548210501",
+          "1548971740595"
         ],
         "settings": {
           "page_link_list": "",
           "show_sidebar_page_collections": false,
-          "show_page_sidebar_sale": true,
-          "sidebar_page_sale_collection": "seasonings",
+          "show_page_sidebar_sale": false,
+          "sidebar_page_sale_collection": "mealfit-seasoning",
           "sidebar_page_product_count": 6
         }
       },
@@ -940,7 +1445,7 @@
           "product_tab_2_page": "mealfit-plans-benefits",
           "show_product_tab_3": true,
           "tab_3_title": "FAQs",
-          "product_tab_3_page": "mealfit-plans-faq",
+          "product_tab_3_page": "faq-plans",
           "show_product_tab_4": false,
           "tab_4_title": "TAB 4",
           "product_tab_4_page": "",
@@ -971,10 +1476,10 @@
           "product_tab_1_page": "",
           "show_product_tab_2": true,
           "tab_2_title": "Benefits",
-          "product_tab_2_page": "mealfit-gym-benefits",
+          "product_tab_2_page": "mealfit-gym",
           "show_product_tab_3": true,
           "tab_3_title": "FAQs",
-          "product_tab_3_page": "mealfit-gym-faq",
+          "product_tab_3_page": "faq-gym",
           "show_product_tab_4": false,
           "tab_4_title": "Testimonials",
           "product_tab_4_page": "",
@@ -1005,8 +1510,8 @@
           "product_tab_1_page": "",
           "show_product_tab_2": true,
           "tab_2_title": "Instructions",
-          "product_tab_2_page": "chocolate-fountain-usage",
-          "show_product_tab_3": true,
+          "product_tab_2_page": "chocolate-fountain-instructions",
+          "show_product_tab_3": false,
           "tab_3_title": "Rental Agreement",
           "product_tab_3_page": "",
           "show_product_tab_4": false,
@@ -1040,11 +1545,11 @@
           "show_product_tab_2": true,
           "tab_2_title": "Instructions",
           "product_tab_2_page": "smoker-instructions",
-          "show_product_tab_3": true,
-          "tab_3_title": "Rental Agreement",
-          "product_tab_3_page": "rental-agreement",
+          "show_product_tab_3": false,
+          "tab_3_title": "",
+          "product_tab_3_page": "",
           "show_product_tab_4": false,
-          "tab_4_title": "TAB 4",
+          "tab_4_title": "",
           "product_tab_4_page": "",
           "related_products": true,
           "show_sale_badge": true,
@@ -1057,7 +1562,7 @@
         "settings": {
           "show_product_cart_postion": "bottom",
           "show_smart_checkout": false,
-          "enable_description_enhancements": true,
+          "enable_description_enhancements": false,
           "product_reviews": true,
           "show_product_swatches": true,
           "show_product_zoom": false,
@@ -1068,8 +1573,8 @@
           "product_additional_img": "grid",
           "enable_images_limit": false,
           "images_limit_height": 500,
-          "show_product_tab_1": false,
-          "tab_1_title": "TAB 1",
+          "show_product_tab_1": true,
+          "tab_1_title": "Reviews",
           "product_tab_1_page": "",
           "show_product_tab_2": false,
           "tab_2_title": "TAB 2",
@@ -1088,6 +1593,7 @@
       },
       "1541797203585": {
         "type": "rich-text",
+        "disabled": true,
         "settings": {
           "home_cta_heading": "",
           "home_cta_subtext": "",
@@ -1108,7 +1614,7 @@
           "button_text": "",
           "show_pin": false,
           "api_key": "",
-          "background_image": "shopify:\/\/shop_images\/3_pics_in_one_1.jpg",
+          "background_image": "",
           "background_image_position": "center center"
         }
       },
@@ -1123,6 +1629,213 @@
           "home_cta_heading_size": 36,
           "home_cta_content_size": 18
         }
+      },
+      "1543267325618": {
+        "type": "rich-text",
+        "settings": {
+          "home_cta_heading": "<p>FROM THE BLOG<\/p>",
+          "home_cta_subtext": "",
+          "home_cta_link": "",
+          "home-cta": "",
+          "cta_caption_val": 20,
+          "home_cta_heading_size": 36,
+          "home_cta_content_size": 18
+        }
+      },
+      "1543267444886": {
+        "type": "rich-text",
+        "settings": {
+          "home_cta_heading": "",
+          "home_cta_subtext": "",
+          "home_cta_link": "",
+          "home-cta": "",
+          "cta_caption_val": 20,
+          "home_cta_heading_size": 36,
+          "home_cta_content_size": 18
+        }
+      },
+      "password": {
+        "type": "password",
+        "settings": {
+          "logo": "shopify:\/\/shop_images\/MealFitFullLogo_550x_1562622d-c260-4ca8-a696-f67384403559.png",
+          "background_image": "shopify:\/\/shop_images\/MFNewsletter.jpg",
+          "background_opacity": 20,
+          "password_text_color": "#fff",
+          "title": "Check back soon",
+          "content_text": "<p>Our website is undergoing some changes, we will be back online as soon as possible.<\/p>\n<p><\/p>\n<p>Please visit <a href=\"http:\/\/www.mealfitbirmingham.co\" title=\"http:\/\/www.mealfitbirmingham.co\">www.mealfitbirmingham.co<\/a> in the meantime<\/p>",
+          "show_share_buttons": false
+        }
+      },
+      "page": {
+        "type": "page",
+        "settings": {
+          "page_link_list": "",
+          "show_sidebar_page_collections": false,
+          "show_page_sidebar_sale": false,
+          "sidebar_page_sale_collection": "",
+          "sidebar_page_product_count": 4
+        }
+      },
+      "blog": {
+        "type": "blog",
+        "settings": {
+          "blog_count": 12,
+          "blog_layout": "3-column",
+          "show_sidebar_recent_posts": false,
+          "show_sidebar_blog_tags": false
+        }
+      },
+      "collection-iron-tribe-fitness": {
+        "type": "collection-iron-tribe-fitness",
+        "settings": {
+          "product_grid_layout": 3,
+          "pagination_limit": 12,
+          "use_infinite_scroll": false,
+          "show_featured_image": true,
+          "show_grid_type": false,
+          "show_sale_badge": true,
+          "collection_overlay": false,
+          "show_product_swatches": false,
+          "show_smart_checkout": false,
+          "show_product_reviews_stars": false,
+          "show_collection_sidebar": true,
+          "collection_sidebar_filters": "none",
+          "group_array": "",
+          "collection_link_list": "mealfit-meals-sidebar",
+          "show_sidebar_collections": false,
+          "show_sidebar_vendors": false,
+          "sidebar_collection_sale_collection": "mealfit-seasoning",
+          "sidebar_collection_product_count": 4
+        }
+      },
+      "collection-mealfit-meals": {
+        "type": "collection-mealfit-meals",
+        "settings": {
+          "product_grid_layout": 3,
+          "pagination_limit": 12,
+          "use_infinite_scroll": true,
+          "show_featured_image": true,
+          "show_grid_type": false,
+          "show_sale_badge": true,
+          "collection_overlay": false,
+          "show_product_swatches": false,
+          "show_smart_checkout": false,
+          "show_product_reviews_stars": true,
+          "show_collection_sidebar": true,
+          "collection_sidebar_filters": "none",
+          "group_array": "",
+          "collection_link_list": "mealfit-meals-sidebar",
+          "show_sidebar_collections": false,
+          "show_sidebar_vendors": false,
+          "sidebar_collection_sale_collection": "weekly-specials",
+          "sidebar_collection_product_count": 4
+        }
+      },
+      "product-iron-tribe-fitness": {
+        "type": "product-iron-tribe-fitness",
+        "settings": {
+          "show_product_cart_postion": "bottom",
+          "show_smart_checkout": false,
+          "enable_description_enhancements": false,
+          "product_reviews": true,
+          "show_product_swatches": false,
+          "show_product_zoom": false,
+          "show_product_sku": false,
+          "show_product_vendor": false,
+          "show_product_quantity": false,
+          "show_product_tags": false,
+          "product_additional_img": "grid",
+          "enable_images_limit": false,
+          "images_limit_height": 500,
+          "show_product_tab_1": true,
+          "tab_1_title": "Reviews",
+          "product_tab_1_page": "",
+          "show_product_tab_2": true,
+          "tab_2_title": "FAQs",
+          "product_tab_2_page": "",
+          "show_product_tab_3": false,
+          "tab_3_title": "TAB 3",
+          "product_tab_3_page": "",
+          "show_product_tab_4": false,
+          "tab_4_title": "TAB 4",
+          "product_tab_4_page": "",
+          "related_products": true,
+          "show_sale_badge": true,
+          "collection_overlay": false,
+          "show_product_reviews_stars": true
+        }
+      },
+      "product-mealfit-meals": {
+        "type": "product-mealfit-meals",
+        "settings": {
+          "show_product_cart_postion": "bottom",
+          "show_smart_checkout": false,
+          "enable_description_enhancements": false,
+          "product_reviews": true,
+          "show_product_swatches": true,
+          "show_product_zoom": false,
+          "show_product_sku": false,
+          "show_product_vendor": false,
+          "show_product_quantity": false,
+          "show_product_tags": false,
+          "product_additional_img": "grid",
+          "enable_images_limit": false,
+          "images_limit_height": 500,
+          "show_product_tab_1": true,
+          "tab_1_title": "Reviews",
+          "product_tab_1_page": "",
+          "show_product_tab_2": true,
+          "tab_2_title": "Pickup Locations",
+          "product_tab_2_page": "pickup-locations",
+          "show_product_tab_3": false,
+          "tab_3_title": "TAB 3",
+          "product_tab_3_page": "",
+          "show_product_tab_4": false,
+          "tab_4_title": "TAB 4",
+          "product_tab_4_page": "",
+          "related_products": false,
+          "show_sale_badge": true,
+          "collection_overlay": false,
+          "show_product_reviews_stars": false
+        }
+      },
+      "article-recipes": {
+        "type": "article-recipes",
+        "blocks": {
+          "1551793554340": {
+            "type": "prep-time",
+            "settings": {
+              "prep_time": "<p>Breakfast Quiche - prep time 10 mins<\/p>"
+            }
+          },
+          "1551793560189": {
+            "type": "cook-time",
+            "settings": {
+              "cook_time": "<p>Breakfast Quiche - cook time 52 mins<\/p>"
+            }
+          },
+          "1551793571067": {
+            "type": "servings",
+            "settings": {
+              "servings": "<p>Breakfast Quiche -Serves 122 people<\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "1551793554340",
+          "1551793560189",
+          "1551793571067"
+        ],
+        "settings": {}
+      },
+      "blog-recipes": {
+        "type": "blog-recipes",
+        "settings": {
+          "blog_count": 12,
+          "blog_layout": "3-column",
+          "show_sidebar_recent_posts": false,
+          "show_sidebar_blog_tags": false
+        }
       }
     },
     "content_for_index": [
@@ -1136,9 +1849,11 @@
       "1540570770456",
       "1540589515394",
       "1540589650571",
-      "blog-posts",
       "1541807957110",
       "video",
+      "1543267325618",
+      "blog-posts",
+      "1543267444886",
       "1540578206909",
       "instagram-feed"
     ]

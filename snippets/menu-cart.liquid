@@ -13,6 +13,7 @@
         <li>{{ 'cart.general.total' | t }}</li>
       </ul>
       {% for item in cart.items %}
+      {%- include 'bold-options-hybrid-cart-item' with item -%}
       <ul>
         <li>
           <div class="thumb">
@@ -34,9 +35,9 @@
         <li>
           <p class="mobile-label-quantity">Quantity</p>
           <a class="minus_btn"></a>
-          <input type="text" id="updates_{{ item.id }}" name="updates[]" class="txtbox number_val_input" value="{{ item.quantity }}" min="0" data-id="{{ item.id }}"/>
+          <input type="text" id="updates_{{ item.key }}" name="updates[]" class="txtbox number_val_input" value="{{ item.quantity }}" min="0" data-id="{{ item.key }}"/>
           <a class="plus_btn"></a>
-          <div class="ajaxcart__errors text-center ajaxcart__item__{{ item.id }}__errors">
+          <div class="ajaxcart__errors text-center ajaxcart__item__{{ item.key }}__errors">
             {{ 'cart.general.error' | t }}
           </div>
         </li>

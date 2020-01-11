@@ -1,0 +1,42 @@
+{% comment %}
+{%- capture article_short_handle -%}
+{{ article.handle | remove:'recipes/' }}
+{%- endcapture -%}
+
+{% comment %}
+Test new variable output 
+{% endcomment %}
+<h1>{{ article_short_handle }}</h1>
+
+{%- assign collection = collection.breakfast-quiche -%}
+<p>{{ collection.title }}</p>
+
+{% comment %}
+Loop through all of the products in the collection
+{% endcomment %}
+
+{%- for product in collections.article_short_handle.products -%}
+  <h2>this should output twice</h2>
+{%- endfor -%}
+
+{% endcomment %}
+
+<ul class="tgl_c">
+  {% for product in collections[article.metafields.c_f.Related_Products].products %}
+  
+  {%- include 'bold-product' with product, hide_action: 'skip' -%}
+  <li>
+    <div class="post_img">
+      <a href="{{ product.url | within: collection }}"><img src="{{ product.featured_image.src | product_img_url: '300x' }}" alt="{{ product.featured_image.alt | escape }}" /></a>
+    </div>
+    <div class="post_detail">
+      <a href="{{ product.url | within: collection }}">{{ product.title | escape | remove: "Special -" }}</a>
+
+    </div>
+  </li>
+  
+  {% endfor %}
+  
+</ul>
+
+
