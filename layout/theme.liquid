@@ -47,7 +47,7 @@
 {%- include 'bold-options-hybrid' -%}
     {%- include 'bold-product' with product, hide_action: 'header' -%}
     {% include 'bold-common' %}
-    {% include 'bold-checkout-loader' %}  
+    {% include 'bold-checkout-loader' %}
     <!--[if lt IE 9]>
     {{ '//html5shiv.googlecode.com/svn/trunk/html5.js' | script_tag }}
     <![endif]-->
@@ -58,7 +58,7 @@
     {% endif %}
 
     {{ 'jquery.js' | asset_url | script_tag }}
-    
+
     {{ 'jquery-ui.min.js' | asset_url | script_tag }}
     {{ 'jquery-ui.min.css' | asset_url | stylesheet_tag }}
 
@@ -95,7 +95,7 @@
 
       {{ content_for_layout }}
 
-      {% section 'icon-buttons' %}	
+      {% section 'icon-buttons' %}
       {% section 'footer' %}
 
       {{ 'jquery.magnific-popup.min.js' | asset_url | script_tag }}
@@ -120,5 +120,7 @@
   <!-- Begin ReCharge code -->
 {% include 'subscription-theme-footer' %}
 <!-- End ReCharge code -->
+
+{{ 'custom.js' | asset_url | script_tag }}
 </body>
 </html>

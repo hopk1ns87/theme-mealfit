@@ -584,8 +584,9 @@ span.spr-badge {
     font-size: 12px;
     text-transform: uppercase;
     border-bottom: 1px solid #fbd61c;
-    margin-bottom: 10px;
-    margin-top: 20px;
+    /* margin-bottom: 10px; */
+    /* margin-top: 20px; */
+    margin-left: 10px;
 }
 .bold_option label {
     display: block;
@@ -709,4 +710,21 @@ span.spr-badge {
   opacity: 0;
 }
 
+/*----------------
+Daily Menu
+-----------------*/
+.bold_option_checkbox_background,
+.bold_option.bold_option_checkbox {
+  background-color: #eee;
+}
 
+.bold_option_checkbox_background .bold_option_title {
+  margin: 0;
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+
+div.bold_option:not(:empty) {
+  margin-bottom: 0;
+  padding: 10px 20px;
+}
