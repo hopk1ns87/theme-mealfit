@@ -1,0 +1,100 @@
+
+<div id="catering-content">
+  
+  <div class="container">
+    <div class="page_content">
+      <div class="row">
+        <div class="col-lg-4 col-lg-push-4 col-md-12 col-sm-12 text-center">
+<!--           <div class="logo" style="margin-top:90px;"><img src=" {{ 'mealfit-plans-logo.png' | asset_url }}" height="100px;"></div> -->
+          <h2>Thank You</h2>
+          <P>You should receive an email from us shortly, if you have any other questions, <a href="/pages/contact-us">contact us</a> or give us a call <a href="tel:(205) 597-4480">(205) 597-4480</a></P>
+          <br>
+          {% if page.handle == 'catering-questions-ask-your-wedding-caterer-typ' %}
+             <div class="row">
+              <div class="col-lg-12">
+                  <div class="col-lg-6"><a href="/pages/catering-landing-download" class="catering-btn-primary">Download Catering Menu</a></div>
+                  <div class="col-lg-6"><a href="/pages/catering-tell-us-about-your-event" class="catering-btn-secondary">Tell Us about your event</a></div>
+                </div>
+            </div>
+          {% endif %}
+          
+          {% if page.handle == 'catering-insider-tips-choosing-right-caterer-typ' %}
+             <div class="row">
+                  <div class="col-lg-12"><a href="#" class="catering-btn-primary">Download Catering Menu</a></div>
+            </div>
+          {% endif %}
+          
+          {% if page.handle == 'catering-tell-us-about-your-event-typ' %}
+          <div class="row">
+                  <div class="col-lg-12"><a href="#" class="catering-btn-primary">Download Catering Menu</a></div>
+            </div>
+          {% endif %}
+          
+          {% if page.handle == 'catering-menu-download-typ' %}
+          <div class="row">
+                  <div class="col-lg-12"><a href="#" class="catering-btn-primary">Download Catering Menu</a></div>
+            </div>
+          {% endif %}
+          
+
+        </div>
+      </div>
+
+    </div>
+      </div>
+
+
+</div>
+
+<style>
+
+  #catering-content{
+/*     background-image:url({{ 'wood-bg-good.jpg' | file_url }}); */
+    background-attachment: fixed;
+    padding:90px 0;
+  }
+
+  .catering-btn-primary{
+  	display: block;
+    padding: 10px;
+    background-color: #232323;
+    border:2px solid #232323;
+    border-radius: 4px;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 12px;
+    text-align:center;
+  }
+  .catering-btn-secondary{
+  	display: block;
+    padding: 10px;
+    background-color: transparent;;
+    border:2px solid #222;
+    border-radius: 4px;
+    color: #232323;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 12px;
+    text-align:center;
+  }
+  .catering-btn-accent{
+  	display: block;
+    padding: 10px;
+    background-color: transparent;;
+    border:2px solid #fbc500;
+    border-radius: 4px;
+    color: #fbc500;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 12px;
+    text-align:center;
+  }
+  .catering-btn-accent:hover{
+    background-color: #fbc500;
+    color: #232323;
+    text-align:center;
+
+  }
+
+</style>

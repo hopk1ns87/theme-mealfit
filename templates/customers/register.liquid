@@ -1,16 +1,25 @@
 <div id="content">
   <div class="container">
     {% include 'breadcrumb' %}
-    <div class="row">
-      <div class="col-sm-12">
-        <div class="title clearfix">
-          <h1>{{ 'customer.register.title' | t }}</h1>
+    <div class="row mt20 ">
+      <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+        <div class="row">
+          <div class="col-md-4"><a href="/account/register?view=iron-tribe-fitness"><img src="{{ 'ITF-logo.png' | asset_url }}" style="width:100%;"></a></div>
+          <div class="col-md-8">
+            <h5>Are you a member of Iron Tribe Fitness?</h5>
+            <p>We have created a menu just for our Iron Tribe Fitness Members. <a href="/account/register?view=iron-tribe-fitness" class="text-link">Register &rarr;</a>.</p>
+          </div>
         </div>
       </div>
     </div>
+    
+    
     <div class="row mt20">
       <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
         <div class="sfbox box-registration">
+          <div class="title clearfix">
+          <h1>{{ 'customer.register.title' | t }}</h1>
+        </div>
           {% form 'create_customer' %}
 
           {% include 'form-errors-custom' %}
@@ -31,6 +40,7 @@
             <label for="password" class="lbltxt">{{ 'customer.register.password' | t }}</label>
             <input type="password" value="" name="customer[password]" id="create_password" class="txtbox" {% if form.errors contains "password" %} class="error"{% endif %}>
           </div>
+          
 
           <div class="row">
             <div class="col-sm-4 col-ms-6"><p><input type="submit" class="btn_c" value="{{ 'customer.register.submit' | t }}"></p></div>
@@ -42,3 +52,7 @@
     </div>
   </div>
 </div>
+  
+  <style>
+    .text-link{text-decoration:underline;}
+  <style>

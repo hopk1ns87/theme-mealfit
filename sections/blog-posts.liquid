@@ -29,11 +29,11 @@
             <div class="box article_img_block">
               <figure class="effect-chico">
                 <noscript>
-                 <img alt="{{  article.title | escape }}" srcset="{{ article | img_url: img_size }} 1x, {{ article | img_url: img_size, scale: 2 }} 2x, {{ article | img_url: img_size, scale: 3 }} 3x" >
+                 <img alt="{{  article.title | escape }}" srcset="{{ article | img_url: img_size, crop: 'center' }} 1x, {{ article | img_url: img_size, scale: 2, crop: 'center' }} 2x, {{ article | img_url: img_size, scale: 3, crop: 'center' }} 3x" >
                 </noscript>
-                {%- assign img_url = article.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+                
                 <img
-                     src="{{ article | img_url:'300x' }}" 
+                     src="{{ article | img_url:'300x300', crop: 'center' }}" 
                      alt="{{  article.title | escape }}" 
                      class="lazyload blur-up"                         
                      data-src="{{ img_url }}"
@@ -48,7 +48,7 @@
           {% endif %}
 
           <div class="rte clearfix">
-            <h2><a href="{{ article.url }}">{{ article.title | escape }}</a></h2>
+            <h3 style="text-transform: uppercase; text-align: center;"><a href="{{ article.url }}">{{ article.title | escape }}</a></h3>
             {% if section.settings.home_blog_excerpt %}
             {{ article.excerpt_or_content }}
             {% endif %}

@@ -55,6 +55,9 @@
         {% endcomment %}
 
         {% for link in linklists[linklist_title].links %}
+        {%- comment %}<locksmith:0d12>{% endcomment -%}
+          {%- include 'locksmith-variables', locksmith_scope: 'subject', locksmith_subject: link, locksmith_subject_parent: linklists[linklist_title] %}{% if locksmith_transparent %}{% else %}{% continue %}{% endif -%}
+        {%- comment %}</locksmith:0d12>{% endcomment -%}
         {% for tag in collection.all_tags %}
 {%- if tag contains '_HIDDEN_PRODUCT' -%}{%- continue -%}{%- endif -%}
         {% assign title = cat_item | append: "_" | append: link.title %}
@@ -178,11 +181,17 @@
    {% assign firstLevelMenu = linklists[section.settings.collection_link_list]%}
         {% if firstLevelMenu.links != blank  %}
   <div class="side_box side_box_1 red5 collection_custom_menu">
-    <h5><a href="#" class="tgl_btn">{{ 'collections.sidebar.widget_menu_title' | t }}</a></h5>
+    <h5><a href="#" class="tgl_btn">{{ linklists[section.settings.collection_link_list].title }}</a></h5>
     <ul class="tgl_c">
+    {%- comment %}<locksmith:2867>{% endcomment -%}
+      {%- assign locksmith_ca55_forloop__size = 0 %}{% for link in firstLevelMenu.links %}{% include 'locksmith-variables', locksmith_scope: 'subject', locksmith_subject: link %}{% if locksmith_transparent %}{% assign locksmith_ca55_forloop__size = locksmith_ca55_forloop__size | plus: 1 %}{% endif %}{% endfor %}{% assign locksmith_ca55_forloop__index = nil -%}
+    {%- comment %}</locksmith:2867>{% endcomment -%}
     {% for link in firstLevelMenu.links %}
-            {%- assign child_id = forloop.index -%}
-            {% assign even_index = forloop.index | modulo: 2 %}
+            {%- comment %}<locksmith:e371>{% endcomment -%}
+              {%- include 'locksmith-variables', locksmith_scope: 'subject', locksmith_subject: link, locksmith_subject_parent: firstLevelMenu %}{% if locksmith_transparent %}{% if locksmith_ca55_forloop__index == nil %}{% assign locksmith_ca55_forloop__index = 1 %}{% assign locksmith_ca55_forloop__index0 = 0 %}{% else %}{% assign locksmith_ca55_forloop__index = locksmith_ca55_forloop__index | plus: 1 %}{% assign locksmith_ca55_forloop__index0 = locksmith_ca55_forloop__index0 | plus: 1 %}{% endif %}{% if locksmith_ca55_forloop__index == 1 %}{% assign locksmith_ca55_forloop__first = true %}{% else %}{% assign locksmith_ca55_forloop__first = false %}{% endif %}{% if locksmith_ca55_forloop__index == locksmith_ca55_forloop__size %}{% assign locksmith_ca55_forloop__last = true %}{% else %}{% assign locksmith_ca55_forloop__last = false %}{% endif %}{% assign locksmith_ca55_forloop__rindex = locksmith_ca55_forloop__size | minus: locksmith_ca55_forloop__index | minus: 1 %}{% assign locksmith_ca55_forloop__rindex0 = locksmith_ca55_forloop__size | minus: locksmith_ca55_forloop__index0 | minus: 1 %}{% else %}{% continue %}{% endif -%}
+            {%- comment %}</locksmith:e371>{% endcomment -%}
+            {%- assign child_id = locksmith_ca55_forloop__index -%}
+            {% assign even_index = locksmith_ca55_forloop__index | modulo: 2 %}
             {% if link.links.size > 0 %}
             <div class="panel-heading {% if even_index == 0 %} even_bg {% endif %}" role="tab">
               <a href="#{{link.title | escape | handle }}_{{child_id}}_collection_{{sidebar_index}}" data-link-url="{{link.url}}" role="button" data-toggle="collapse" data-parent="#accordion_collection_{{sidebar_index}}" data-toggle="collapse" class="second_level_drop_link collapsed" aria-haspopup="true" aria-expanded="false">
@@ -191,12 +200,18 @@
             <div class="panel-collapse collapse {% if even_index == 0 %} even_bg {% endif %}" role="tabpanel" id="{{link.title | escape | handle}}_{{child_id}}_collection_{{sidebar_index}}">
               <ul class="panel-group-nav-list second-level-nav-list">
                 {% for child_link in link.links %}
+                {%- comment %}<locksmith:801c>{% endcomment -%}
+                  {%- include 'locksmith-variables', locksmith_scope: 'subject', locksmith_subject: child_link, locksmith_subject_parent: link %}{% if locksmith_transparent %}{% else %}{% continue %}{% endif -%}
+                {%- comment %}</locksmith:801c>{% endcomment -%}
                 {% if child_link.links.size > 0 %}
                 <li><a href="#{{child_link.handle | escape  | handle}}_{{child_id}}_collection_{{sidebar_index}}" data-link-url="{{child_link.url}}" class="dropdown-menu-links third_level_drop_link collapsed" data-toggle="collapse" aria-haspopup="true" data-parent="#{{link.handle | escape | handle}}_{{child_id}}_collection_{{sidebar_index}}">
                   <span class="visuallyhidden">Hit enter to expand submenu</span>{{child_link.title | escape }} <i class="fa fa-angle-down"></i></a></li>
                 <div class="panel-collapse collapse" role="tabpanel" id="{{child_link.handle | escape | handle}}_{{child_id}}_collection_{{sidebar_index}}"  aria-expanded="false">
                   <ul class="panel-group-nav-list third-level-nav-list">
                     {% for grand_child_link in child_link.links %}
+                    {%- comment %}<locksmith:48e8>{% endcomment -%}
+                      {%- include 'locksmith-variables', locksmith_scope: 'subject', locksmith_subject: grand_child_link, locksmith_subject_parent: child_link %}{% if locksmith_transparent %}{% else %}{% continue %}{% endif -%}
+                    {%- comment %}</locksmith:48e8>{% endcomment -%}
                     <li><a href="{{grand_child_link.url}}" data-parent="#{{child_link.handle | escape | handle}}_collection_{{sidebar_index}}">{{grand_child_link.title | escape }}</a></li>  
                     {% endfor %}
                   </ul>
@@ -259,7 +274,7 @@
           <a href="{{ product.url | within: collection }}"><img src="{{ product.featured_image.src | product_img_url: '300x' }}" alt="{{ product.featured_image.alt | escape }}" /></a>
         </div>
         <div class="post_detail">
-          <a href="{{ product.url | within: collection }}">{{ product.title | escape }}</a>
+          <a href="{{ product.url | within: collection }}">{{ product.title | escape | remove: "Special -" }}</a>
           <br />
           <span class="price">
             {{ product.price | money }}

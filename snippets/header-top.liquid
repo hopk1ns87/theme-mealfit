@@ -6,6 +6,9 @@
       <ul>
         {% if section.settings.heading_content == 'links' %}
         {% for link in linklists[section.settings.header_top_linklist].links %}
+        {%- comment %}<locksmith:246e>{% endcomment -%}
+          {%- include 'locksmith-variables', locksmith_scope: 'subject', locksmith_subject: link, locksmith_subject_parent: linklists[section.settings.header_top_linklist] %}{% if locksmith_transparent %}{% else %}{% continue %}{% endif -%}
+        {%- comment %}</locksmith:246e>{% endcomment -%}
         <li><a href="{{ link.url }}">{{ link.title | escape }}</a></li>
         {% else %}
         <li>{{ 'general.header.no_links' | t }}</li>

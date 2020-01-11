@@ -12,7 +12,7 @@
         </div>
       </li>
       {% endif %}
-      <a href="javascript:void(0);" data-href="/cart" class="visible-ms visible-xs pull-right navbar-cart cart-popup"><div class="cart-icon"><span class="count{% if cart.item_count < 1 %} hidden{% endif %}">{{ cart.item_count }}</span><i class="fa fa-shopping-cart"></i></div></a>
+      <a href="javascript:void(0);" data-href="/cart" class="visible-ms visible-xs pull-right navbar-cart cart-popup"><div class="cart-icon"><span class="count{% if cart.item_count < 1 %} hidden{% endif %}">{%- include 'bold-options-hybrid-cart-item-count' with cart -%}{{- bold_options_hybrid_item_count -}}</span><i class="fa fa-shopping-cart"></i></div></a>
        {% if section.settings.show_search_bar_mobile %}
         <div class="visible-mobile-sm mobile-landscape-search"> 
           <div class="fixed-search navbar-cart">    
@@ -55,18 +55,30 @@
     <nav class="wsmenu clearfix multi-drop" role="navigation">
       <ul class="mobile-sub wsmenu-list mega_menu_simple_menu">
         {% for link in linklists[section.settings.header_main_linklist].links %}
+        {%- comment %}<locksmith:5182>{% endcomment -%}
+          {%- include 'locksmith-variables', locksmith_scope: 'subject', locksmith_subject: link, locksmith_subject_parent: linklists[section.settings.header_main_linklist] %}{% if locksmith_transparent %}{% else %}{% continue %}{% endif -%}
+        {%- comment %}</locksmith:5182>{% endcomment -%}
         {% if link.links != blank %}
         <li  class="has-submenu"><a href="{{ link.url }}" aria-controls="megamenu_items-{{link.handle}}" aria-haspopup="true" aria-expanded="false">{{ link.title | escape }}<span class="arrow"></span></a>
           <ul id="megamenu_items-{{link.handle}}" class="wsmenu-submenu">
             {% for childlink in link.links %}
+              {%- comment %}<locksmith:7fe3>{% endcomment -%}
+                {%- include 'locksmith-variables', locksmith_scope: 'subject', locksmith_subject: childlink, locksmith_subject_parent: link %}{% if locksmith_transparent %}{% else %}{% continue %}{% endif -%}
+              {%- comment %}</locksmith:7fe3>{% endcomment -%}
               {% if childlink.links != blank %}
               <li class="has-submenu-sub"><a href="{{ childlink.url }}" aria-controls="megamenu_items-{{childlink.handle}}" aria-haspopup="true" aria-expanded="false">{{ childlink.title | escape }}<span class="left-arrow"></span></a>
                 <ul class="wsmenu-submenu-sub" id="megamenu_items-{{childlink.handle}}">
                   {% for grandchildlink in childlink.links %}  
+                    {%- comment %}<locksmith:8818>{% endcomment -%}
+                      {%- include 'locksmith-variables', locksmith_scope: 'subject', locksmith_subject: grandchildlink, locksmith_subject_parent: childlink %}{% if locksmith_transparent %}{% else %}{% continue %}{% endif -%}
+                    {%- comment %}</locksmith:8818>{% endcomment -%}  
                     {% if grandchildlink.links != blank %}
                       <li class="has-submenu-sub-sub"><a href="{{ grandchildlink.url }}">{{ grandchildlink.title | escape }}<span class="left-arrow"></span></a>
                         <ul class="wsmenu-submenu-sub-sub">
                           {% for grandgrandchildlink in grandchildlink.links %}
+                          {%- comment %}<locksmith:d26e>{% endcomment -%}
+                            {%- include 'locksmith-variables', locksmith_scope: 'subject', locksmith_subject: grandgrandchildlink, locksmith_subject_parent: grandchildlink %}{% if locksmith_transparent %}{% else %}{% continue %}{% endif -%}
+                          {%- comment %}</locksmith:d26e>{% endcomment -%}
                           <li><a href="{{ grandgrandchildlink.url }}">{{ grandgrandchildlink.title | escape }}</a></li>
                           {% endfor %}
                         </ul>
@@ -91,7 +103,7 @@
     </nav>
     <ul class="hidden-xs nav navbar-nav navbar-right">
       <li class="dropdown-grid no-open-arrow">
-        <a data-toggle="dropdown" href="javascript:void(0);" data-href="/cart" class="dropdown-toggle cart-popup" aria-expanded="true"><div class="cart-icon"><span class="count{% if cart.item_count < 1 %} hidden{% endif %}">{{ cart.item_count }}</span><i class="fa fa-shopping-cart"></i></div></a>
+        <a data-toggle="dropdown" href="javascript:void(0);" data-href="/cart" class="dropdown-toggle cart-popup" aria-expanded="true"><div class="cart-icon"><span class="count{% if cart.item_count < 1 %} hidden{% endif %}">{%- include 'bold-options-hybrid-cart-item-count' with cart -%}{{- bold_options_hybrid_item_count -}}</span><i class="fa fa-shopping-cart"></i></div></a>
         <div class="dropdown-grid-wrapper hidden">
           <div class="dropdown-menu no-padding col-xs-12 col-sm-9 col-md-7" role="menu">
             {% include 'menu-cart' %}

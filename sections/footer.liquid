@@ -17,6 +17,9 @@
               {% if linklist != '' %}
               <ul>
                 {% for link in linklist.links %}
+                {%- comment %}<locksmith:c98b>{% endcomment -%}
+                  {%- include 'locksmith-variables', locksmith_scope: 'subject', locksmith_subject: link, locksmith_subject_parent: linklist %}{% if locksmith_transparent %}{% else %}{% continue %}{% endif -%}
+                {%- comment %}</locksmith:c98b>{% endcomment -%}
                 <li><a href="{{ link.url }}">{{ link.title }}</a></li>
                 {% endfor %}
               </ul>
@@ -52,7 +55,7 @@
   </div>
   <div class="f_bot">
     <div class="container">
-      <div class="f_bot_left">&copy; {{ 'now' | date: "%Y" }} {{ shop.name | link_to: '/' }} {{ 'layout.footer.theme_credits_html' | t }} | Powered by <a href="https://www.shopify.com/?ref=seanhopkins&utm_campaign=mealfit&utm_medium=website&utm_source=mealfit" target="_blank"> Shopify</a></div>
+      <div class="f_bot_left">&copy; {{ 'now' | date: "%Y" }} {{ shop.name | link_to: '/' }} {{ 'layout.footer.theme_credits_html' | t }} | Powered by <a rel="nofollow" href="https://www.shopify.com/?ref=seanhopkins&utm_campaign=mealfit&utm_medium=website&utm_source=mealfit" target="_blank"> Shopify</a></div>
       {% if section.settings.show_payment_methods and shop.enabled_payment_types != empty %}
       <div class="f_bot_right">
         <div class="partner">

@@ -2,18 +2,51 @@
   <div class="container">
     {% include 'breadcrumb' %}
     <div class="title clearfix">
-      <h1>{{ page.title | escape }}</h1>
+      <h1>{{ page.title | escape | remove: "- Members" }}</h1>
     </div>
     <div class="page_content">
+      
       <div class="row">
-        
-        <div class="{% if section.settings.page_link_list != blank or section.settings.show_sidebar_page_collections or section.settings.show_page_sidebar_sale %}col-md-9 col-md-push-3 col-sm-8 col-sm-push-4{% else %}col-sm-12{% endif %}">
-          <div class="sfbox box-page">
-        
+        <div class="col-sm-12 col-md-6 col-md-push-3">
+          <div class="sfbox box-page ">
+            <h4 class="mb30 text-center">How does this work?</h4>
+            <ul class="mb30">
+            <li>
+              <div class="post_img"><span class="number">1</span></div>
+              <div class="post_detail">Below you will see a list of weekly meal plans. Each week we will release 4 plans: Original, Whole 30, Strict, and Tips
+              </div>
+              <div class="clearfix cf clear"></div>
+            </li>
+            <li>
+              <div class="post_img"><span class="number">2</span></div>
+              <div class="post_detail">Click on one of the buttons to download a plan, and hit the grocery store!
+              </div>
+              <div class="clearfix cf clear"></div>
+            </li>
+            <li>
+              <div class="post_img"><span class="number">3</span></div>
+              <div class="post_detail">If you have any questions, you can <a href="/pages/contact">Contact Us</a>
+              </div>
+              <div class="clearfix cf clear"></div>
+            </li>
+            </ul>
+          </div>
         </div>
+        
+<!--         <div class="col-sm-12 col-md-6">
+          <div class="sfbox box-page">
+            <h4 class="mb30">Refer a friend, earn $5</h4>
+            <p>Do you know someone who might enjoy mealfit plans? Enter their email address below!</p>
+            <p>If they sign up, we will send you $5</p>
+          </div>
+        </div> -->
+        
+      </div>
+      <div class="row">
+        <div class="{% if section.settings.page_link_list != blank or section.settings.show_sidebar_page_collections or section.settings.show_page_sidebar_sale %}col-md-9 col-md-push-3 col-sm-8 col-sm-push-4{% else %}col-sm-12{% endif %}">
           <div class="collection-grid view-grid">
           {% for block in section.blocks %}
-            <div class="col-md-4 col-sm-6 col-xs-6 element mb30">
+            <div class="col-md-3 col-sm-6 col-xs-12 element mb30">
               <div class="main_box">
                 <div class="plan-title">
                   <h5 class="plan-name">{{ block.settings.title | truncate: 100 }}</h5>
@@ -24,19 +57,17 @@
                 
                 
                 <div class="plan-download-links">
-                  <a class="plan-type {% if block.settings.plan-type-original-url != '' %} enabled {% else %} disabled {% endif %}" href="{{ block.settings.plan-type-original-url }}"><i class="fa fa-download" aria-hidden="true"></i> Original</a>
-                  <a class="plan-type {% if block.settings.plan-type-strict-url != '' %} enabled {% else %} disabled {% endif %}" href="{{ block.settings.plan-type-strict-url }}"><i class="fa fa-download" aria-hidden="true"></i> Zone</a>
-                  <a class="plan-type {% if block.settings.plan-type-whole-30-url != '' %} enabled {% else %} disabled {% endif %}" href="{{ block.settings.plan-type-whole-30-url }}"><i class="fa fa-download" aria-hidden="true"></i> Whole 30</a>
-                  <a class="plan-type {% if block.settings.plan-tips-url != '' %} enabled {% else %} disabled {% endif %}" href="{{ block.settings.plan-tips-url }}"><i class="fa fa-download" aria-hidden="true"></i> Tips</a>
+                  <a target="_blank" class="plan-type {% if block.settings.plan-type-original-url != '' %} enabled {% else %} disabled {% endif %}" href="{{ block.settings.plan-type-original-url }}"><i class="fa fa-download" aria-hidden="true"></i> Original</a>
+                  <a target="_blank" class="plan-type {% if block.settings.plan-type-strict-url != '' %} enabled {% else %} disabled {% endif %}" href="{{ block.settings.plan-type-strict-url }}"><i class="fa fa-download" aria-hidden="true"></i> Zone</a>
+                  <a target="_blank" class="plan-type {% if block.settings.plan-type-whole-30-url != '' %} enabled {% else %} disabled {% endif %}" href="{{ block.settings.plan-type-whole-30-url }}"><i class="fa fa-download" aria-hidden="true"></i> Whole 30</a>
+                  <a target="_blank" class="plan-type {% if block.settings.plan-tips-url != '' %} enabled {% else %} disabled {% endif %}" href="{{ block.settings.plan-tips-url }}"><i class="fa fa-download" aria-hidden="true"></i> Tips</a>
                 <p class="date">Uploaded:{{ block.settings.date }}</p>
                 </div>
               </div>
             </div>
           {% endfor %}
           </div>
-          <div class="sfbox box-page">
-        
-        </div>
+          
         </div>
         {% if section.settings.page_link_list != blank or section.settings.show_sidebar_page_collections or section.settings.show_page_sidebar_sale %}
           {% include 'sidebar-page' %}
@@ -47,7 +78,7 @@
 </div>
 {% schema %}
   {
-    "name": "Page",
+    "name": "Mealfit Plans",
     "settings": [
       {
         "type": "header",
@@ -172,6 +203,32 @@
    cursor: default;
     opacity:.25;
   }
-  #content .main_box{background-color:#fff;}
+  #content .main_box{background-color:#fff; border:0;}
+  ul li .post_img {
+    float: left;
+    margin: 0 10px 0 0;
+    width:75px;
+    
+  }
+  ul li .post_detail {
+    float: left;
+    width: calc(100% - 85px);
+  }
+  ul li{margin-bottom:15px;}
+  
+  span.number{
+  	height:45px;
+    width:45px;
+    border-radius:50%;
+    text-align:center;
+    line-height:38px;
+    background-color:#222;
+    color:#fbd61c;
+    font-size:22px;
+    font-weight:700;
+    display: block;
+    margin: auto;
+    border:4px double #efefef;
+  }
 
 </style>

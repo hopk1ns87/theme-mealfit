@@ -14,6 +14,9 @@
       <h5><a href="#" class="tgl_btn">{{ 'pages.sidebar.widget_page_links_title' | t }}</a></h5>
       <ul class="tgl_c">
         {% for link in linklists[section.settings.page_link_list].links %}
+        {%- comment %}<locksmith:6abf>{% endcomment -%}
+          {%- include 'locksmith-variables', locksmith_scope: 'subject', locksmith_subject: link, locksmith_subject_parent: linklists[section.settings.page_link_list] %}{% if locksmith_transparent %}{% else %}{% continue %}{% endif -%}
+        {%- comment %}</locksmith:6abf>{% endcomment -%}
         <li><a href="{{ link.url }}">{{ link.title | escape}}</a></li>
         {% else %}
         <li>{{ 'pages.sidebar.widget_no_links' | t }}</li>

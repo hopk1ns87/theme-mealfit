@@ -72,6 +72,7 @@
     </div>
    {% if section.settings.product_additional_img == "carousel" %}
     <div id="carousel" class="flexslider">
+      {% if product.images.size > 1 %}
       <ul class="slides">
         {% for image in product.images %}
         <li data-image-id="{{ image.id }}">
@@ -79,6 +80,7 @@
         </li>
         {% endfor %}
       </ul>
+      {% endif %}
       </div>
     {% endif %}
   </div>

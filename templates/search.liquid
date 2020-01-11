@@ -1,3 +1,7 @@
+{%- comment %}<locksmith:d130>{% endcomment -%}
+  {%- if search.results %}{% paginate search.results by 12 %}{% assign locksmith_search__results_count = 0 %}{% for result in search.results %}{% include 'locksmith-variables', locksmith_scope: 'subject', locksmith_subject: result, locksmith_subject_parent: search %}{% if locksmith_transparent %}{% else %}{% continue %}{% endif %}{% assign locksmith_search__results_count = locksmith_search__results_count | plus: 1 %}{% endfor %}{% endpaginate %}{% endif -%}
+{%- comment %}</locksmith:d130>{% endcomment -%}
+
 {% assign product_only_search =  settings.search_type_query %}
 {% assign grid_results = true %}
 
@@ -9,7 +13,7 @@
     {% if search.performed %}
     {% paginate search.results by 12 %}
 
-    {% if search.results_count == 0 %}
+    {% if locksmith_search__results_count == 0 %}
     <div class="title clearfix">
       <h1>{{ 'general.search.search_heading' | t }}</h1>
     </div>
@@ -46,12 +50,18 @@
         {% if grid_results == false %}
         <div class="search-list mt20 col-xs-12">
           {% for item in search.results %}
+{%- comment %}<locksmith:87d6>{% endcomment -%}
+  {%- include 'locksmith-variables', locksmith_scope: 'subject', locksmith_subject: item, locksmith_subject_parent: search %}{% if locksmith_transparent %}{% else %}{% continue %}{% endif -%}
+{%- comment %}</locksmith:87d6>{% endcomment -%}
 {%- include 'bold-product' with item, hide_action: 'skip' -%}
           {% include 'search-result' %}
           {% endfor %}
         </div>
         {% else %}
         {% for item in search.results %}
+{%- comment %}<locksmith:8200>{% endcomment -%}
+  {%- include 'locksmith-variables', locksmith_scope: 'subject', locksmith_subject: item, locksmith_subject_parent: search %}{% if locksmith_transparent %}{% else %}{% continue %}{% endif -%}
+{%- comment %}</locksmith:8200>{% endcomment -%}
 {%- include 'bold-product' with item, hide_action: 'skip' -%}
         {% include 'search-result-grid' %}
         {% endfor %}

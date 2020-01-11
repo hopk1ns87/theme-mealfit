@@ -1416,11 +1416,11 @@ theme.VideoSection = (function() {
        
    if(videoType == 'youtube'){
     var player;
-    player = new YT.Player('video-iframe-'+sectionId, {
-        events: {
-          'onStateChange': onPlayerChange
-        }
-    });
+//     player = new YT.Player('video-iframe-'+sectionId, {
+//         events: {
+//           'onStateChange': onPlayerChange
+//         }
+//     });
     
     function onPlayerChange(evt) {
 
@@ -1479,12 +1479,12 @@ function setAsFinished() {
     }else{
     if(videoType == 'youtube'){
     var player;
-    player = new YT.Player('video-iframe-'+sectionId, {
-        events: {
-          'onReady': onPlayerReady,
-          'onStateChange': onPlayerChange
-        }
-    });
+//     player = new YT.Player('video-iframe-'+sectionId, {
+//         events: {
+//           'onReady': onPlayerReady,
+//           'onStateChange': onPlayerChange
+//         }
+//     });
     
     function onPlayerChange(evt) {
 
@@ -2090,6 +2090,34 @@ $container.find('#carousel').flexslider({
     }
     if (variant) {
       if (variant.available) {
+        if (variant.option1 == 'Sweet Potatoes') {
+        $('#sweet-potatoes').fadeIn();
+        $('#jasmine-rice').hide();
+        $('#red-potatoes').hide();
+      } else {
+        $('#sweet-potatoes').hide();
+        
+      }
+        if (variant.option1 == 'Jasmine Rice') {
+        $('#jasmine-rice').fadeIn();
+        $('#sweet-potatoes').hide();
+        $('#red-potatoes').hide();
+      } else {
+        $('#jasmine-rice').hide();
+        
+      }
+         if (variant.option1 == 'Red Potatoes') {
+        $('#red-potatoes').fadeIn();
+        $('#sweet-potatoes').fadeOut();
+        $('#jasmine-rice').fadeOut();
+      } else {
+        $('#red-potatoes').fadeOut();
+        
+      }
+        
+       
+        
+        
 //          if (variant.inventory_management == "shopify" && variant.inventory_policy != "continue" && variant.inventory_quantity < qty) {
 //           // Variant is sold out, disable the submit button
 //           addToCart.val('{{ "products.product.sold_out" | t }}').addClass('disabled').prop('disabled', true);
