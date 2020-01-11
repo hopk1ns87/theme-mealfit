@@ -1,4 +1,30 @@
+BOLD.options.app.on('option_products_loaded', function(data){
+  console.log('option_products_loaded!');
+  // $('.bold_option_checkboxmulti.bold_option_hidden').addClass('bold_option_checkbox_extras');
+});
+
 BOLD.options.app.on('option_changed', function(data){
   console.log('option_changed!');
-  $('.bold_option_checkboxmulti.bold_option_hidden').addClass('bold_option_checkbox_background');
+  // $('.bold_option_checkboxmulti.bold_option_hidden').addClass('bold_option_checkbox_extras');
+
+
+  // $('.bold_option_checkboxmulti.bold_option_hidden').addClass('bold_option_checkbox_extras');
+  //
+  // console.log('classes added');
+  //
+  // var $defaultCheckboxGroups = $('.bold_option_checkboxmulti:not(.bold_option_checkbox_extras)');
+  //
+  // // $( $defaultCheckboxGroups ).each(function() {
+  // //   $(this).css('background-color', 'red');
+  // // });
+  //
+  // for (var i = 0; i < $defaultCheckboxGroups.length; i++) {
+  //
+  //   $( $defaultCheckboxGroups[i] ).css('background-color', 'blue');
+  //
+  // }
+  //
+  // console.log('colors added');
 });
+
+console.log('test');
