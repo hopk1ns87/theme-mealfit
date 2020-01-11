@@ -1,0 +1,202 @@
+{% layout none %}<!DOCTYPE html>
+<!--[if IE 8]> <html class="lt-ie9" lang="en"> <![endif]-->
+<!--[if (gt IE 8)|!(IE)]><!--> <html class="modern" lang="en"> <!--<![endif]-->
+  <head>
+      <!-- Basic page needs ================================================== -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>
+      {{ shop.name }}
+    </title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+
+    {% if settings.favicon != empty %}
+    <link rel="shortcut icon" href="{{ 'favicon.png' | asset_url }}" type="image/png" />
+    {% endif %}
+
+    <!-- Social ================================================== -->
+    {% include 'social-meta-tags' %}
+
+    {{ content_for_header }}
+
+    <!-- CSS ================================================== -->
+        {{ 'apps.css' | asset_url | stylesheet_tag }}
+        {{ 'style.css' | asset_url | stylesheet_tag }}
+        {{ 'custom.css' | asset_url | stylesheet_tag }}
+	
+     <!-- Theme Global App JS ================================================== -->
+    <script>
+      var app = app || {
+        data:{
+          template:{{ template | json }},
+          money_format: {{ shop.money_format | default:false | json }}
+        }
+      }
+    </script>
+    <!-- JS ================================================== -->
+    {{ 'jquery.js' | asset_url | script_tag }}
+<!--     {{ 'jquery.magnific-popup.min.js' | asset_url | script_tag }} -->
+    {{ 'scripts.js' | asset_url | script_tag }}
+   
+
+  </head>
+
+  <body class="template-infusionsoft-landing">
+    
+
+  <div class="container">
+    <div class="page_content">
+      <div class="row text-center">
+      	<div class="logo"><img src=" {{ 'mf-logo.png' | asset_url }}" height="100px;"></div>
+      </div>
+      <div class="sfbox box-page animated fadeInUp">
+        <div class="row">
+          <div class="col-md-12 rte">
+          {% if page.handle contains 'new-mom' %}
+            {% section "new-mom" %}
+          {% endif %}
+
+          {% if page.handle contains 'hs-athlete' %}
+            {% section "hs-athlete" %}
+          {% endif %}
+
+          {% if page.handle contains 'thankyou' %}
+            {% section "thankyou" %}
+          {% endif %}
+            
+          {% if page.handle == 'catering-menu-download' %}
+            {% section "catering-menu-download" %}
+          {% endif %}
+            
+          {% if page.handle == 'catering-tell-us-about-your-event' %}
+            {% section "catering-event" %}
+          {% endif %}
+
+          </div>
+        </div>
+      
+      </div>
+    </div>
+  </div>
+
+    
+    
+    
+    
+    
+    <style>
+      html, body{height:100vh;}
+      .logo{margin-top:30px;}
+      .page_content{
+    max-width: 600px;
+    margin: auto;
+}
+  .section-dark p{color:#fff !important;}
+  .section-dark h1, .section-dark h2, .section-dark h3, .section-dark h4{color:#fbc500;}
+  
+  .section-light{color:#232323 !important; background-color:#efefef;}
+  .template-infusionsoft-landing{
+    background-image:url({{ 'wood-bg-good.jpg' | file_url }});
+    background-attachment: fixed;
+  }
+
+  .content-wrap-table{display:table; width:100%;}
+  .content-wrap{
+  	display:table-cell;
+    vertical-align:middle;
+    padding:90px 0;
+  }
+  .logo{margin-bottom:30px;}
+  .h2{margin-bottom:15px;}
+  p{margin-bottom:45px;}
+  .catering-btn-primary{
+  	display: block;
+    padding: 10px;
+    background-color: #232323;
+    border:2px solid #232323;
+    border-radius: 4px;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 12px;
+    text-align:center;
+  }
+  .catering-btn-secondary{
+  	display: block;
+    padding: 10px;
+    background-color: transparent;;
+    border:2px solid #222;
+    border-radius: 4px;
+    color: #232323;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 12px;
+    text-align:center;
+  }
+  .catering-btn-accent{
+  	display: block;
+    padding: 10px;
+    background-color: transparent;;
+    border:2px solid #fbc500;
+    border-radius: 4px;
+    color: #fbc500;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 12px;
+    text-align:center;
+  }
+  .catering-btn-accent:hover{
+    background-color: #fbc500;
+    color: #232323;
+    text-align:center;
+
+  }
+  
+  
+  .embed-container {
+    border: 1px solid rgba(255, 255, 255, .5);
+  }
+      .giveaway-description{margin-bottom:30px;}
+    /*   FORMS */
+  label {
+    display: block;
+    max-width: unset;
+    margin-bottom: 5px;
+    font-weight: 700;
+    width: 100%;
+    font-size: 16px;
+}
+  input {   
+    width: 100%;
+    padding: 10px;
+    border: 0;
+    border-bottom: 1px solid #dadada;
+    margin-bottom: 20px;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    margin-bottom: 40px;
+}
+  button {
+    height: unset;
+    line-height: unset;
+    display: block;
+    margin: 30px auto 0;
+    padding: 15px 40px;
+    max-width: unset;
+    background: #2f2f2f;
+    border-radius: 5px;
+    border: none;
+    text-align: center;
+    position: relative;
+    -moz-transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #fcc600;
+}
+</style>
+    
+  </body>
+</html>

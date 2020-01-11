@@ -1,0 +1,158 @@
+<!-- Begin ReCharge code -->
+{% include 'subscription-cart-footer' %}
+<!-- End ReCharge code -->
+
+{% for item in cart.items %}
+  {% if  item.product.type == 'Mealfit Meals' %}
+    {% assign mealfit_meals = true %}
+  {% endif %}
+
+  {% if  item.product.type == 'Mealfit Plans' %}
+    {% assign mealfit_plans = true %}
+  {% endif %}
+
+  {% if  item.product.type == 'Mealfit Gym' %}
+    {% assign mealfit_gym = true %}
+  {% endif %}
+
+{% endfor %}
+
+
+<div id="content">
+  <div class="container">
+    {% include 'breadcrumb' %}
+    <div class="title clearfix">
+      <h1>{{ 'cart.general.title' | t }}</h1>
+    </div>
+    <div class="cart_c">
+      <div class="cart_top">
+        <div class="row">
+          {% if settings.cart_link_list != "" or settings.show_shipping_calculator or mealfit_meals or mealfit_gym or mealfit_plans %}
+          <div class="col-md-9 col-md-push-3 col-sm-8 col-sm-push-4">
+            {% else %}
+            <div class="col-sm-12">
+              {% endif %}
+              <div class="cart_tbl">
+                {% if cart.item_count > 0 %}
+                <form action="/cart" method="post" novalidate>
+                  <div class="clearfix title_row">
+                    <ul>
+                      <li>{{ 'cart.general.photo' | t }}</li>
+                      <li>{{ 'cart.general.name' | t }}</li>
+                      <li>{{ 'cart.general.price' | t }}</li>
+                      <li>{{ 'cart.general.quantity' | t }}</li>
+                      <li>{{ 'cart.general.total' | t }}</li>
+                    </ul>
+                  </div>
+                  <div class="clearfix con_row">
+                    {% for item in cart.items %}
+                    <ul>
+                      <li><div class="thumb"><span> <a href="{{ item.url }}"><img src="{{ item | img_url: '800x' }}"  alt="{{ item.title | escape }}" /></a></span></div></li>
+                      <li>
+                        <h5><a href="{{ item.url | within: collections.all }}">{{ item.product.title | escape }}</a></h5>
+                        {% if item.product.variants.size != 0 %}
+                        {% unless item.variant.title contains 'Default' %}
+                        <p>{{ item.variant.title | escape}}</p>
+                        {% endunless %}
+                        {% endif %}
+
+                        {%- assign property_size = item.properties | size -%}    
+
+                        <span class="Bold-theme-hook-DO-NOT-DELETE bold_cart_item_properties" style="display:none !important;"></span>{% if property_size > 0 %}                  
+                        <p>
+                          {% for p in item.properties %}
+                          {%- if p.first.first == '_' -%}{%- continue -%}{%- endif -%}
+                          {% unless p.last == blank or p.first == "subscription_id" or p.first == "shipping_interval_frequency" or p.first == "shipping_interval_unit_type" %}
+                          {{ p.first }}:
+
+                          {% if p.last contains '/uploads/' %}
+                          <a href="{{ p.last }}">Uploaded file</a>
+                          {% else %}
+                          {{ p.last }}
+                          {% endif %}
+
+                          <br>
+                          {% endunless %}
+                          {% endfor %}
+                        </p>
+                        {% endif %}  
+                        <a href="#" data-id="{{ item.id }}" class="remove_item_button">{{ 'cart.general.remove' | t }}</a>
+                      </li>
+                      <li>
+                        <p class="mobile-label-price">{{ 'cart.general.price' | t }}</p>
+                        <span class="price money"><span class="Bold-theme-hook-DO-NOT-DELETE bold_cart_item_price" style="display:none !important;"></span>{{ item.price | money }}</span>
+                      <li>
+                        <p class="mobile-label-quantity">{{ 'cart.general.quantity' | t }}</p>
+                        <a class="minus_btn"></a>
+                        <input type="text" id="updates_{{ item.key }}" name="updates[]" class="txtbox number_val_input" value="{{ item.quantity }}" min="0" data-id="{{ item.key }}">
+                        <a class="plus_btn"></a>
+                        <div class="ajaxcart__errors text-center ajaxcart__item__{{ item.id }}__errors">
+                          {{ 'cart.general.error' | t }}
+                        </div>
+                      </li>
+                      <li>
+                        <p class="mobile-label-total">{{ 'cart.general.total' | t }}</p>
+                        <span class="price money"><span class="Bold-theme-hook-DO-NOT-DELETE bold_cart_item_total" style="display:none !important;"></span>{{ item.line_price | money }}</span>
+                    </ul>
+                    {% endfor %}
+                  </div>
+                  <div class="total_row clearfix">
+                    <ul>
+                      <li>
+                        <span class="total_val">{{ 'cart.general.subtotal' | t }}:</span><span class="total-price money"><span class="Bold-theme-hook-DO-NOT-DELETE bold_cart_total" style="display:none !important;"></span>{{ cart.total_price | money }}</span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  
+
+                  {% if mealfit_meals == true %}
+                  <div class="pickup-location">
+                    {% include 'mealfit-meals-pickup-location' %}
+                  </div>
+                  {% endif %}
+
+                  {% if settings.cart_notes %}
+                  <div class="clearfix order_notes">
+                    <label for="cartSpecialInstructions" class="sr-only">{{ 'cart.general.note' | t }}:</label>
+                    <textarea name="note" id="cartSpecialInstructions" placeholder="{{ 'cart.general.note' | t }}">{{ cart.note }}</textarea>
+                  </div>
+                  {% endif %}
+                  {% if settings.show_currency_disclaimer %}
+                  <div class="currency_disclaimer">
+                    {{ 'cart.general.currency_disclaimer_html' | t: shopname: shop.name, currency: shop.currency }}
+                  </div>
+                  {% endif %}
+                  <div class="cart_btn clearfix">
+                    <a href="/collections/all" class="info_btn"><span class="fa fa-chevron-left"></span>{{ 'cart.general.continue_browsing' | t }}</a>
+<!-- Zapiet | Store Pickup + Delivery -->
+<div id="storePickupApp"></div>
+<!-- Zapiet | Store Pickup + Delivery --><button type="submit" name="checkout" value="{{ 'cart.general.checkout' | t }}" class="next_btn">{{ 'cart.general.checkout' | t }}</button>
+                    {% if additional_checkout_buttons %}
+                    <div id="addCheckoutBtn" class="additional-checkout">
+                      <span class="additional-checkout-buttons"><!-- Zapiet | Store Pickup + Delivery -->
+{% comment %}{{ content_for_additional_checkout_buttons }}{% endcomment %}
+<!-- Zapiet | Store Pickup + Delivery --></span>
+                     </div>
+                    {% endif %}
+                  </div>
+                </form>
+                {% else %}
+                <div class="empty-cart-message">
+                  <p>{{ 'cart.general.empty' | t }}</p>
+                  <p><a href="/collections/all" class="btn_c">{{ 'cart.general.continue_browsing' | t }}</a></p>
+                </div>
+                {% endif %}
+              </div>
+            </div>
+            {% if settings.cart_link_list != "" or settings.show_shipping_calculator or mealfit_meals or mealfit_gym or mealfit_plans %}
+            {% include 'sidebar-cart' %}
+            {% endif %}
+
+
+
+          </div>
+        </div>     
+      </div>
+    </div>
+  </div>

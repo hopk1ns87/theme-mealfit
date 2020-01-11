@@ -1,0 +1,177 @@
+<div id="content">
+  <div class="container">
+    {% include 'breadcrumb' %}
+    <div class="title clearfix">
+      <h1>{{ page.title | escape }}</h1>
+    </div>
+    <div class="page_content">
+      <div class="row">
+        
+        <div class="{% if section.settings.page_link_list != blank or section.settings.show_sidebar_page_collections or section.settings.show_page_sidebar_sale %}col-md-9 col-md-push-3 col-sm-8 col-sm-push-4{% else %}col-sm-12{% endif %}">
+          <div class="sfbox box-page">
+        
+        </div>
+          <div class="collection-grid view-grid">
+          {% for block in section.blocks %}
+            <div class="col-md-4 col-sm-6 col-xs-6 element mb30">
+              <div class="main_box">
+                <div class="plan-title">
+                  <h5 class="plan-name">{{ block.settings.title | truncate: 100 }}</h5>
+                </div>
+                {% if block.settings.plan_preview %}
+                <div class="preview-image"><img src="{{ block.settings.plan_preview | img_url: 'large' }}" alt="Mealfit Plan Preview" style="width:100%;"></div>
+                {% endif %}
+                
+                
+                <div class="plan-download-links">
+                  <a class="plan-type {% if block.settings.plan-type-original-url != '' %} enabled {% else %} disabled {% endif %}" href="{{ block.settings.plan-type-original-url }}"><i class="fa fa-download" aria-hidden="true"></i> Original</a>
+                  <a class="plan-type {% if block.settings.plan-type-strict-url != '' %} enabled {% else %} disabled {% endif %}" href="{{ block.settings.plan-type-strict-url }}"><i class="fa fa-download" aria-hidden="true"></i> Zone</a>
+                  <a class="plan-type {% if block.settings.plan-type-whole-30-url != '' %} enabled {% else %} disabled {% endif %}" href="{{ block.settings.plan-type-whole-30-url }}"><i class="fa fa-download" aria-hidden="true"></i> Whole 30</a>
+                  <a class="plan-type {% if block.settings.plan-tips-url != '' %} enabled {% else %} disabled {% endif %}" href="{{ block.settings.plan-tips-url }}"><i class="fa fa-download" aria-hidden="true"></i> Tips</a>
+                <p class="date">Uploaded:{{ block.settings.date }}</p>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+          </div>
+          <div class="sfbox box-page">
+        
+        </div>
+        </div>
+        {% if section.settings.page_link_list != blank or section.settings.show_sidebar_page_collections or section.settings.show_page_sidebar_sale %}
+          {% include 'sidebar-page' %}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "Page",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Sidebar options"
+      },
+      {
+        "type": "link_list",
+        "id": "page_link_list",
+        "label": "Choose custom menu",
+      	"info": "This menu won't show dropdown items"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_sidebar_page_collections",
+        "label": "Enable collections"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_page_sidebar_sale",
+        "label": "Enable products"
+      },
+      {
+        "type": "collection",
+        "id": "sidebar_page_sale_collection",
+        "label": "Choose collection"
+      },
+      {
+        "type": "range",
+        "id": "sidebar_page_product_count",
+        "label": "Number of products",
+        "min":       1,
+        "max":        6,
+        "step":       1,
+        "default": 4
+      }
+    ],
+"blocks": [
+      {
+        "type": "text",
+        "name": "Mealfit Plan",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "plan_preview",
+            "label": "Image Size 600x480"
+          },
+          {
+            "type": "text",
+            "id": "date",
+            "label": "Date Uploaded"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Meal Plan Title"
+          },
+          {
+            "type": "text",
+            "id": "plan-type-original-url",
+            "label": "URL to Original Plan"
+          },
+          {
+            "type": "text",
+            "id": "plan-type-strict-url",
+            "label": "URL to Strict Plan"
+          },
+          {
+            "type": "text",
+            "id": "plan-type-whole-30-url",
+            "label": "URL to Whole 30 Plan"
+          },
+          {
+            "type": "text",
+            "id": "plan-tips-url",
+            "label": "URL for Tips"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
+
+<style>
+  p.date{
+    font-size: 10px;
+    padding:5px 20px;
+    text-align:center;
+}
+
+.plan-title h5{
+    padding: 20px;
+    background-color: #222222;
+    color: #fdc700;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-bottom: 2px solid #ffffff;
+}  
+.plan-download-links{padding:20px;}
+.plan-type{
+    display: block;
+/*     text-align: center; */
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 1px;
+    background-color: #e8e9eb;
+    padding: 10px;
+    max-width: 100%;
+    border-radius: 4px;
+    color: #222;
+    font-weight: 100;
+    line-height: 12px;
+    margin:10px auto;
+}
+  
+.plan-type:hover{
+  	color:#222;
+    background-color: #fbd61c;
+  }
+  
+  .disabled{
+  	pointer-events: none;
+   cursor: default;
+    opacity:.25;
+  }
+  #content .main_box{background-color:#fff;}
+
+</style>

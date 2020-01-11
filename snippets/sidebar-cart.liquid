@@ -1,0 +1,66 @@
+<div class="col-md-3 col-md-pull-9 col-sm-4 col-sm-pull-8">
+  <div class="sidebar">
+    {% if mealfit_meals == true %}
+    <div class="side_box side_box_1 red5">
+      <h5>Mealfit Meals</h5>
+      <div class="disclaimer rte text-center">
+        <h2>PICKUP MONDAY</h2>
+        <h4>4 PM - 6 PM</h4>
+      </div>
+    </div>
+    {% endif %}
+    
+    {% if mealfit_gym == true %}
+    <div class="side_box side_box_1 red5">
+      <h5>Mealfit Gym</h5>
+      <div class="disclaimer rte">
+        <h4 style="margin-bottom:4px;">Create a profile</h4>
+        <p>Click the Register My Gym link in the confirmation email</p>
+        
+        <h4 style="margin-bottom:4px;">Custom Discount Code</h4>
+        <p>Create a custom discount code</p>
+        
+        <h4 style="margin-bottom:4px;">Share your code</h4>
+        <p>Share the code with your clients</p>
+      </div>
+    </div>
+    {% endif %}
+    
+    {% if mealfit_plans == true %}
+    <div class="side_box side_box_1 red5">
+      <h5>Mealfit Plans</h5>
+      <div class="disclaimer rte">
+        <p>After you have completed your purchase, follow these steps to access your plans</p>
+         <h4 style="margin-bottom:3px;">Log In</h4>
+          <p>Click on the account icon in the top right, and sign in.</p>
+        
+        <h4 style="margin-bottom:3px;">Download</h4>
+        <p>Each week we will upload a new mealfit plan, download it or print it out</p>
+        
+        <h4 style="margin-bottom:3px;">Shop</h4>
+        <p>Hit the grocery store, and prep your meals for the week</p>
+      </div>
+    </div>
+    {% endif %}
+    
+    {% if settings.cart_link_list != "" %}
+    <div class="side_box side_box_1 red5">
+      <h5>{{ 'cart.general.widget_links_title' | t }}</h5>
+      <ul class="tgl_c">
+        {% for link in linklists[settings.cart_link_list].links %}
+        <li><a href="{{ link.url }}">{{ link.title | escape }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+    {% if settings.show_shipping_calculator %}
+    <div class="side_box side_box_1 red5">
+      <h5>{{ 'cart.calculator.title' | t }}</h5>
+      <div class="shipping-calculator">
+        {% include 'shipping-calc' %}
+      </div>
+    </div>
+    {% endif %}
+  </div>
+</div>
+

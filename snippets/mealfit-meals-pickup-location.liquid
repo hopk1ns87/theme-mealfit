@@ -1,0 +1,260 @@
+{% comment %}
+{% assign choices = "Mealfit Grandview, Chelsea Family Gym, Crossfit Mudtown, CrossFit Pell City, Forge Fitness (Vestavia), Ignite Fitness Hoover , J19 Fitness - Alabaster, J19 Fitness - Hoover, J19 Fitness - Jasper, CrossFit Trussville (+$3.00), Powerhouse Community Fitness" %}
+{% assign variant_choices = "0, 0, 0, 0, 0, 0, 0, 0, 0, 7562597630016, 0, 0" %}
+{% assign required = true %}
+
+<div class="form-vertical">
+  <p>
+    <label for="delivery-location">Select a pickup location:</label>
+    <select id="delivery-location" name="attributes[delivery-location]">
+      <option value=""{% if cart.attributes.delivery-location == "" %} selected{% endif %}>Choose a Pickup Location</option>
+      {% assign optionsArray = choices | split: ',' %}
+      {% assign options_choices_Array = variant_choices | split: ',' %}
+
+      {% for o in optionsArray %}
+      {% assign option = o | strip %}
+      <option data-variant="{{options_choices_Array[forloop.index0] | handleize  }}" value="{{ option }}"{% if cart.attributes.delivery-location == option %} selected{% endif %}>{{ option }}</option>
+      {% endfor %}
+
+    </select>
+  </p>
+</div>
+{% endcomment %}
+
+<div class="form-vertical">
+  <p>
+    <label for="delivery-location">Select a pickup location:</label>
+    <select id="delivery-location" name="attributes[delivery-location]">
+      <option value=""{% if cart.attributes.delivery-location == "" %} selected{% endif %}>Choose a Pickup Location</option>
+      {% for o in all_products['delivery-fee-for-location'].variants %}
+      {% assign option = o.title | strip %}
+      {% if o.price == 0 %}
+      <option data-variant="0" value="{{ option }}"{% if cart.attributes.delivery-location == option %} selected{% endif %}>{{ option }}</option>
+      {% else %}
+      <option data-variant="{{o.id}}" value="{{ option }}"{% if cart.attributes.delivery-location == option %} selected{% endif %}>{{ option }}</option>
+      {% endif %}
+      {% endfor %}
+    </select>
+  </p>
+</div>
+
+<div id="error" style="display:none; text-align:center;">
+  <img src="{{ 'X.png' | asset_url }}" style="margin:30px auto; width:75px;">
+  <h4>Something went wrong</h4>
+  <p>Looks like you forgot to select a pickup location</p>
+</div>
+
+<script>
+  jQuery(function($) {
+    $('[name="checkout"], [name="goto_pp"], [name="goto_gc"]').click(function(e) {
+      var validated = true;
+      if ($('#delivery-location').val() == '') {
+        $( "#error" ).dialog({
+          modal: true,
+          minWidth: 500,
+          draggable: false,
+          resizable: false,
+          buttons: {
+            Ok: function() {
+              $( this ).dialog( "close" );
+            }
+          }
+        });
+        return false;
+      }
+      else{
+        if(localStorage.getItem('todoData')){
+          var todoData = localStorage.getItem('todoData');
+          var option = $('#delivery-location option[value="'+todoData+'"]');
+          variant_id = option.attr('data-variant');
+          if(simply.current_variant_id == 0 && variant_id != "0"){
+            localStorage.setItem('todoData', "");
+            $('.pickup-location').addClass('error');
+            $("#delivery-location option:first").attr('selected','selected');
+            $("#delivery-location").val('');
+            $( "#error" ).dialog({
+          modal: true,
+          minWidth: 500,
+          draggable: false,
+          resizable: false,
+          buttons: {
+            Ok: function() {
+              $( this ).dialog( "close" );
+            }
+          }
+        });
+            return false;
+          }
+          else{
+            return true;
+          }
+        }
+        else{
+          localStorage.setItem('todoData', "");
+          $('.pickup-location').addClass('error');
+          $("#delivery-location option:first").attr('selected','selected');
+          $("#delivery-location").val('');
+          $( "#error" ).dialog({
+          modal: true,
+          minWidth: 500,
+          draggable: false,
+          resizable: false,
+          buttons: {
+            Ok: function() {
+              $( this ).dialog( "close" );
+            }
+          }
+        });
+          return false;
+        }  
+      }
+    });
+  });
+</script>
+
+{% comment %}
+Replace the text below with the handle of your add-on product.
+{% endcomment %}
+
+{% assign product = all_products['delivery-fee'] %}
+{% assign variant_id = product.variants.first.id %}
+
+<script>
+  var cart = {{ cart | json }}, qtyInTheCart = 0, cartUpdates = {};
+  window.simply = window.simply || {};
+  window.cn = function(o){return"undefined"==typeof o||null==o||""==o.toString().trim()};
+  window.cb = function(o){if(o == 'true'){return true}else{return false}};
+  simply.current_variant_id = 0;
+
+  simply.updateDeliveryItem = function(cart){
+    simply.current_variant_id = 0;
+    cartItems = cart.items;
+    for (i=0; i<cartItems.length; i++) {
+      var option = $('#delivery-location option[data-variant="'+cartItems[i].id+'"]');
+      if(option.length > 0){
+        variant_id = option.attr('data-variant');
+        if(variant_id != "0"){
+          simply.current_variant_id = variant_id;  
+        }
+      }
+    }
+  }
+
+  simply.updateDeliveryItem(cart);
+
+  $(document).ready(function() {
+    $('#delivery-location').change(function(){
+      cartItems = cart.items;
+      var todoData = this.value;
+      var option = $('#delivery-location option[value="'+todoData+'"]');
+      var variant_id = option.attr('data-variant');
+	  var variant_value = this.value;
+      if(variant_id != '0'){
+
+        if(simply.current_variant_id != 0){
+          removeEmptyVariant(function(){
+            for (i=0; i<cartItems.length; i++) {
+              if ( cartItems[i].id === variant_id ) {
+                qtyInTheCart = cartItems[i].quantity;
+                break;
+              }
+            }
+
+            if ( ( cartItems.length === 1 ) && ( qtyInTheCart > 0 ) ) {
+              cartUpdates = "attributes['delivery-location']=&attributes[delivery-location]="+todoData+"&updates["+variant_id+"]=0";
+            }
+            else if ( ( cartItems.length >= 1 ) && ( qtyInTheCart !== 1 ) ) {
+              cartUpdates = "attributes['delivery-location']=&attributes[delivery-location]="+todoData+"&updates["+variant_id+"]=1";
+            }
+            else {
+              return;
+            }
+
+            var params = {
+              type: 'POST',
+              url: '/cart/update.js',
+              data: cartUpdates,
+              dataType: 'json',
+              success: function(cart) { 
+                Shopify.updateQuickCart(cart);
+              }
+            };
+
+            $.ajax(params);
+            localStorage.setItem('todoData', variant_value);
+          });
+        }
+        else{
+
+          for (i=0; i<cartItems.length; i++) {
+            if ( cartItems[i].id === variant_id ) {
+              qtyInTheCart = cartItems[i].quantity;
+              break;
+            }
+          }
+
+          if ( ( cartItems.length === 1 ) && ( qtyInTheCart > 0 ) ) {
+            cartUpdates = "attributes['delivery-location']=&attributes[delivery-location]="+todoData+"&updates["+variant_id+"]=0";
+          }
+          else if ( ( cartItems.length >= 1 ) && ( qtyInTheCart !== 1 ) ) {
+            cartUpdates = "attributes['delivery-location']=&attributes[delivery-location]="+todoData+"&updates["+variant_id+"]=1";
+          }
+          else {
+            return;
+          }
+
+          var params = {
+            type: 'POST',
+            url: '/cart/update.js',
+            data: cartUpdates,
+            dataType: 'json',
+            success: function(cart) { 
+              Shopify.updateQuickCart(cart);
+            }
+          };
+
+          $.ajax(params);
+		  localStorage.setItem('todoData', variant_value);
+        }
+
+      }
+      else{
+        removeEmptyVariant();
+//         console.log('I need this to remove the delivery fee item if it is anything other than Crossfit Trussville');
+        localStorage.setItem('todoData', variant_value);
+      }
+//       localStorage.setItem('todoData', this.value);
+    });
+
+    if(localStorage.getItem('todoData')){
+      $('#delivery-location').val(localStorage.getItem('todoData'));
+    }
+
+    var removeEmptyVariant = function(callback){
+      if(localStorage.getItem('todoData')){
+        var todoData = localStorage.getItem('todoData');
+        var option = $('#delivery-location option[value="'+todoData+'"]');
+        var variant_id = option.attr('data-variant');
+        if(variant_id != "0"){
+          cartUpdates = "attributes[delivery-location]=&updates["+variant_id+"]=0";
+          var params = {
+            type: 'POST',
+            url: '/cart/update.js',
+            data: cartUpdates,
+            dataType: 'json',
+            success: function(cart) { 
+              simply.current_variant_id = 0;
+              if(!cn(callback)){
+                callback();
+              }
+              else{
+                Shopify.updateQuickCart(cart);
+              }
+            }
+          };
+          $.ajax(params);
+        }
+      }
+    }
+    });
+</script>

@@ -1,0 +1,4 @@
+live:
+  password: ${MEALFIT_PASSWORD}
+  theme_id: "35637297204"
+  store: mealfit-dev.myshopify.com
