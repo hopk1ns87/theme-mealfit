@@ -1,4 +1,9 @@
 live:
   password: ${MEALFIT_PASSWORD}
-  theme_id: "35637297204"
+  theme_id: "35637297204" # Showtime
+  store: mealfit-dev.myshopify.com
+
+development:
+  password: ${MEALFIT_PASSWORD}
+  theme_id: "80304668724" #2020-01-11 Order Form Validation [MC] Dev
   store: mealfit-dev.myshopify.com
