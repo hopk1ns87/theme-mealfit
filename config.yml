@@ -1,4 +1,4 @@
 live:
   password: ${MEALFIT_PASSWORD}
-  theme_id: "80304701492" # Copy of Live Theme
-  store: mealfit-dev.myshopify.com
+  theme_id: "78976974909" # 2020-01-28 Form Validation [SH] Live
+  store: mealfitco.myshopify.com
