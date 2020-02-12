@@ -1,7 +1,3 @@
-{%- comment %}<locksmith:a402>{% endcomment -%}
-  {%- include 'locksmith' -%}
-{%- comment %}</locksmith:a402>{% endcomment -%}
-
 <!doctype html>
 <html lang="en" class="noIE">
   <head>
@@ -16,10 +12,7 @@
     </title>
 
     {% if page_description %}
-    {%- comment %}<locksmith:36dc>{% endcomment -%}
-      {%- include 'locksmith-variables', locksmith_hiding_scope: 'resource' %}{% if locksmith_transparent %}<meta name="description" content="{{ page_description | escape }}">{% endif -%}
-      {%- comment %}original: <meta name="description" content="{{ page_description | escape }}">{%- endcomment %}
-    {%- comment %}</locksmith:36dc>{% endcomment -%}
+    <meta name="description" content="{{ page_description | escape }}">
     {% endif %}
 
     <!-- Helpers ================================================== -->

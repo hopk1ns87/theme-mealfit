@@ -17,9 +17,6 @@
               {% if linklist != '' %}
               <ul>
                 {% for link in linklist.links %}
-                {%- comment %}<locksmith:c98b>{% endcomment -%}
-                  {%- include 'locksmith-variables', locksmith_scope: 'subject', locksmith_subject: link, locksmith_subject_parent: linklist %}{% if locksmith_transparent %}{% else %}{% continue %}{% endif -%}
-                {%- comment %}</locksmith:c98b>{% endcomment -%}
                 <li><a href="{{ link.url }}">{{ link.title }}</a></li>
                 {% endfor %}
               </ul>

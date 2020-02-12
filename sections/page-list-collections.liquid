@@ -13,9 +13,6 @@
             	{% assign number_of_links = 0 %}
   
             	{% for link in linklists[page.handle].links %}
-                 {%- comment %}<locksmith:f1e8>{% endcomment -%}
-                   {%- include 'locksmith-variables', locksmith_scope: 'subject', locksmith_subject: link, locksmith_subject_parent: linklists[page.handle] %}{% if locksmith_transparent %}{% else %}{% continue %}{% endif -%}
-                 {%- comment %}</locksmith:f1e8>{% endcomment -%}
                  {% if link.url contains 'pages' %}
                   {% assign collection_name = link.url | remove: "/pages/" %}
                   {% assign collection = collections[collection_name] %}            

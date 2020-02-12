@@ -1,8 +1,5 @@
 {% assign all_filter_tags = '' %}
 {% for link in linklists[filter-by-tag].links %}
-  {%- comment %}<locksmith:ea0d>{% endcomment -%}
-    {%- include 'locksmith-variables', locksmith_scope: 'subject', locksmith_subject: link, locksmith_subject_parent: linklists[filter-by-tag] %}{% if locksmith_transparent %}{% else %}{% continue %}{% endif -%}
-  {%- comment %}</locksmith:ea0d>{% endcomment -%}
   {% if collection.all_tags contains link.title %}
     {% capture all_filter_tags %}{{ all_filter_tags }},{{ link.title }},{% endcapture %}
   {% endif %}
@@ -15,9 +12,6 @@
 {% endfor %}
 {% capture new_tags %}{{ new_tags | remove_first: '+' }}{% endcapture %}
 {% for link in linklists[filter-by-tag].links %}
-  {%- comment %}<locksmith:ff92>{% endcomment -%}
-    {%- include 'locksmith-variables', locksmith_scope: 'subject', locksmith_subject: link, locksmith_subject_parent: linklists[filter-by-tag] %}{% if locksmith_transparent %}{% else %}{% continue %}{% endif -%}
-  {%- comment %}</locksmith:ff92>{% endcomment -%}
   {% if collection.all_tags contains link.title %}
     {% if current_tags contains link.title %}
       <li class="{{ link.title | handle }} active"><span></span>{{ link.title | escape | link_to_remove_tag: link.title }}</li>

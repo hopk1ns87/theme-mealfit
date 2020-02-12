@@ -50,9 +50,6 @@
       <h5>{{ 'cart.general.widget_links_title' | t }}</h5>
       <ul class="tgl_c">
         {% for link in linklists[settings.cart_link_list].links %}
-        {%- comment %}<locksmith:be9b>{% endcomment -%}
-          {%- include 'locksmith-variables', locksmith_scope: 'subject', locksmith_subject: link, locksmith_subject_parent: linklists[settings.cart_link_list] %}{% if locksmith_transparent %}{% else %}{% continue %}{% endif -%}
-        {%- comment %}</locksmith:be9b>{% endcomment -%}
         <li><a href="{{ link.url }}">{{ link.title | escape }}</a></li>
         {% endfor %}
       </ul>
