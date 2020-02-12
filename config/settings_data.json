@@ -877,6 +877,42 @@
       "page-mealfit-plans": {
         "type": "page-mealfit-plans",
         "blocks": {
+          "1579718553674": {
+            "type": "text",
+            "settings": {
+              "plan_preview": "",
+              "date": "1\/22\/2020",
+              "title": "January - WEEK 4",
+              "plan-type-original-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/January_4_Original_2019.compressed.pdf?1968",
+              "plan-type-strict-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/January_4_ZONE_2019.compressed.pdf?1968",
+              "plan-type-whole-30-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/January_4_Whole30_2019.compressed.pdf?1968",
+              "plan-tips-url": ""
+            }
+          },
+          "1579487776238": {
+            "type": "text",
+            "settings": {
+              "plan_preview": "",
+              "date": "1\/16\/2020",
+              "title": "January - WEEK 3",
+              "plan-type-original-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/January_3_Original_2017.compressed.pdf?1963",
+              "plan-type-strict-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/January_3_ZONE_2019.compressed.pdf?1963",
+              "plan-type-whole-30-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/January_3_Whole30_2019.compressed.pdf?1963",
+              "plan-tips-url": ""
+            }
+          },
+          "1578587224148": {
+            "type": "text",
+            "settings": {
+              "plan_preview": "",
+              "date": "1\/9\/2020",
+              "title": "January - Week 2",
+              "plan-type-original-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/January_2_Original_2019.compressed.pdf?1952",
+              "plan-type-strict-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/January_2_ZONE_2019.compressed.pdf?1952",
+              "plan-type-whole-30-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/January_2_Whole30_2019.compressed.pdf?1952",
+              "plan-tips-url": ""
+            }
+          },
           "1577994816444": {
             "type": "text",
             "settings": {
@@ -1357,20 +1393,36 @@
               "plan-tips-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/February_1_2019_TIPS_BOTH-compressed.pdf?8660174367071206926"
             }
           },
-          "1578587224148": {
+          "1581171334165": {
             "type": "text",
             "settings": {
               "plan_preview": "",
-              "date": "1\/9\/2020",
-              "title": "January - Week 2",
-              "plan-type-original-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/January_2_Original_2019.compressed.pdf?1952",
-              "plan-type-strict-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/January_2_ZONE_2019.compressed.pdf?1952",
-              "plan-type-whole-30-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/January_2_Whole30_2019.compressed.pdf?1952",
+              "date": "2\/7\/2020",
+              "title": "February - WEEK 2",
+              "plan-type-original-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/February_2_Original_2020.compressed.pdf?2317",
+              "plan-type-strict-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/February_2_ZONE_2020.compressed.pdf?2317",
+              "plan-type-whole-30-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/February_2_whole30_2020.compressed.pdf?2317",
+              "plan-tips-url": ""
+            }
+          },
+          "1581171751480": {
+            "type": "text",
+            "settings": {
+              "plan_preview": "",
+              "date": "1\/31\/2020",
+              "title": "February - Week 1",
+              "plan-type-original-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/February_1_Original_2020.compressed.pdf?2320",
+              "plan-type-strict-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/February_1_ZONE_2020.compressed.pdf?2320",
+              "plan-type-whole-30-url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1940\/1703\/files\/February_1_whole30_2020.compressed.pdf?2320",
               "plan-tips-url": ""
             }
           }
         },
         "block_order": [
+          "1581171334165",
+          "1581171751480",
+          "1579718553674",
+          "1579487776238",
           "1578587224148",
           "1577994816444",
           "1576246080198",

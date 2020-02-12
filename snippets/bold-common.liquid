@@ -1,4 +1,3 @@
-
 {%- comment -%}
 BOLD-COMMON.LIQUID
 Last updated: 2018-Aug-9
@@ -110,6 +109,9 @@ It may be overwritten and any customizations would be lost.
         {%- endfor -%}
         {%- comment -%} search page {%- endcomment -%}
         {%- for product in search.results -%}
+            {%- comment %}<locksmith:1f41>{% endcomment -%}
+              {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product, subject_parent: search, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+            {%- comment %}</locksmith:1f41>{% endcomment -%}
             window.BOLD.common.Shopify.saveProduct({{ product.handle | json }}, {{ product.id | json }});
             {%- for variant in product.variants -%}{%- assign csp_metafield_namespace = variant.id | prepend: "csp" -%}window.BOLD.common.Shopify.saveVariant({{ variant.id | json }}, { product_id: {{ product.id | json }}, product_handle: {{ product.handle | json }}, price: {{ variant.price | json }}, group_id: '{{variant.metafields.bold_rp.rp_group_id}}', csp_metafield: {{ product.metafields[csp_metafield_namespace] | json }}});{%- endfor -%}
         {%- endfor -%}
@@ -124,7 +126,7 @@ It may be overwritten and any customizations would be lost.
         window.BOLD.common.Shopify.metafields[{{ namespace | json }}] = {{ shop.metafields[namespace] | json }};
     {%- endfor -%}
     window.BOLD.common.cacheParams = window.BOLD.common.cacheParams || {};
-    window.BOLD.common.cacheParams.options = 1581302109;
+    window.BOLD.common.cacheParams.options = 1581470097;
 </script>
  
 {%- comment -%} INCLUDE APP SCRIPTS BELOW {%- endcomment -%}

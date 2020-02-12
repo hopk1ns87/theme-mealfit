@@ -1,42 +1,96 @@
  <meta property="og:url" content="{{ canonical_url }}">
  <meta property="og:site_name" content="{{ shop.name }}">
 {% if template contains 'product' %}
-  <meta property="og:type" content="product">
-  <meta property="og:title" content="{{ product.title | strip_html | escape }}">
+  {%- comment %}<locksmith:31a6>{% endcomment -%}
+    {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta property="og:type" content="product">{% endif -%}
+    {%- comment %}original: <meta property="og:type" content="product">{%- endcomment %}
+  {%- comment %}</locksmith:31a6>{% endcomment -%}
+  {%- comment %}<locksmith:712a>{% endcomment -%}
+    {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta property="og:title" content="{{ product.title | strip_html | escape }}">{% endif -%}
+    {%- comment %}original: <meta property="og:title" content="{{ product.title | strip_html | escape }}">{%- endcomment %}
+  {%- comment %}</locksmith:712a>{% endcomment -%}
   {% for image in product.images limit:3 %}
-  <meta property="og:image" content="http:{{ image.src | img_url: '800x' }}">
-  <meta property="og:image:secure_url" content="https:{{ image.src | img_url: '800x' }}">
+  {%- comment %}<locksmith:a446>{% endcomment -%}
+    {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta property="og:image" content="http:{{ image.src | img_url: '800x' }}">{% endif -%}
+    {%- comment %}original: <meta property="og:image" content="http:{{ image.src | img_url: '800x' }}">{%- endcomment %}
+  {%- comment %}</locksmith:a446>{% endcomment -%}
+  {%- comment %}<locksmith:2b86>{% endcomment -%}
+    {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta property="og:image:secure_url" content="https:{{ image.src | img_url: '800x' }}">{% endif -%}
+    {%- comment %}original: <meta property="og:image:secure_url" content="https:{{ image.src | img_url: '800x' }}">{%- endcomment %}
+  {%- comment %}</locksmith:2b86>{% endcomment -%}
   {% endfor %}
-  <meta property="og:price:amount" content="{{ product.price | money_without_currency | strip_html | escape }}">
-  <meta property="og:price:currency" content="{{ shop.currency }}">
+  {%- comment %}<locksmith:dbb7>{% endcomment -%}
+    {%- capture var %}{% render 'locksmith-variables', variable: 'access_granted' %}{% endcapture %}{% if var == 'true' %}<meta property="og:price:amount" content="{{ product.price | money_without_currency | strip_html | escape }}">{% endif -%}
+    {%- comment %}original: <meta property="og:price:amount" content="{{ product.price | money_without_currency | strip_html | escape }}">{%- endcomment %}
+  {%- comment %}</locksmith:dbb7>{% endcomment -%}
+  {%- comment %}<locksmith:3753>{% endcomment -%}
+    {%- capture var %}{% render 'locksmith-variables', variable: 'access_granted' %}{% endcapture %}{% if var == 'true' %}<meta property="og:price:currency" content="{{ shop.currency }}">{% endif -%}
+    {%- comment %}original: <meta property="og:price:currency" content="{{ shop.currency }}">{%- endcomment %}
+  {%- comment %}</locksmith:3753>{% endcomment -%}
 {% elsif template contains 'article' %}
-  <meta property="og:title" content="{{ article.title | strip_html | escape }}">
-  <meta property="og:description" content="{{ page_description | escape }}">	  
-  <meta property="og:type" content="article"> 
+  {%- comment %}<locksmith:3cb2>{% endcomment -%}
+    {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta property="og:title" content="{{ article.title | strip_html | escape }}">{% endif -%}
+    {%- comment %}original: <meta property="og:title" content="{{ article.title | strip_html | escape }}">{%- endcomment %}
+  {%- comment %}</locksmith:3cb2>{% endcomment -%}
+  {%- comment %}<locksmith:3ced>{% endcomment -%}
+    {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta property="og:description" content="{{ page_description | escape }}">{% endif -%}
+    {%- comment %}original: <meta property="og:description" content="{{ page_description | escape }}">{%- endcomment %}
+  {%- comment %}</locksmith:3ced>{% endcomment -%}	  
+  {%- comment %}<locksmith:353a>{% endcomment -%}
+    {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta property="og:type" content="article">{% endif -%}
+    {%- comment %}original: <meta property="og:type" content="article">{%- endcomment %}
+  {%- comment %}</locksmith:353a>{% endcomment -%} 
 
   {% assign img_tag = '<' | append: 'img' %}
   {% if article.image %}
-  <meta property="og:image" content="http:{{ article | img_url: '800x' }}">
-  <meta property="og:image:secure_url" content="https:{{ article | img_url: '800x' }}">
+  {%- comment %}<locksmith:5fa6>{% endcomment -%}
+    {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta property="og:image" content="http:{{ article | img_url: '800x' }}">{% endif -%}
+    {%- comment %}original: <meta property="og:image" content="http:{{ article | img_url: '800x' }}">{%- endcomment %}
+  {%- comment %}</locksmith:5fa6>{% endcomment -%}
+  {%- comment %}<locksmith:fe4d>{% endcomment -%}
+    {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta property="og:image:secure_url" content="https:{{ article | img_url: '800x' }}">{% endif -%}
+    {%- comment %}original: <meta property="og:image:secure_url" content="https:{{ article | img_url: '800x' }}">{%- endcomment %}
+  {%- comment %}</locksmith:fe4d>{% endcomment -%}
   {% elsif article.content contains img_tag %}
     {% assign src = article.content | split: 'src="' %}
     {% assign src = src[1] | split: '"' | first | remove: 'https:' | remove: 'http:' %}
     {% if src %}
-  <meta property="og:image" content="http:{{ src }}">
-  <meta property="og:image:secure_url" content="https:{{ src }}">
+  {%- comment %}<locksmith:40a1>{% endcomment -%}
+    {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta property="og:image" content="http:{{ src }}">{% endif -%}
+    {%- comment %}original: <meta property="og:image" content="http:{{ src }}">{%- endcomment %}
+  {%- comment %}</locksmith:40a1>{% endcomment -%}
+  {%- comment %}<locksmith:e80e>{% endcomment -%}
+    {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta property="og:image:secure_url" content="https:{{ src }}">{% endif -%}
+    {%- comment %}original: <meta property="og:image:secure_url" content="https:{{ src }}">{%- endcomment %}
+  {%- comment %}</locksmith:e80e>{% endcomment -%}
     {% endif %}
   {% endif %}
 {% else %}
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="{{ page_title | escape }}">
+  {%- comment %}<locksmith:456a>{% endcomment -%}
+    {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta property="og:type" content="website">{% endif -%}
+    {%- comment %}original: <meta property="og:type" content="website">{%- endcomment %}
+  {%- comment %}</locksmith:456a>{% endcomment -%}
+  {%- comment %}<locksmith:d8b6>{% endcomment -%}
+    {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta property="og:title" content="{{ page_title | escape }}">{% endif -%}
+    {%- comment %}original: <meta property="og:title" content="{{ page_title | escape }}">{%- endcomment %}
+  {%- comment %}</locksmith:d8b6>{% endcomment -%}
   {% if settings.use_logo %}
-  <meta property="og:image" content="http:{{ settings.share_image | img_url: '1200x1200' }}">
-  <meta property="og:image:secure_url" content="https:{{ settings.share_image | img_url: '1200x1200' }}">
+  {%- comment %}<locksmith:e2f2>{% endcomment -%}
+    {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta property="og:image" content="http:{{ settings.share_image | img_url: '1200x1200' }}">{% endif -%}
+    {%- comment %}original: <meta property="og:image" content="http:{{ settings.share_image | img_url: '1200x1200' }}">{%- endcomment %}
+  {%- comment %}</locksmith:e2f2>{% endcomment -%}
+  {%- comment %}<locksmith:8c80>{% endcomment -%}
+    {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta property="og:image:secure_url" content="https:{{ settings.share_image | img_url: '1200x1200' }}">{% endif -%}
+    {%- comment %}original: <meta property="og:image:secure_url" content="https:{{ settings.share_image | img_url: '1200x1200' }}">{%- endcomment %}
+  {%- comment %}</locksmith:8c80>{% endcomment -%}
   {% endif %}
 {% endif %}
 {% if page_description %}
 	{% unless template contains 'article'%}
-  		<meta property="og:description" content="{{ page_description | escape }}">
+  		{%- comment %}<locksmith:15bf>{% endcomment -%}
+  		  {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta property="og:description" content="{{ page_description | escape }}">{% endif -%}
+  		  {%- comment %}original: <meta property="og:description" content="{{ page_description | escape }}">{%- endcomment %}
+  		{%- comment %}</locksmith:15bf>{% endcomment -%}
 	{% endunless %}
 {% endif %}
  
@@ -48,14 +102,35 @@
 {% endif %}
 <meta name="twitter:card" content="summary">
 {% if template contains 'product' %}
-  <meta name="twitter:title" content="{{ product.title }}">
-  <meta name="twitter:description" content="{{ product.description | strip_html | truncatewords: 140, '' | escape }}">
-  <meta name="twitter:image" content="https:{{ product.featured_image.src | img_url: '800x' }}">
-  <meta name="twitter:image:width" content="240">
-  <meta name="twitter:image:height" content="240">
+  {%- comment %}<locksmith:0d20>{% endcomment -%}
+    {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta name="twitter:title" content="{{ product.title }}">{% endif -%}
+    {%- comment %}original: <meta name="twitter:title" content="{{ product.title }}">{%- endcomment %}
+  {%- comment %}</locksmith:0d20>{% endcomment -%}
+  {%- comment %}<locksmith:2887>{% endcomment -%}
+    {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta name="twitter:description" content="{{ product.description | strip_html | truncatewords: 140, '' | escape }}">{% endif -%}
+    {%- comment %}original: <meta name="twitter:description" content="{{ product.description | strip_html | truncatewords: 140, '' | escape }}">{%- endcomment %}
+  {%- comment %}</locksmith:2887>{% endcomment -%}
+  {%- comment %}<locksmith:8005>{% endcomment -%}
+    {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta name="twitter:image" content="https:{{ product.featured_image.src | img_url: '800x' }}">{% endif -%}
+    {%- comment %}original: <meta name="twitter:image" content="https:{{ product.featured_image.src | img_url: '800x' }}">{%- endcomment %}
+  {%- comment %}</locksmith:8005>{% endcomment -%}
+  {%- comment %}<locksmith:4975>{% endcomment -%}
+    {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta name="twitter:image:width" content="240">{% endif -%}
+    {%- comment %}original: <meta name="twitter:image:width" content="240">{%- endcomment %}
+  {%- comment %}</locksmith:4975>{% endcomment -%}
+  {%- comment %}<locksmith:6f87>{% endcomment -%}
+    {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta name="twitter:image:height" content="240">{% endif -%}
+    {%- comment %}original: <meta name="twitter:image:height" content="240">{%- endcomment %}
+  {%- comment %}</locksmith:6f87>{% endcomment -%}
 {% elsif template contains 'article' %}
-  <meta name="twitter:title" content="{{ article.title }}">
-  <meta name="twitter:description" content="{{ article.excerpt_or_content | strip_html | truncatewords: 140, '' | escape }}">
+  {%- comment %}<locksmith:8ce6>{% endcomment -%}
+    {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta name="twitter:title" content="{{ article.title }}">{% endif -%}
+    {%- comment %}original: <meta name="twitter:title" content="{{ article.title }}">{%- endcomment %}
+  {%- comment %}</locksmith:8ce6>{% endcomment -%}
+  {%- comment %}<locksmith:db0a>{% endcomment -%}
+    {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta name="twitter:description" content="{{ article.excerpt_or_content | strip_html | truncatewords: 140, '' | escape }}">{% endif -%}
+    {%- comment %}original: <meta name="twitter:description" content="{{ article.excerpt_or_content | strip_html | truncatewords: 140, '' | escape }}">{%- endcomment %}
+  {%- comment %}</locksmith:db0a>{% endcomment -%}
   {% comment %}
     Check if content contains an image to add to the card
       - Source: http://blog.viralica.com/2013/09/twitter-product-cards-on-shopify/

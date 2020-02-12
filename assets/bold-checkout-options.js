@@ -1,0 +1,2 @@
+window.BOLD = window.BOLD || {};
+window.BOLD.checkout_features_defaults=[{"name":"Store Pickup + Delivery by Zapiet","require":true,"id":"4d653bd7-fa9e-4a6a-b42b-1347a0069c70"},{"name":"Shopify Discount Connector","require":true,"id":"5d8d5c43-dc24-11e7-8128-42010afe0504"},{"name":"checkout-always-on","require":true}]

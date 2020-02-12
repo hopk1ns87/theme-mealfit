@@ -6,6 +6,9 @@
       <ul>
         {% if section.settings.heading_content == 'links' %}
         {% for link in linklists[section.settings.header_top_linklist].links %}
+        {%- comment %}<locksmith:dc13>{% endcomment -%}
+          {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: link, subject_parent: linklists[section.settings.header_top_linklist], variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+        {%- comment %}</locksmith:dc13>{% endcomment -%}
         <li><a href="{{ link.url }}">{{ link.title | escape }}</a></li>
         {% else %}
         <li>{{ 'general.header.no_links' | t }}</li>

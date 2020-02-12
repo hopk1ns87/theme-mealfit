@@ -55,18 +55,30 @@
     <nav class="wsmenu clearfix multi-drop" role="navigation">
       <ul class="mobile-sub wsmenu-list mega_menu_simple_menu">
         {% for link in linklists[section.settings.header_main_linklist].links %}
+        {%- comment %}<locksmith:2ae1>{% endcomment -%}
+          {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: link, subject_parent: linklists[section.settings.header_main_linklist], variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+        {%- comment %}</locksmith:2ae1>{% endcomment -%}
         {% if link.links != blank %}
         <li  class="has-submenu"><a href="{{ link.url }}" aria-controls="megamenu_items-{{link.handle}}" aria-haspopup="true" aria-expanded="false">{{ link.title | escape }}<span class="arrow"></span></a>
           <ul id="megamenu_items-{{link.handle}}" class="wsmenu-submenu">
             {% for childlink in link.links %}
+              {%- comment %}<locksmith:9222>{% endcomment -%}
+                {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: childlink, subject_parent: link, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+              {%- comment %}</locksmith:9222>{% endcomment -%}
               {% if childlink.links != blank %}
               <li class="has-submenu-sub"><a href="{{ childlink.url }}" aria-controls="megamenu_items-{{childlink.handle}}" aria-haspopup="true" aria-expanded="false">{{ childlink.title | escape }}<span class="left-arrow"></span></a>
                 <ul class="wsmenu-submenu-sub" id="megamenu_items-{{childlink.handle}}">
                   {% for grandchildlink in childlink.links %}  
+                    {%- comment %}<locksmith:5e74>{% endcomment -%}
+                      {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: grandchildlink, subject_parent: childlink, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+                    {%- comment %}</locksmith:5e74>{% endcomment -%}  
                     {% if grandchildlink.links != blank %}
                       <li class="has-submenu-sub-sub"><a href="{{ grandchildlink.url }}">{{ grandchildlink.title | escape }}<span class="left-arrow"></span></a>
                         <ul class="wsmenu-submenu-sub-sub">
                           {% for grandgrandchildlink in grandchildlink.links %}
+                          {%- comment %}<locksmith:163e>{% endcomment -%}
+                            {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: grandgrandchildlink, subject_parent: grandchildlink, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+                          {%- comment %}</locksmith:163e>{% endcomment -%}
                           <li><a href="{{ grandgrandchildlink.url }}">{{ grandgrandchildlink.title | escape }}</a></li>
                           {% endfor %}
                         </ul>

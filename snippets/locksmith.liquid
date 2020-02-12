@@ -3,8 +3,8 @@
   fiddle with what's below, but your changes will be reset the next time that
   Locksmith interacts with your shop.
 
-  Last updated: Mon, 30 Dec 2019 05:04:04 +0000
-  Integration version: v6.13
+  Last updated: Sat, 08 Feb 2020 04:21:17 +0000
+  Integration version: v6.15
 {% endcomment -%}
 
 {%include 'locksmith-variables', locksmith_scope: nil%}{%if locksmith_access_denied_content == blank%}{%capture locksmith_access_denied_content%}{%if locksmith_manual_lock%}{{content_for_layout}}{%elsif locksmith_server_lock -%}<div id="locksmith-content">
@@ -55,27 +55,43 @@
         </div>
       </div>
       <script data-locksmith>
-        Locksmith.postResource(
-          {},
-          {
-            guaranteeCache: true,
-            container: 'locksmith-content',
-            spinner: false
-          }
-        );
+        var load = function () {
+          Locksmith.postResource(
+            {},
+            {
+              guaranteeCache: true,
+              container: 'locksmith-content',
+              spinner: false
+            }
+          );
+        };
+
+        if (typeof Locksmith !== 'undefined') {
+          load();
+        } else {
+          window.addEventListener('load', load);
+        }
       </script>{%endif%}{%endcapture%}{%endif%}{%include 'locksmith-content-variables'%}{%include 'locksmith-variables', locksmith_scope: nil%}{%if locksmith_access_denied%}{%capture content_for_header%}{{content_for_header|replace:'.oembed', ''|replace:'.atom', ''|replace:'link rel="alternate" type="application/json+oembed"', 'link'|replace:' title="Feed" rel="alternate" type="application/atom+xml"', ''}}{%endcapture%}{%endif%}{%capture content_for_header%}{{content_for_header}}{%if locksmith_access_denied and locksmith_manual_lock == false -%}<meta name="robots" content="noindex" />{%endif%}{{locksmith_json}}{{locksmith_client -}}
 
   <script data-locksmith>Locksmith.jsonTag={{locksmith_json|json}};Locksmith.jsonTagSignature={{locksmith_json_signature|json}}</script>{%endcapture%}{%if locksmith_access_granted%}{%if locksmith_redirect != blank%}{%assign content_for_layout=locksmith_redirect%}{%endif%}{%else%}{%assign content_for_layout=locksmith_access_denied_content%}{%endif%}{%capture _3 -%}<script data-locksmith>
-      Locksmith.ping();
+    var load = function () {
+        Locksmith.ping();
 
-    Locksmith.util.on('submit', 'locksmith-resource-form', function (event) {
-      event.preventDefault();
-      var data = Locksmith.util.serializeForm(event.target);
-      Locksmith.postResource(data, { spinner: false, container: 'locksmith-content' });
-    });
+      Locksmith.util.on('submit', 'locksmith-resource-form', function (event) {
+        event.preventDefault();
+        var data = Locksmith.util.serializeForm(event.target);
+        Locksmith.postResource(data, { spinner: false, container: 'locksmith-content' });
+      });
 
-    Locksmith.util.on('click', 'locksmith-manual-trigger', function (event) {
-      event.preventDefault();
-      Locksmith.postResource({}, { spinner: true, container: document });
-    });
+      Locksmith.util.on('click', 'locksmith-manual-trigger', function (event) {
+        event.preventDefault();
+        Locksmith.postResource({}, { spinner: true, container: document });
+      });
+    };
+
+    if (typeof Locksmith !== 'undefined') {
+      load();
+    } else {
+      window.addEventListener('load', load);
+    }
   </script>{%- endcapture%}{%if template == blank%}{%capture content_for_layout%}{{content_for_layout}}{{_3}}{%endcapture%}{%else%}{%assign content_for_layout=content_for_layout|append:_3%}{%endif%}{%if locksmith_access_denied and content_for_layout contains '<input type="hidden" name="form_type" value="customer_login" />'%}{%assign locksmith_original_template=template%}{%assign template='customers/login'%}{%endif%}

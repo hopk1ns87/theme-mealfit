@@ -1152,4 +1152,76 @@ div.bold-modal--is-showing .bold-modal--animated {
 }
 
 /* custom css */
+.bold-product__control.bold-product__button--primary{
+    background-color: #232323;
+    border-radius: 5px;
+}
 
+.bold-grid__column--half .bold-product .bold-product__image-container, .bold-grid__column--third .bold-product .bold-product__image-container {
+    max-height: auto;
+     max-width: auto;
+    width: 100%; 
+    height: 100%;
+    padding-bottom: 0;
+    position:static
+}
+.bold-grid__column--half .bold-product .bold-product__image, .bold-grid__column--third .bold-product .bold-product__image {
+    max-height: 100%;
+    max-width: 100%;
+    position: static;
+    top: 0%;
+    left: 0%;
+    -webkit-transform: translate(0%,0%);
+    -moz-transform: translate(0%,0%);
+    -ms-transform: translate(0%,0%);
+    -o-transform: translate(0%,0%);
+    transform: translate(0%,0%);
+}
+#bold-modal__window {
+    background-image: url(https://cdn.shopify.com/s/files/1/1940/1703/files/wood-bg-3.jpg?9868237621351743440);
+}
+.bold-upsell__intro-heading {
+    color: #fbd61c;
+    text-align: center;
+}
+.bold-upsell__intro p {
+    color: #fff;
+    text-align: center;
+    margin-bottom: 15px;
+    width: 100%;
+    margin: auto;
+    font-size: 18px;
+    font-weight: 100;
+    border-bottom: 3px groove #403e39;
+    padding: 30px;
+    margin-bottom: 15px;
+}
+.bold-product{background-color:#fff; border-radius:5px;}
+.bold-upsell__button--primary {
+background-color: #fbd61c;
+    padding: 10px 25px;
+    border: 0;
+    border-radius: 5px;
+}
+a.bold-upsell__button--primary {
+    color: #000 !important;
+text-transform:uppercase;
+font-weight:800;
+}
+
+.bold-modal__footer {
+padding:10px;
+    border-top: 3px groove #403e39;
+    background-color: rgba(0,0,0,.3);
+}
+
+.bold-product__button, .bold-product__button:link, .bold-product__button:visited, .bold_product__button:hover, .bold_product__button:active, .bold_product__button:focus {
+    text-decoration: none;
+    color: #fbd61c;
+    text-transform: uppercase;
+    font-weight: 800;
+}
+bold-product__button--primary{
+    background-color: #232323;
+    border-radius: 5px;
+}

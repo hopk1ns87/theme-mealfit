@@ -20,7 +20,10 @@
 
   <!-- Title and description ================================================== -->
   <title>{{ 'gift_cards.issued.title' | t: value: formatted_initial_value_stripped, shop: shop.name }}</title>
-  <meta name="description" content="{{ 'gift_cards.issued.subtext' | t }}">
+  {%- comment %}<locksmith:9987>{% endcomment -%}
+    {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta name="description" content="{{ 'gift_cards.issued.subtext' | t }}">{% endif -%}
+    {%- comment %}original: <meta name="description" content="{{ 'gift_cards.issued.subtext' | t }}">{%- endcomment %}
+  {%- comment %}</locksmith:9987>{% endcomment -%}
 
   <!-- Helpers ================================================== -->
   <link rel="canonical" href="{{ canonical_url }}">

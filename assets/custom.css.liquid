@@ -591,7 +591,7 @@ span.spr-badge {
     display: block;
 }
 .bold_option_checkboxmulti label{font-weight:300 !important;}
-
+.bold_option_displaytext{margin-top: 30px;}
 
 /* MODAL */
 .ui-dialog .ui-dialog-titlebar {
@@ -709,4 +709,67 @@ span.spr-badge {
   opacity: 0;
 }
 
+/*----------------
+Daily Menu
+-----------------*/
+.bold_option.bold_option_checkbox,
+.bold_option.bold_option_checkbox + .bold_option_checkboxmulti {
+  background-color: #eee;
+}
 
+.bold_option.bold_option_checkbox + .bold_option_checkboxmulti .bold_option_title {
+  margin: 0;
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+
+div.bold_option:not(:empty) {
+  margin-bottom: 0;
+  padding: 10px 20px;
+}
+
+.error {
+  color: red;
+  margin-left: 10px;
+}
+
+#storePickupApp .checkoutMethodsContainer {
+  justify-content: center;
+}
+
+#storePickupApp .checkoutMethodsContainer.default .checkoutMethod {
+	max-width: 150px;
+    margin: 30px;
+}
+.delivery_row {
+    display: table;
+    width: 100%;
+}
+#storePickupApp .checkoutMethodsContainer.default .checkoutMethod.active{
+  background: #2f2f2f !important;
+}
+
+.checkoutMethod.active .checkoutMethodImage svg{
+    fill: #fac502;
+}
+.checkoutMethod.active .checkoutMethodName {
+  color: #fac502;
+  font-weight: bold;
+}
+
+
+
+
+/* Daily Catering */
+#image-block .flex-control-thumbs {
+    margin: 5px 0 0;
+    position: static;
+    overflow: hidden;
+    text-align: center;
+}
+#image-block .flex-control-thumbs li {
+    width: 50px;
+}
+.bold_option_set {
+    padding: 40px 20px;
+}

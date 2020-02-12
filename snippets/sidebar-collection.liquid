@@ -55,6 +55,9 @@
         {% endcomment %}
 
         {% for link in linklists[linklist_title].links %}
+        {%- comment %}<locksmith:46ca>{% endcomment -%}
+          {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: link, subject_parent: linklists[linklist_title], variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+        {%- comment %}</locksmith:46ca>{% endcomment -%}
         {% for tag in collection.all_tags %}
 {%- if tag contains '_HIDDEN_PRODUCT' -%}{%- continue -%}{%- endif -%}
         {% assign title = cat_item | append: "_" | append: link.title %}
@@ -180,9 +183,15 @@
   <div class="side_box side_box_1 red5 collection_custom_menu">
     <h5><a href="#" class="tgl_btn">{{ linklists[section.settings.collection_link_list].title }}</a></h5>
     <ul class="tgl_c">
+    {%- comment %}<locksmith:bec3>{% endcomment -%}
+      {%- assign locksmith_40be_forloop__size = 0 %}{% for link in firstLevelMenu.links %}{% capture var %}{% render 'locksmith-variables', scope: 'subject', subject: link, variable: 'transparent' %}{% endcapture %}{% if var == 'true' %}{% assign locksmith_40be_forloop__size = locksmith_40be_forloop__size | plus: 1 %}{% endif %}{% endfor %}{% assign locksmith_40be_forloop__index = nil -%}
+    {%- comment %}</locksmith:bec3>{% endcomment -%}
     {% for link in firstLevelMenu.links %}
-            {%- assign child_id = forloop.index -%}
-            {% assign even_index = forloop.index | modulo: 2 %}
+            {%- comment %}<locksmith:b9b4>{% endcomment -%}
+              {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: link, subject_parent: firstLevelMenu, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% if locksmith_40be_forloop__index == nil %}{% assign locksmith_40be_forloop__index = 1 %}{% assign locksmith_40be_forloop__index0 = 0 %}{% else %}{% assign locksmith_40be_forloop__index = locksmith_40be_forloop__index | plus: 1 %}{% assign locksmith_40be_forloop__index0 = locksmith_40be_forloop__index0 | plus: 1 %}{% endif %}{% if locksmith_40be_forloop__index == 1 %}{% assign locksmith_40be_forloop__first = true %}{% else %}{% assign locksmith_40be_forloop__first = false %}{% endif %}{% if locksmith_40be_forloop__index == locksmith_40be_forloop__size %}{% assign locksmith_40be_forloop__last = true %}{% else %}{% assign locksmith_40be_forloop__last = false %}{% endif %}{% assign locksmith_40be_forloop__rindex = locksmith_40be_forloop__size | minus: locksmith_40be_forloop__index | minus: 1 %}{% assign locksmith_40be_forloop__rindex0 = locksmith_40be_forloop__size | minus: locksmith_40be_forloop__index0 | minus: 1 %}{% else %}{% continue %}{% endif -%}
+            {%- comment %}</locksmith:b9b4>{% endcomment -%}
+            {%- assign child_id = locksmith_40be_forloop__index -%}
+            {% assign even_index = locksmith_40be_forloop__index | modulo: 2 %}
             {% if link.links.size > 0 %}
             <div class="panel-heading {% if even_index == 0 %} even_bg {% endif %}" role="tab">
               <a href="#{{link.title | escape | handle }}_{{child_id}}_collection_{{sidebar_index}}" data-link-url="{{link.url}}" role="button" data-toggle="collapse" data-parent="#accordion_collection_{{sidebar_index}}" data-toggle="collapse" class="second_level_drop_link collapsed" aria-haspopup="true" aria-expanded="false">
@@ -191,12 +200,18 @@
             <div class="panel-collapse collapse {% if even_index == 0 %} even_bg {% endif %}" role="tabpanel" id="{{link.title | escape | handle}}_{{child_id}}_collection_{{sidebar_index}}">
               <ul class="panel-group-nav-list second-level-nav-list">
                 {% for child_link in link.links %}
+                {%- comment %}<locksmith:bd59>{% endcomment -%}
+                  {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: child_link, subject_parent: link, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+                {%- comment %}</locksmith:bd59>{% endcomment -%}
                 {% if child_link.links.size > 0 %}
                 <li><a href="#{{child_link.handle | escape  | handle}}_{{child_id}}_collection_{{sidebar_index}}" data-link-url="{{child_link.url}}" class="dropdown-menu-links third_level_drop_link collapsed" data-toggle="collapse" aria-haspopup="true" data-parent="#{{link.handle | escape | handle}}_{{child_id}}_collection_{{sidebar_index}}">
                   <span class="visuallyhidden">Hit enter to expand submenu</span>{{child_link.title | escape }} <i class="fa fa-angle-down"></i></a></li>
                 <div class="panel-collapse collapse" role="tabpanel" id="{{child_link.handle | escape | handle}}_{{child_id}}_collection_{{sidebar_index}}"  aria-expanded="false">
                   <ul class="panel-group-nav-list third-level-nav-list">
                     {% for grand_child_link in child_link.links %}
+                    {%- comment %}<locksmith:0b12>{% endcomment -%}
+                      {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: grand_child_link, subject_parent: child_link, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+                    {%- comment %}</locksmith:0b12>{% endcomment -%}
                     <li><a href="{{grand_child_link.url}}" data-parent="#{{child_link.handle | escape | handle}}_collection_{{sidebar_index}}">{{grand_child_link.title | escape }}</a></li>  
                     {% endfor %}
                   </ul>

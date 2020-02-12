@@ -17,6 +17,9 @@
               {% if linklist != '' %}
               <ul>
                 {% for link in linklist.links %}
+                {%- comment %}<locksmith:a561>{% endcomment -%}
+                  {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: link, subject_parent: linklist, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+                {%- comment %}</locksmith:a561>{% endcomment -%}
                 <li><a href="{{ link.url }}">{{ link.title }}</a></li>
                 {% endfor %}
               </ul>

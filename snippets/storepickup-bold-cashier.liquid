@@ -1,0 +1,28 @@
+<script type="text/javascript">
+window.ZapietCashier = {};
+
+ZapietCashier.CartIntegration = function() {
+  this.init();
+}
+ZapietCashier.CartIntegration.prototype.init = function() {
+  this.addListeners();
+}
+ZapietCashier.CartIntegration.prototype.addListeners = function() {
+  window.ZapietEvent.listen('disableCheckout', function(response) {
+    BOLD.checkout.disable()
+  });
+  
+  window.ZapietEvent.listen('activateCheckout', function(response) {
+    BOLD.checkout.enable()
+  });
+}
+
+if(typeof window.Zapiet !== 'undefined' && 
+   typeof window.ZapietEvent !== 'undefined' && 
+   typeof BOLD !== 'undefined' && 
+   typeof BOLD.checkout !== 'undefined' && 
+   typeof BOLD.checkout.disable !== 'undefined' && 
+   typeof BOLD.checkout.enable !== 'undefined') {
+  ZapietCashier.cart = new ZapietCashier.CartIntegration();
+}
+</script>

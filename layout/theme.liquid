@@ -1,3 +1,7 @@
+{%- comment %}<locksmith:d772>{% endcomment -%}
+  {%- include 'locksmith' -%}
+{%- comment %}</locksmith:d772>{% endcomment -%}
+
 <!doctype html>
 <html lang="en" class="noIE">
   <head>
@@ -12,7 +16,10 @@
     </title>
 
     {% if page_description %}
-    <meta name="description" content="{{ page_description | escape }}">
+    {%- comment %}<locksmith:63a5>{% endcomment -%}
+      {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta name="description" content="{{ page_description | escape }}">{% endif -%}
+      {%- comment %}original: <meta name="description" content="{{ page_description | escape }}">{%- endcomment %}
+    {%- comment %}</locksmith:63a5>{% endcomment -%}
     {% endif %}
 
     <!-- Helpers ================================================== -->
@@ -75,6 +82,9 @@
     </script>
     {% include "no_script_styles" %}
     {% include 'minmaxify-head' %}
+<!-- Zapiet | Store Pickup + Delivery -->
+{% include 'storepickup' %}
+<!-- Zapiet | Store Pickup + Delivery -->
 </head>
 
   <body id="{{ page_title | handle }}" class="{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}" >
@@ -113,5 +123,8 @@
   <!-- Begin ReCharge code -->
 {% include 'subscription-theme-footer' %}
 <!-- End ReCharge code -->
+    
+    {{ 'custom.js' | asset_url | script_tag }}
+    {% include 'storepickup-bold-cashier' %}
 </body>
 </html>
